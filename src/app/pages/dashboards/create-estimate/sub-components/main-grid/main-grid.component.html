@@ -1,0 +1,238 @@
+<div class="d-flex flex-wrap align-items-center py-2">
+  <div class="col-lg-2 col-md-3 col-12 col-sm-3 flex-grow-1 col ">
+        <div class="topnav">
+            <div class="border p-2 m-1 max-height-1">
+                <div class="h6 mx-2 py-2">Product category</div>
+                <div class="d-flex align-items-center bg-primary">
+                    <div class="h6 mt-2 ps-2 py-2 w-100">All</div>
+                    <div class="ms-auto pe-2">
+                        <i
+              class="mdi mdi-menu baricons hand"
+              style="height: 22"
+              (click)="toggleMenu()"
+            ></i>
+                    </div>
+                </div>
+                <div *ngIf="showMenu" class="height" style="font-size: 14px;" id="myLinks">
+                    <div *ngFor="let value of ProductData" class="p-2 m-2 border-bottom hover">
+                        <span>{{value.ProductName}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  <div class="col-lg-10 col-md-9 col-12 col-sm-9 flex-grow-1 col">
+    <div class="border p-2 m-1 max-height-2">
+      <div class="d-flex flex-wrap align-items-center my-1">
+        <div class="h6 col-lg-2 col-md-3 col-12 col-sm-3 flex-grow-1 all-bgClr">
+          All
+        </div>
+        <div
+          class="ms-auto col-lg-2 col-md-3 col-12 col-sm-3 flex-grow-1 oder-first"
+        >
+          <div class="input-group margin-bottom">
+            <div class="input-group-prepend border-right-0">
+              <span
+                class="input-group-text"
+                style="
+                  border-top-right-radius: 0px;
+                  border-bottom-right-radius: 0px;
+                  background-color: black;
+                "
+                id="basic-addon1"
+              >
+                <div>
+                  <i
+                    class="mdi mdi-magnify search-icon hand"
+                    style="height: 22"
+                  ></i>
+                </div>
+              </span>
+            </div>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Search"
+              aria-label="search"
+              (input)="onSearch($event)"
+              aria-describedby="basic-addon1"
+            />
+          </div>
+        </div>
+      </div>
+      <form [formGroup]="OrderFormForm">
+        <div class="height2">
+          <table class="table">
+            <thead>
+              <tr>
+                <th class="caption-bold-1 sticky-th">Name</th>
+                <th class="caption-bold-1 sticky-th">Qty/Hand</th>
+                <th class="caption-bold-1 sticky-th text-center">Qty</th>
+                <th class="caption-bold-1 sticky-th">Free</th>
+                <th class="caption-bold-1 sticky-th">Rate</th>
+                <th class="caption-bold-1 sticky-th hideColumn">1</th>
+                <th class="caption-bold-1 sticky-th hideColumn">2</th>
+                <th class="caption-bold-1 sticky-th hideColumn">3</th>
+                <th class="caption-bold-1 sticky-th hideColumn">4</th>
+                <th class="caption-bold-1 sticky-th hideColumn">5</th>
+                <th class="caption-bold-1 sticky-th hideColumn">6</th>
+                <th class="caption-bold-1 sticky-th hideColumn">7</th>
+                <th class="caption-bold-1 sticky-th hideColumn">8</th>
+                <th class="caption-bold-1 sticky-th hideColumn">9</th>
+              </tr>
+            </thead>
+            <tbody formArrayName="items">
+              <tr
+                *ngFor="let dataItem of items.controls; let rowIndex = index"
+                class="margin-bottom1"
+                style="font-size: 14px"
+                [formGroupName]="rowIndex"
+              >
+                <td class="align-middle border-0">
+                  <span for="">{{ dataItem?.get("name")?.value }}</span>
+                  <span *ngIf="rowIndex % 2 == 0" class="hideShowNineMonthData">
+                    <i
+                      class="mdi mdi-information-outline hand info-icon"
+                      style="height: 22; color: green"
+                      (mouseenter)="showPopover($event, rowIndex)"
+                      (mouseleave)="hidePopover(rowIndex)"
+                    ></i>
+
+                    <app-popover
+                      *ngIf="dataItem.get('isPopoverVisible')?.value"
+                      [poperOverData]="poperOverData"
+                    ></app-popover>
+                  </span>
+                  <span
+                    *ngIf="rowIndex % 2 != 0"
+                    title="Last nine week order history"
+                    class="hideShowNineMonthData"
+                  >
+                    <i
+                      class="mdi mdi-information-outline hand info-icon"
+                      style="height: 22; color: green"
+                      (mouseenter)="showPopover($event, rowIndex)"
+                      (mouseleave)="hidePopover(rowIndex)"
+                    ></i>
+
+                    <app-popover
+                      *ngIf="dataItem.get('isPopoverVisible')?.value"
+                      [poperOverData]="poperOverData"
+                    ></app-popover>
+                  </span>
+                </td>
+                <td class="align-middle">
+                  <label for="">{{ dataItem?.get("qtyOnHand")?.value }}</label>
+                </td>
+                <td class="align-middle border-0 width-33">
+                  <span
+                    class="d-md-none d-sm-none hand label-header"
+                    style="font-size: 10px; display: flex"
+                    title="{{ dataItem?.get('qtyOnHand')?.value }}"
+                    >Qty
+                    <i
+                      class="mdi mdi-information-outline hand info-icon"
+                      style="height: 22; color: green"
+                      (mouseenter)="showPopover($event, rowIndex)"
+                      (mouseleave)="hidePopover(rowIndex)"
+                    ></i>
+                  </span>
+                  <div class="d-flex align-items-center">
+                    <div class="minus-svg-icon1">
+                      <i
+                        class="mdi mdi-minus-circle-outline hand minus-svg-icon"
+                        style="height: 22; color: red"
+                        (click)="onSub(rowIndex)"
+                        [class.disabled]="dataItem.get('qty')?.value <= 0"
+                      ></i>
+                    </div>
+                    <div>
+                      <input
+                        type="text"
+                        class="form-control min-width-60"
+                        formControlName="qty"
+                        (keypress)="numberOnly($event)"
+                        (input)="onQuantityChange(rowIndex)"
+                      />
+                    </div>
+                    <div>
+                      <i
+                        class="mdi mdi-plus-circle-outline hand plus-svg-icon"
+                        style="height: 18; color: green"
+                        (click)="onAdd(rowIndex)"
+                      ></i>
+
+                      <br />
+                      <i
+                        class="mdi mdi-minus-circle-outline hand minus-svg-icon d-sm-none d-md-done d-lg-none"
+                        style="height: 18; color: red"
+                        (click)="onSub(rowIndex)"
+                        [class.disabled]="dataItem.get('qty')?.value <= 0"
+                      ></i>
+                    </div>
+                  </div>
+                </td>
+
+                <td class="align-middle border-0 width-33">
+                  <span
+                    class="d-md-none d-sm-none label-header"
+                    style="font-size: 10px; display: flex"
+                    >Free</span
+                  >
+                  <div class="d-flex align-items-center">
+                    <input
+                      type="text"
+                      class="form-control min-width-60 free-fromcotrol"
+                      (keypress)="numberOnly($event)"
+                      formControlName="free"
+                    />
+                  </div>
+                </td>
+
+                <td class="align-middle border-0 width-33">
+                  <span
+                    class="d-md-none d-sm-none label-header"
+                    style="font-size: 10px; display: flex"
+                    >Rate
+                  </span>
+                  <input
+                    type="text"
+                    class="form-control min-width-60"
+                    formControlName="rate"
+                  />
+                </td>
+                <td class="align-middle orderSm-td-1 hideColumn">
+                  <span for="">{{ dataItem?.get("one")?.value }}</span>
+                </td>
+                <td class="align-middle orderSm-td-2 hideColumn">
+                  <span for="">{{ dataItem?.get("two")?.value }}</span>
+                </td>
+                <td class="align-middle orderSm-td-3 hideColumn">
+                  <span for="">{{ dataItem?.get("three")?.value }}</span>
+                </td>
+                <td class="align-middle orderSm-td-3 hideColumn">
+                  <span for="">{{ dataItem?.get("four")?.value }}</span>
+                </td>
+                <td class="align-middle orderSm-td-3 hideColumn">
+                  <span for="">{{ dataItem?.get("five")?.value }}</span>
+                </td>
+                <td class="align-middle orderSm-td-3 hideColumn">
+                  <span for="">{{ dataItem?.get("six")?.value }}</span>
+                </td>
+                <td class="align-middle orderSm-td-3 hideColumn">
+                  <span for="">{{ dataItem?.get("seven")?.value }}</span>
+                </td>
+                <td class="align-middle orderSm-td-3 hideColumn">
+                  <span for="">{{ dataItem?.get("eight")?.value }}</span>
+                </td>
+                <td class="align-middle orderSm-td-3 hideColumn">
+                  <span for="">{{ dataItem?.get("nine")?.value }}</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
