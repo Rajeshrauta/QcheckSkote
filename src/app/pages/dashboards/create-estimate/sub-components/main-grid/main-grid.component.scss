@@ -102,12 +102,12 @@
     cursor: pointer;
 }
 
-.topnav {
+.topnav-nav {
     overflow: hidden;
     position: relative;
 }
 
-.topnav .baricons {
+.topnav-nav .baricons {
     display: none;
 }
 
@@ -246,7 +246,7 @@
         height: 16px;
     }
 
-    .topnav .baricons {
+    .topnav-nav .baricons {
         display: block;
     }
 
