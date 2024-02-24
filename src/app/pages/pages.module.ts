@@ -23,6 +23,7 @@ import { PagesRoutingModule } from './pages-routing.module';
 
 import { DashboardsModule } from './dashboards/dashboards.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { DatePipe } from "@angular/common";
 
 @NgModule({
   declarations: [],
@@ -44,7 +45,10 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
     CollapseModule.forRoot(),
     SimplebarAngularModule,
     LightboxModule,
-    PickerModule
+    PickerModule,
+  ],
+  providers: [
+    DatePipe,
   ],
 })
-export class PagesModule { }
+export class PagesModule {}

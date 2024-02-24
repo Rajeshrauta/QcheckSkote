@@ -1,23 +1,35 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { DefaultComponent } from './default/default.component';
 import { CreateEstimateComponent } from './create-estimate/create-estimate.component';
+import { DispatchRouteComponent } from './dispatch-route/dispatch-route.component';
+import { OrderReceivedComponent } from './order-received/order-received.component';
+import { PendingOrdersComponent } from './pending-orders/pending-orders.component';
+import { DispatchedRouteComponent } from './dispatched-route/dispatched-route.component';
 CreateEstimateComponent
 
 const routes: Routes = [
   {
     path: "",
-    redirectTo: "tab-view",
+    redirectTo: "dispatch-route",
     pathMatch: "full",
   },
+
   {
-    path: "default",
-    component: DefaultComponent,
+    path: "order-received",
+    component: OrderReceivedComponent,
   },
   {
-    path: "tab-view",
-    component: CreateEstimateComponent,
+    path: "pending-orders",
+    component: PendingOrdersComponent,
+  },
+  {
+    path: "dispatch-route",
+    component: DispatchRouteComponent,
+  },
+  {
+    path: "dispatched-route",
+    component: DispatchedRouteComponent,
   },
 ];
 

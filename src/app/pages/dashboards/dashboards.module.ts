@@ -16,21 +16,27 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 
 import { SimplebarAngularModule } from 'simplebar-angular';
 
-import { DefaultComponent } from './default/default.component';
 import { CreateEstimateComponent } from './create-estimate/create-estimate.component';
 import { FreeItemComponent } from './create-estimate/sub-components/free-item/free-item.component';
 import { PopoverComponent } from './create-estimate/sub-components/popover/popover.component';
 import { HeadSectionComponent } from './create-estimate/sub-components/head-section/head-section.component';
 import { MainGridComponent } from './create-estimate/sub-components/main-grid/main-grid.component';
-
+import { DispatchRouteComponent } from './dispatch-route/dispatch-route.component';
+import { DispatchedRouteComponent } from './dispatched-route/dispatched-route.component';
+import { PendingOrdersComponent } from './pending-orders/pending-orders.component';
+import { OrderReceivedComponent } from './order-received/order-received.component';
+import { PaginationModule } from "ngx-bootstrap/pagination";
 @NgModule({
   declarations: [
-    DefaultComponent,
     CreateEstimateComponent,
     FreeItemComponent,
     PopoverComponent,
     HeadSectionComponent,
     MainGridComponent,
+    DispatchRouteComponent,
+    DispatchedRouteComponent,
+    PendingOrdersComponent,
+    OrderReceivedComponent,
   ],
   imports: [
     CommonModule,
@@ -46,6 +52,7 @@ import { MainGridComponent } from './create-estimate/sub-components/main-grid/ma
     NgApexchartsModule,
     SimplebarAngularModule,
     ModalModule.forRoot(),
+    PaginationModule,
   ],
   providers: [BsDropdownConfig],
 })
