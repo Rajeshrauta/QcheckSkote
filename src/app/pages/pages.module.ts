@@ -24,6 +24,8 @@ import { PagesRoutingModule } from './pages-routing.module';
 import { DashboardsModule } from './dashboards/dashboards.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { DatePipe } from "@angular/common";
+import { EstimateModule } from './estimate/estimate.module';
+
 
 @NgModule({
   declarations: [],
@@ -35,7 +37,6 @@ import { DatePipe } from "@angular/common";
     PagesRoutingModule,
     NgApexchartsModule,
     ReactiveFormsModule,
-    DashboardsModule,
     HttpClientModule,
     UIModule,
     WidgetModule,
@@ -46,9 +47,10 @@ import { DatePipe } from "@angular/common";
     SimplebarAngularModule,
     LightboxModule,
     PickerModule,
+
+    DashboardsModule,
+    EstimateModule,
   ],
-  providers: [
-    DatePipe,
-  ],
+  providers: [DatePipe],
 })
 export class PagesModule {}
