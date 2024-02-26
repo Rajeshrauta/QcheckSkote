@@ -186,7 +186,7 @@
         </div>
       </div>
 
-      <div class="dropdown d-inline-block" dropdown>
+      <!-- <div class="dropdown d-inline-block" dropdown>
         <button type="button" class="btn header-item" id="page-header-user-dropdown" dropdownToggle>
           <img *ngIf="flagvalue !== undefined" src="{{flagvalue}}" alt="Header Language" height="16"> <span
             class="ms-1">{{countryName}}</span>
@@ -194,14 +194,24 @@
           <span *ngIf="flagvalue === undefined" class="ms-1">English</span>
         </button>
         <div class="dropdown-menu dropdown-menu-end" *dropdownMenu>
-          <!-- item-->
           <a href="javascript:void(0);" class="dropdown-item notify-item" *ngFor="let item of listLang"
             (click)="setLanguage(item.text, item.lang, item.flag)" [ngClass]="{'active': cookieValue === item.lang}">
             <img src="{{item.flag}}" alt="user-image" class="ms-1" height="12"> <span
               class="align-middle">{{item.text}}</span>
           </a>
-          <!-- item-->
         </div>  
+      </div> -->
+
+      <div class="dropdown d-inline-block" dropdown>
+        <button type="button" class="btn header-item" id="page-header-user-dropdown" dropdownToggle>
+          <span class="fa fa-plus d-lg-none"></span><span class="d-none d-lg-inline">Create Estimate</span>
+        </button>
+        <div class="dropdown-menu dropdown-menu-end" *dropdownMenu>
+          <a class="dropdown-item notify-item" routerLink="estimate/order-recieved">Order Received</a>
+          <a class="dropdown-item notify-item" routerLink="estimate/create-estimate">Tab View</a>
+          <a class="dropdown-item notify-item" routerLink="estimate/create-manual-estimate">Manual View</a>
+          <a class="dropdown-item notify-item" routerLink="return-pickup">Return Pickup</a>
+        </div>
       </div>
 
       <div class="dropdown d-none d-lg-inline-block me-1" dropdown>
