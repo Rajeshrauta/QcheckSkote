@@ -1,0 +1,230 @@
+<div class="container-fluid">
+  <app-page-title
+    title="User Setup"
+    [breadcrumbItems]="breadCrumbItems"
+  ></app-page-title>
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="row mb-2">
+            <div class="col-sm-4">
+              <div class="search-box me-2 mb-2 d-inline-block">
+                <div class="position-relative">
+                  <input
+                    type="text"
+                    class="form-control"
+                    autocomplete="off"
+                    id="searchTableList"
+                    placeholder="Search..."
+                  />
+                  <i class="bx bx-search-alt search-icon"></i>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-8">
+              <div class="text-sm-end">
+                <button type="button" class="btn btn-success btn-rounded mb-2 me-2" (click)="showModal.show()">
+                  <i class="mdi mdi-plus mr-1"></i> Create User</button>
+                </div>
+            </div>
+          </div>
+
+            <div class="table-responsive mb-0">
+            <table class="table align-middle table-nowrap dt-responsive nowrap w-100 table-check" id="order-list">
+              <thead class="table-light">
+                <tr>
+                  <th class="align-middle">Name</th>
+                  <th class="align-middle">Email</th>
+                  <th class="align-middle">Phone</th>
+                  <th class="align-middle">Role</th>
+                  <th class="align-middle">Enabled</th>
+                  <th class="align-middle">Email-Verified</th>
+                  <th class="align-middle">Phone-Verified</th>
+                  <th class="align-middle">Two-Factor-enabled</th>
+                  <th class="align-middle">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let data of usersData; let i = index;" id="o_{{data.id}}">
+                  <td>{{data.name}}</td>
+                  <td>{{data.email}}</td>
+                  <td>{{data.phone}}</td>
+                  <td>{{data.type}}</td>
+                  <td>
+                    <div class="form-check form-switch">
+                      <input type="checkbox" class="form-check-input" [checked]="data.enabled" disabled>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="form-check form-switch">
+                      <input type="checkbox" class="form-check-input" [checked]="data.phoneverified" disabled>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="form-check form-switch">
+                      <input type="checkbox" class="form-check-input" [checked]="data.emailverified" disabled>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="form-check form-switch">
+                      <input type="checkbox" class="form-check-input" [checked]="data.twofactorenabled" disabled>
+                    </div>
+                  </td>
+                  <!-- <td>
+                    <span class="badge badge-pill badge-soft-success font-size-11" [ngClass]=" { 'badge-soft-danger': data.status === 'Chargeback',
+                                  'badge-soft-warning':data.status === 'Refund' }">{{data.status}}</span>
+                  </td>
+                  <td>
+                    <i :class="{{data.payment_icon}} me-1"></i>
+                    {{data.payment}}
+                  </td>
+                  <td> -->
+                    <!-- Button trigger modal -->
+                    <!-- <button type="button" class="btn btn-primary btn-sm btn-rounded" (click)="openViewModal(ViewContent)">View
+                      Details</button>
+                  </td>
+                  <td>
+                    <div class="font-size-16">
+                      <input class="form-control" type="text" >
+                    </div>
+                  </td> -->
+                  <td>
+                    <div class="d-flex gap-3">
+                      <a href="javascript:void(0);" class="text-success" (click)="editModal(i)"><i class="mdi mdi-pencil font-size-18"></i></a>
+                      <a href="javascript:void(0);" class="text-danger" (click)="confirm()"><i class="mdi mdi-delete font-size-18"></i></a>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- end table -->
+          <!-- <ul class="pagination pagination-rounded justify-content-end mb-2">
+            <pagination [totalItems]="(total | async)!" [(ngModel)]="service.page" [itemsPerPage]="service.pageSize"></pagination>
+          </ul> -->
+        </div>
+        </div>
+      </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+<!-- create user modal -->
+
+<div  bsModal  #showModal="bs-modal"  class="modal fade"  id="showModal"  tabindex="-1"  aria-labelledby="exampleModalLabel"  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Create User</h5>
+        <button type="button" class="btn-close" id="close-modal" (click)="showModal.hide()"></button>
+      </div>
+      <div class="modal-body">
+        <form class="needs-validation createorder-form" id="createorder-form"  novalidate>
+          <div class="row">
+            <div class="col-lg-12">
+              <input type="hidden" class="form-control" id="orderid-input" />
+              <div class="form-floating mb-3">
+                <input
+                  type="text" class="form-control" id="floatingInput" placeholder="name@example.com"/>
+                <label for="floatingInput">Full Name</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input
+                  type="email"
+                  class="form-control"
+                  id="floatingInput"
+                  placeholder="name@example.com"
+                />
+                <label for="floatingInput">Email address</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input
+                  type="password"
+                  class="form-control"
+                  id="floatingPassword"
+                  placeholder="Password"
+                />
+                <label for="floatingPassword">Password</label>
+              </div>
+            </div>
+            <div class="col-lg-8">
+              <div class="form-floating mb-3">
+                <select
+                  class="form-control"
+                  name="payment-method"
+                  id="paymethod-input"
+                  formControlName="payment"
+                  [ngClass]="{'is-invalid': submitted && form['payment'].errors}">
+                  <option value="Mastercard">Select Type</option>
+                  <option value="Customer">Customer</option>
+                  <option value="Sales User">Sales User</option>
+                  <option value="Office User">Office User</option>
+                  <option value="Accounting User">Accounting User</option>
+                  <option value="Warehouse User">Warehouse User</option>
+                </select>
+                <label for="paymethod-input" class="form-label">User Type</label>
+                </div>
+              </div>
+            
+            <div class="col-lg-12">
+              <div class="text-end">
+                <button
+                  type="button"
+                  class="btn btn-outline-secondary me-1"
+                  (click)="showModal.hide()"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  id="addNewOrder-btn"
+                  class="btn btn-success"
+                >
+                  Create
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <!-- end modal body -->
+    </div>
+  </div>
+</div>
+<!-- end of create user modal -->
+
+
+
+<!-- Delete user modal -->
+
+<!-- Modal -->
+<div bsModal #removeItemModal="bs-modal" class="modal fade" id="removeItemModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-md">
+    <div class="modal-content">
+      <div class="modal-body px-4 py-5 text-center">
+        <button type="button" class="btn-close position-absolute end-0 top-0 m-3" (click)="removeItemModal.hide()"></button>
+        <div class="avatar-sm mb-4 mx-auto">
+          <div class="avatar-title bg-primary text-primary bg-opacity-10 font-size-20 rounded-3">
+            <i class="mdi mdi-trash-can-outline"></i>
+          </div>
+        </div>
+        <p class="text-muted font-size-16 mb-4">Are you Sure You want to Remove this User ?</p>
+
+        <div class="hstack gap-2 justify-content-center mb-0">
+          <button type="button" class="btn btn-danger" id="remove-item" >Remove Now</button>
+          <button type="button" class="btn btn-secondary" id="close-removeOrderModal" (click)="removeItemModal.hide()">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end removeItemModal -->

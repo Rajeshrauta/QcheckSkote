@@ -37,37 +37,16 @@ export const MENU: MenuItem[] = [
       },
     ],
   },
-  //   {
-  //     id: 8,
-  //     isLayout: true,
-  //   },
-  //   {
-  //     id: 9,
-  //     label: "MENUITEMS.APPS.TEXT",
-  //     isTitle: true,
-  //   },
   {
     id: 7,
     label: "Customer",
     icon: "bx-user",
-    link: "/",
+    link: "/customer",
   },
-  //   {
-  //     id: 11,
-  //     label: "MENUITEMS.CHAT.TEXT",
-  //     icon: "bx-chat",
-  //     link: "/",
-  //   },
-  //   {
-  //     id: 12,
-  //     label: "MENUITEMS.FILEMANAGER.TEXT",
-  //     icon: "bx-file",
-  //     link: "/",
-  //   },
   {
     id: 8,
     label: "Reports",
-    icon: "bx-store",
+    icon: "bx-file",
     subItems: [
       {
         id: 9,
@@ -98,7 +77,7 @@ export const MENU: MenuItem[] = [
   {
     id: 13,
     label: "Product and Service",
-    icon: "bx-user",
+    icon: "bx-box",
     link: "/",
   },
   {
@@ -159,7 +138,7 @@ export const MENU: MenuItem[] = [
   {
     id: 23,
     label: "Accounting",
-    icon: "bx-cog",
+    icon: "bx-calculator",
     subItems: [
       {
         id: 24,
@@ -178,13 +157,13 @@ export const MENU: MenuItem[] = [
   {
     id: 26,
     label: "Vendors",
-    icon: "bx-user",
+    icon: "mdi mdi-account-check",
     link: "/",
   },
   {
     id: 27,
     label: "Communication",
-    icon: "bx-cog",
+    icon: "bx-chat",
     subItems: [
       {
         id: 28,
@@ -200,43 +179,51 @@ export const MENU: MenuItem[] = [
       },
     ],
   },
+  // {
+  //   id: 30,
+  //   label: "User Setup",
+  //   icon: "mdi mdi-account-key",
+  //   subItems: [
+  //     {
+  //       id: 31,
+  //       label: "Customer",
+  //       link: "/",
+  //       parentId: 30,
+  //     },
+  //     {
+  //       id: 32,
+  //       label: "Sales User",
+  //       link: "/",
+  //       parentId: 30,
+  //     },
+  //     {
+  //       id: 33,
+  //       label: "Office User",
+  //       link: "/",
+  //       parentId: 30,
+  //     },
+  //     {
+  //       id: 34,
+  //       label: "Accounting User",
+  //       link: "/",
+  //       parentId: 30,
+  //     },
+  //     {
+  //       id: 35,
+  //       label: "Warehouse User",
+  //       link: "/",
+  //       parentId: 30,
+  //     },
+  //   ],
+  // },
+
   {
-    id: 30,
+    id: 26,
     label: "User Setup",
-    icon: "bx-cog",
-    subItems: [
-      {
-        id: 31,
-        label: "Customer",
-        link: "/",
-        parentId: 30,
-      },
-      {
-        id: 32,
-        label: "Sales User",
-        link: "/",
-        parentId: 30,
-      },
-      {
-        id: 33,
-        label: "Office User",
-        link: "/",
-        parentId: 30,
-      },
-      {
-        id: 34,
-        label: "Accounting User",
-        link: "/",
-        parentId: 30,
-      },
-      {
-        id: 35,
-        label: "Warehouse User",
-        link: "/",
-        parentId: 30,
-      }
-    ],
+    icon: "mdi mdi-account-key",
+    link: "/user-setup",
   },
+
   //   {
   //     id: 26,
   //     label: "Communication",

@@ -13,6 +13,21 @@ const routes: Routes = [
     loadChildren: () =>
       import("./estimate/estimate.module").then((m) => m.EstimateModule),
   },
+  {
+    path: "customer",
+    loadChildren: () =>
+      import("./customer/customer.module").then((m) => m.CustomerModule),
+  },
+  {
+    path: "setting",
+    loadChildren: () =>
+      import("./setting/setting.module").then((m) => m.SettingModule),
+  },
+  {
+    path: "user-setup",
+    loadChildren: () =>
+      import("./user-setup/user-setup.module").then((m) => m.UserSetupModule),
+  },
 ];
 
 @NgModule({

@@ -40,7 +40,7 @@ export const MENU: MenuItem[] = [
       {
         id: 7,
         label: "Customers",
-        link: "/",
+        link: "/customer",
         parentId: 6,
       },
       {
@@ -54,7 +54,7 @@ export const MENU: MenuItem[] = [
   {
     id: 8,
     label: "Reports",
-    icon: "bx-store",
+    icon: "bx bx-file",
     subItems: [
       {
         id: 9,
@@ -146,7 +146,7 @@ export const MENU: MenuItem[] = [
   {
     id: 23,
     label: "Accounting",
-    icon: "bx-cog",
+    icon: "bx-calculator",
     subItems: [
       {
         id: 24,
@@ -165,7 +165,7 @@ export const MENU: MenuItem[] = [
   {
     id: 27,
     label: "Communication",
-    icon: "bx-cog",
+    icon: "bx-chat",
     subItems: [
       {
         id: 28,
@@ -181,43 +181,51 @@ export const MENU: MenuItem[] = [
       },
     ],
   },
+  // {
+  //   id: 30,
+  //   label: "User Setup",
+  //   icon: "mdi mdi-account-key",
+  //   subItems: [
+  //     {
+  //       id: 31,
+  //       label: "Customer",
+  //       link: "/",
+  //       parentId: 30,
+  //     },
+  //     {
+  //       id: 32,
+  //       label: "Sales User",
+  //       link: "/",
+  //       parentId: 30,
+  //     },
+  //     {
+  //       id: 33,
+  //       label: "Office User",
+  //       link: "/",
+  //       parentId: 30,
+  //     },
+  //     {
+  //       id: 34,
+  //       label: "Accounting User",
+  //       link: "/",
+  //       parentId: 30,
+  //     },
+  //     {
+  //       id: 35,
+  //       label: "Warehouse User",
+  //       link: "/",
+  //       parentId: 30,
+  //     },
+  //   ],
+  // },
+
   {
-    id: 30,
+    id: 26,
     label: "User Setup",
-    icon: "bx-cog",
-    subItems: [
-      {
-        id: 31,
-        label: "Customer",
-        link: "/",
-        parentId: 30,
-      },
-      {
-        id: 32,
-        label: "Sales User",
-        link: "/",
-        parentId: 30,
-      },
-      {
-        id: 33,
-        label: "Office User",
-        link: "/",
-        parentId: 30,
-      },
-      {
-        id: 34,
-        label: "Accounting User",
-        link: "/",
-        parentId: 30,
-      },
-      {
-        id: 35,
-        label: "Warehouse User",
-        link: "/",
-        parentId: 30,
-      },
-    ],
+    icon: "mdi mdi-account-key",
+    link: "/user-setup",
   },
+  
   // {
   //   id: 7,
   //   label: "MENUITEMS.UIELEMENTS.TEXT",

@@ -2,8 +2,11 @@ import { Component, QueryList, ViewChildren, ViewChild } from "@angular/core";
 import { DecimalPipe } from "@angular/common";
 import { Observable } from "rxjs";
 
-import { BsModalService, BsModalRef } from "ngx-bootstrap/modal";
-import { ModalDirective } from "ngx-bootstrap/modal";
+import {
+  BsModalService,
+  BsModalRef,
+  ModalDirective,
+} from "ngx-bootstrap/modal";
 import {
   UntypedFormBuilder,
   UntypedFormGroup,

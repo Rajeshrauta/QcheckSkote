@@ -25,6 +25,9 @@ import { DashboardsModule } from './dashboards/dashboards.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { DatePipe } from "@angular/common";
 import { EstimateModule } from './estimate/estimate.module';
+import { CustomerModule } from './customer/customer.module';
+import { SettingModule } from './setting/setting.module';
+import { UserSetupModule } from './user-setup/user-setup.module';
 
 
 @NgModule({
@@ -50,6 +53,9 @@ import { EstimateModule } from './estimate/estimate.module';
 
     DashboardsModule,
     EstimateModule,
+    CustomerModule,
+    SettingModule,
+    UserSetupModule
   ],
   providers: [DatePipe],
 })
