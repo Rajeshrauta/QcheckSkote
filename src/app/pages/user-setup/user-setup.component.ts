@@ -13,25 +13,26 @@ import { Observable } from 'rxjs';
 })
 export class UserSetupComponent {
   usersData = UsersData;
+  users?: any;
 
   @ViewChild("removeItemModal", { static: false })
   removeItemModal?: ModalDirective;
+  @ViewChild("editUserModal", { static: false })
+  editUserModal?: ModalDirective;
+
+  deletId: any;
 
   submitted = false;
   form: FormGroup;
   modalRef?: BsModalRef;
+
   config: any = {
     backdrop: true,
     ignoreBackdropClick: true,
   };
-  breadCrumbItems: Array<{}>;
 
-  transactions: UsersModel[] = [];
-  // Table data
-  content?: any;
-  orderes?: any;
-  ordersList!: Observable<UsersModel[]>;
-  total: Observable<number>;
+  breadCrumbItems: Array<{}>;
+  selectedUserType: string = "";
 
   constructor(private modalService: BsModalService) {}
 
@@ -42,13 +43,21 @@ export class UserSetupComponent {
     ];
   }
 
-
-  confirm() {
+  confirm(id: any) {
+    this.deletId = id;
     this.removeItemModal.show();
   }
 
-  
-  varyingModal(template: TemplateRef<any>) {
-    this.modalRef = this.modalService.show(template, this.config);
+  deleteUser() {
+    // this.users.splice(this.deletId, 1);
+    this.removeItemModal.hide();
+  }
+
+  editModal(){
+    this.editUserModal.show();
+  }
+
+  edituser(){
+    this.editUserModal.hide();
   }
 }
