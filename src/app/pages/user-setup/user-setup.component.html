@@ -74,7 +74,10 @@
                     </div>
                   </td>
                   <td>
-                    <div class="form-check form-switch" *ngIf="data.type !== 'Customer'">
+                    <div
+                      class="form-check form-switch"
+                      *ngIf="data.type !== 'Customer'"
+                    >
                       <input
                         type="checkbox"
                         class="form-check-input"
@@ -84,7 +87,10 @@
                     </div>
                   </td>
                   <td>
-                    <div class="form-check form-switch" *ngIf="data.type !== 'Customer'">
+                    <div
+                      class="form-check form-switch"
+                      *ngIf="data.type !== 'Customer'"
+                    >
                       <input
                         type="checkbox"
                         class="form-check-input"
@@ -94,7 +100,10 @@
                     </div>
                   </td>
                   <td>
-                    <div class="form-check form-switch" *ngIf="data.type !== 'Customer'">
+                    <div
+                      class="form-check form-switch"
+                      *ngIf="data.type !== 'Customer'"
+                    >
                       <input
                         type="checkbox"
                         class="form-check-input"
@@ -135,6 +144,12 @@
                         (click)="confirm(i)"
                         ><i class="mdi mdi-delete font-size-18"></i
                       ></a>
+                      <a
+                        href="javascript:void(0);"
+                        class="text-primary"
+                        (click)="passwodResetModal.show()"
+                        ><i class="mdi mdi-lock-reset font-size-18"></i
+                      ></a>
                     </div>
                   </td>
                 </tr>
@@ -151,9 +166,155 @@
   </div>
 </div>
 
+<div
+  bsModal
+  #passwodResetModal="bs-modal"
+  class="modal fade"
+  id="showModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Reset Password</h5>
+        <button
+          type="button"
+          class="btn-close"
+          id="close-modal"
+          (click)="passwodResetModal.hide()"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form
+          [formGroup]="passwordForm"
+          (ngSubmit)="onSubmit()"
+          class="needs-validation createorder-form"
+          id="createorder-form"
+        >
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="mb-3">
+                <label for="currentPassword" class="form-label"
+                  >Current Password</label
+                >
+                <input
+                  type="password"
+                  formControlName="currentPassword"
+                  class="form-control"
+                  id="currentPassword"
+                  placeholder="Enter current password"
+                />
+                <div
+                  *ngIf="
+                    f.currentPassword.invalid &&
+                    (f.currentPassword.dirty || f.currentPassword.touched)
+                  "
+                  class="text-danger"
+                >
+                  <div *ngIf="f.currentPassword.errors.required">
+                    Current password is required.
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-12">
+              <div class="mb-3">
+                <label for="newPassword" class="form-label">New Password</label>
+                <input
+                  type="password"
+                  formControlName="newPassword"
+                  class="form-control"
+                  id="newPassword"
+                  placeholder="Enter new password"
+                />
+                <div
+                  *ngIf="
+                    f.newPassword.invalid &&
+                    (f.newPassword.dirty || f.newPassword.touched)
+                  "
+                  class="text-danger"
+                >
+                  <div *ngIf="f.newPassword.errors.required">
+                    New password is required.
+                  </div>
+                  <div *ngIf="f.newPassword.errors.minlength">
+                    New password must be at least 8 characters long.
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-12">
+              <div class="mb-3">
+                <label for="confirmPassword" class="form-label"
+                  >Confirm Password</label
+                >
+                <input
+                  type="password"
+                  formControlName="confirmPassword"
+                  class="form-control"
+                  id="confirmPassword"
+                  placeholder="Confirm new password"
+                />
+                <div
+                  *ngIf="
+                    f.confirmPassword.invalid &&
+                    (f.confirmPassword.dirty || f.confirmPassword.touched)
+                  "
+                  class="text-danger"
+                >
+                  <div *ngIf="f.confirmPassword.errors.required">
+                    Confirm password is required.
+                  </div>
+                  <div
+                    *ngIf="
+                      f.confirmPassword.errors?.mismatch &&
+                      f.confirmPassword.touched
+                    "
+                  >
+                    Passwords do not match.
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-12">
+              <div class="text-end">
+                <button
+                  type="button"
+                  class="btn btn-outline-secondary me-1"
+                  (click)="passwodResetModal.hide()"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  id="reset-password-btn"
+                  class="btn btn-danger"
+                >
+                  Reset
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <!-- end modal body -->
+    </div>
+  </div>
+</div>
+<!-- end of password reset modal -->
+
 <!-- edit user modal -->
 <div
-  bsModal #editUserModal="bs-modal" class="modal fade" id="showModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  bsModal
+  #editUserModal="bs-modal"
+  class="modal fade"
+  id="showModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
@@ -168,58 +329,110 @@
         ></button>
       </div>
       <div class="modal-body">
-        <form class="needs-validation createorder-form" id="createorder-form" novalidate>
+        <form
+          class="needs-validation createorder-form"
+          id="createorder-form"
+          novalidate
+        >
           <div class="row">
             <div class="col-lg-12">
               <div class="mb-3">
-                <label for="username-field" class="form-label" >Users Name</label>
-                <input type="text" id="username-field" class="form-control" placeholder="Enter users name"/>
+                <label for="username-field" class="form-label"
+                  >Users Name</label
+                >
+                <input
+                  type="text"
+                  id="username-field"
+                  class="form-control"
+                  placeholder="Enter users name"
+                />
               </div>
             </div>
             <div class="col-lg-12">
               <div class="mb-3">
                 <label for="phone-field" class="form-label">Phone Number</label>
-                <input type="text" class="form-control" id="phone-field" placeholder="123-45-678" />
+                <input
+                  type="text"
+                  class="form-control"
+                  id="phone-field"
+                  placeholder="123-45-678"
+                />
               </div>
             </div>
             <div class="col-6">
               <div class="mb-3 row">
-                <label for="verify-phone-field" class="form-label col-6" >Verify Phone</label>
+                <label for="verify-phone-field" class="form-label col-6"
+                  >Verify Phone</label
+                >
                 <div class="form-check form-switch col-6">
-                  <input type="checkbox" id="verify-phone-field" class="form-check-input"/>
+                  <input
+                    type="checkbox"
+                    id="verify-phone-field"
+                    class="form-check-input"
+                  />
                 </div>
               </div>
             </div>
             <div class="col-6">
               <div class="mb-3 row">
-                <label for="verify-email-field" class="form-label col-6" >Verify Email</label>
+                <label for="verify-email-field" class="form-label col-6"
+                  >Verify Email</label
+                >
                 <div class="form-check form-switch col-6">
-                  <input type="checkbox" id="verify-email-field" class="form-check-input"/>
+                  <input
+                    type="checkbox"
+                    id="verify-email-field"
+                    class="form-check-input"
+                  />
                 </div>
               </div>
             </div>
             <div class="col-6">
               <div class="mb-3 row">
-                <label for="enable-user-field" class="form-label col-6" >Enable User</label>
+                <label for="enable-user-field" class="form-label col-6"
+                  >Enable User</label
+                >
                 <div class="form-check form-switch col-6">
-                  <input type="checkbox" id="enable-user-field" class="form-check-input"/>
+                  <input
+                    type="checkbox"
+                    id="twofactor-auth-field"
+                    class="form-check-input"
+                  />
                 </div>
               </div>
             </div>
             <div class="col-6">
               <div class="mb-3 row">
-                <label for="twofactor-auth-field" class="form-label col-6" >Two Factor Enable</label>
+                <label for="twofactor-auth-field" class="form-label col-6"
+                  >Two Factor Enable</label
+                >
                 <div class="form-check form-switch col-6">
-                  <input type="checkbox" id="twofactor-auth-field" class="form-check-input"/>
+                  <input
+                    type="checkbox"
+                    id="twofactor-auth-field"
+                    class="form-check-input"
+                  />
                 </div>
               </div>
             </div>
-
 
             <div class="col-lg-12">
               <div class="text-end">
-                <button type="button" class="btn btn-outline-secondary me-1" (click)="editUserModal.hide()">Cancel</button>
-                <button type="submit" id="addNewOrder-btn" class="btn btn-success" (click)="edituser()" >Update</button>
+                <button
+                  type="button"
+                  class="btn btn-outline-secondary me-1"
+                  (click)="editUserModal.hide()"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  id="addNewOrder-btn"
+                  class="btn btn-success"
+                  (click)="edituser()"
+                >
+                  Update
+                </button>
               </div>
             </div>
           </div>
@@ -279,26 +492,21 @@
               </div>
             </div>
             <div class="col-lg-12">
-              <div class="mb-3" *ngIf="selectedUserType !== 'Customer'">
-                <label for="username-field" class="form-label"
-                  >Users Name</label
-                >
+              <div class="mb-3">
+                <label for="username-field" class="form-label">Name</label>
                 <input
+                  *ngIf="selectedUserType !== 'Customer'"
                   type="text"
                   id="username-field"
                   class="form-control"
-                  placeholder="Enter users name"
+                  placeholder="Enter user name"
                 />
-              </div>
-              <div class="mb-3" *ngIf="selectedUserType === 'Customer'">
-                <label for="username-field" class="form-label"
-                  >Customer Name</label
-                >
                 <input
                   list="customers"
                   id="username-field"
                   class="form-control"
-                  placeholder="Enter customers name"
+                  placeholder="Enter customer name"
+                  *ngIf="selectedUserType === 'Customer'"
                 />
                 <datalist id="customers">
                   <option value="Neal Matthews"></option>
@@ -310,7 +518,7 @@
                 </datalist>
               </div>
             </div>
-            <div class="col-lg-12" *ngIf="selectedUserType === 'Customer'">
+            <div class="col-lg-12">
               <div class="mb-3">
                 <label for="email-field" class="form-label"
                   >Email address</label
@@ -320,30 +528,6 @@
                   class="form-control"
                   id="email-field"
                   placeholder="name@example.com"
-                />
-              </div>
-            </div>
-            <div class="col-lg-6" *ngIf="selectedUserType !== 'Customer'">
-              <div class="mb-3">
-                <label for="email-field" class="form-label"
-                  >Email address</label
-                >
-                <input
-                  type="email"
-                  class="form-control"
-                  id="email-field"
-                  placeholder="name@example.com"
-                />
-              </div>
-            </div>
-            <div class="col-lg-6" *ngIf="selectedUserType !== 'Customer'">
-              <div class="mb-3">
-                <label for="phone-field" class="form-label">Phone</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="phone-field"
-                  placeholder="123-45-678"
                 />
               </div>
             </div>
@@ -355,6 +539,17 @@
                   class="form-control"
                   id="password-field"
                   placeholder="Password"
+                />
+              </div>
+            </div>
+            <div class="col-lg-12" *ngIf="selectedUserType !== 'Customer'">
+              <div class="mb-3">
+                <label for="phone-field" class="form-label">Phone</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="phone-field"
+                  placeholder="123-45-678 (Optional)"
                 />
               </div>
             </div>
