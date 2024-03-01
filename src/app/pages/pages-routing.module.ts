@@ -28,6 +28,12 @@ const routes: Routes = [
     loadChildren: () =>
       import("./user-setup/user-setup.module").then((m) => m.UserSetupModule),
   },
+  {
+    path: "communication",
+    loadChildren: () =>
+      import("./communication/communication.module").then((m) => m.CommunicationModule
+      ),
+  },
 ];
 
 @NgModule({

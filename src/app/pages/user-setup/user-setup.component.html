@@ -166,6 +166,9 @@
   </div>
 </div>
 
+
+
+<!-- password reset modal -->
 <div
   bsModal
   #passwodResetModal="bs-modal"
@@ -189,7 +192,7 @@
       <div class="modal-body">
         <form
           [formGroup]="passwordForm"
-          (ngSubmit)="onSubmit()"
+          (ngSubmit)="onResetPasswordSubmit()"
           class="needs-validation createorder-form"
           id="createorder-form"
         >
@@ -337,12 +340,12 @@
           <div class="row">
             <div class="col-lg-12">
               <div class="mb-3">
-                <label for="username-field" class="form-label"
-                  >Users Name</label
+                <label for="name-field" class="form-label"
+                  >Name</label
                 >
                 <input
                   type="text"
-                  id="username-field"
+                  id="name-field"
                   class="form-control"
                   placeholder="Enter users name"
                 />
@@ -450,7 +453,7 @@
   bsModal
   #createUserModal="bs-modal"
   class="modal fade"
-  id="showModal"
+  id="createUserModal"
   tabindex="-1"
   aria-labelledby="exampleModalLabel"
   aria-hidden="true"
@@ -470,7 +473,8 @@
         <form
           class="needs-validation createorder-form"
           id="createorder-form"
-          novalidate
+          [formGroup]="createUserForm"
+          (ngSubmit)="onCreateUserSubmit()"
         >
           <div class="row">
             <div class="col-lg-12">
@@ -480,7 +484,8 @@
                   class="form-control"
                   name="usertype-field"
                   id="usertype-field"
-                  [(ngModel)]="selectedUserType"
+                  formControlName="usertype"
+                  (change)="updateSelectedUserType($event.target.value)"
                 >
                   <option value="">Select Type</option>
                   <option value="Customer">Customer</option>
@@ -489,46 +494,62 @@
                   <option value="Accounting User">Accounting User</option>
                   <option value="Warehouse User">Warehouse User</option>
                 </select>
+                <div *ngIf="c.usertype.invalid && (c.usertype.dirty || c.usertype.touched)" class="text-danger" >
+                  <div *ngIf="c.usertype.errors.required">
+                    Usertype is required.
+                  </div>
+                </div>
               </div>
             </div>
             <div class="col-lg-12">
               <div class="mb-3">
                 <label for="username-field" class="form-label">Name</label>
-                <input
-                  *ngIf="selectedUserType !== 'Customer'"
+                  <input 
                   type="text"
-                  id="username-field"
+                  id="name-field"
                   class="form-control"
                   placeholder="Enter user name"
+                  formControlName="name"
+                  *ngIf="selectedUserType !== 'Customer'"
                 />
-                <input
+                  <input
                   list="customers"
-                  id="username-field"
+                  id="name-field"
                   class="form-control"
                   placeholder="Enter customer name"
+                  formControlName="name"
                   *ngIf="selectedUserType === 'Customer'"
-                />
-                <datalist id="customers">
+                  />
+                  <datalist id="customers">
                   <option value="Neal Matthews"></option>
                   <option value="Jamal Burnett"></option>
                   <option value="Juan Mitchell"></option>
                   <option value="Ronald Taylor"></option>
                   <option value="Jacob Hunter"></option>
                   <option value="Dustin Moser"></option>
-                </datalist>
+                  </datalist>
+                    <div *ngIf="c.name.invalid && (c.name.dirty || c.name.touched)" class="text-danger" >
+                  <div *ngIf="c.name.errors.required">
+                    Name is required.
+                  </div>
+                </div>                  
               </div>
             </div>
             <div class="col-lg-12">
               <div class="mb-3">
-                <label for="email-field" class="form-label"
-                  >Email address</label
-                >
+                <label for="email-field" class="form-label">Email address</label>
                 <input
                   type="email"
                   class="form-control"
                   id="email-field"
                   placeholder="name@example.com"
+                  formControlName="email"
                 />
+                <div *ngIf="c.email.invalid && (c.email.dirty || c.email.touched)" class="text-danger" >
+                  <div *ngIf="c.email.errors.required">
+                    Email is required.
+                  </div>
+                </div>
               </div>
             </div>
             <div class="col-lg-12">
@@ -539,7 +560,13 @@
                   class="form-control"
                   id="password-field"
                   placeholder="Password"
+                  formControlName="password"
                 />
+                <div *ngIf="c.password.invalid && (c.password.dirty || c.password.touched)" class="text-danger" >
+                  <div *ngIf="c.password.errors.required">
+                    Password is required.
+                  </div>
+                </div>
               </div>
             </div>
             <div class="col-lg-12" *ngIf="selectedUserType !== 'Customer'">
@@ -565,7 +592,6 @@
                 </button>
                 <button
                   type="submit"
-                  id="addNewOrder-btn"
                   class="btn btn-success"
                 >
                   Create

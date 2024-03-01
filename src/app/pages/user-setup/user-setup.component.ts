@@ -19,19 +19,12 @@ import { Observable } from 'rxjs';
 export class UserSetupComponent {
   usersData = UsersData;
   users?: any;
-
-  @ViewChild("removeItemModal", { static: false })
-  removeItemModal?: ModalDirective;
-  @ViewChild("editUserModal", { static: false })
-  editUserModal?: ModalDirective;
-  @ViewChild("passwodResetModal", { static: false })
-  passwodResetModal?: ModalDirective;
-
   deletId: any;
 
   passwordForm: FormGroup;
+  createUserForm: FormGroup;
+  editUserForm: FormGroup;
 
-  form: FormGroup;
   modalRef?: BsModalRef;
 
   config: any = {
@@ -41,6 +34,15 @@ export class UserSetupComponent {
 
   breadCrumbItems: Array<{}>;
   selectedUserType: string = "";
+
+  @ViewChild("removeItemModal", { static: false })
+  removeItemModal?: ModalDirective;
+  @ViewChild("editUserModal", { static: false })
+  editUserModal?: ModalDirective;
+  @ViewChild("passwodResetModal", { static: false })
+  passwodResetModal?: ModalDirective;
+  @ViewChild("createUserModal", { static: false })
+  createUserModal?: ModalDirective;
 
   constructor(
     private modalService: BsModalService,
@@ -63,8 +65,29 @@ export class UserSetupComponent {
       },
       { validator: this.passwordMatchValidator }
     );
+
+    this.createUserForm = this.formBuilder.group({
+      usertype: ["", [Validators.required]],
+      name: ["", [Validators.required]],
+      email: ["", [Validators.required, Validators.email]],
+      password: ["", [Validators.required, Validators.minLength(8)]],
+    });
   }
 
+  updateSelectedUserType(value: string) {
+    this.selectedUserType = value;
+  }
+
+  get f() {
+    return this.passwordForm.controls;
+  }
+
+  //Convenience getter for easy access to form fields of createuser form fields
+  get c() {
+    return this.createUserForm.controls;
+  }
+
+  
   //validator to check if newPassword and confirmPassword match
   passwordMatchValidator: ValidatorFn = (
     control: FormGroup
@@ -80,12 +103,9 @@ export class UserSetupComponent {
     }
   };
 
-  // Convenience getter for easy access to form fields
-  get f() {
-    return this.passwordForm.controls;
-  }
+  // Convenience getter for easy access to form fields of password reset form fields
 
-  onSubmit() {
+  onResetPasswordSubmit() {
     if (this.passwordForm.invalid) {
       return;
     }
@@ -94,6 +114,17 @@ export class UserSetupComponent {
     this.passwordForm.reset();
     this.passwodResetModal.hide();
   }
+
+  onCreateUserSubmit() {
+    console.log(this.createUserForm.value);
+    if (this.createUserForm.invalid) {
+      return;
+    }
+    // Form is valid, continue with your logic
+    this.createUserForm.reset();
+    this.createUserModal.hide();
+  }
+  
 
   confirm(id: any) {
     this.deletId = id;
