@@ -1,0 +1,22 @@
+.customer-list-wrapper {
+  max-height: calc(100vh - 150px); /* Adjust height as needed */
+  overflow-y: auto;
+}
+
+@media (max-width: 768px) {
+  .customer-list-wrapper {
+    max-height: calc(40vh - 100px); /* Adjust height as needed */
+  }
+}
+
+@media (max-width: 767px) {
+  .list-group {
+    display: none; /* Hide list on smaller screens */
+  }
+}
+
+@media (min-width: 768px) {
+  .form-select {
+    display: none; /* Hide select dropdown on larger screens */
+  }
+}

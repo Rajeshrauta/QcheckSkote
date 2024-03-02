@@ -1,1 +1,23 @@
-<p>customer works!</p>
+<div>
+  <app-page-title
+    title="Customer"
+    [breadcrumbItems]="breadCrumbItems"
+  ></app-page-title>
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-lg-3 col-md-12 mb-3">
+              <app-customer-list></app-customer-list>
+            </div>
+            <div class="col-lg-9 col-md-12">
+              <app-customer-information></app-customer-information>
+             </div>              
+          </div>          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

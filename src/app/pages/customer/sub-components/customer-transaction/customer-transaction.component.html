@@ -1,0 +1,39 @@
+<div class="table-responsive">
+<table class="table table-hover mt-3">
+    <thead>
+      <tr>
+        <th scope="col">Created Date</th>
+        <th scope="col">Type</th>
+        <th scope="col">Id</th>
+        <th scope="col">Balance</th>
+        <th scope="col">Total</th>
+        <th scope="col">Transaction Date</th>
+        <th scope="col">Comments</th>
+        
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of customerTransaction">
+        <td>{{item.CreatedDate}}</td>
+        <td>{{item.Type}}</td>
+        <td><a data-bs-toggle="modal" data-bs-target="#EstimateModal">{{item.Id}}</a></td>
+        <td>{{item.Balance}}</td>
+        <td>{{item.Total}}</td>
+        <td>{{item.TransactionDate}}</td>
+        <td><input type="text" /></td>
+        <td>
+          <div ngbDropdown class="d-inline-block" dropstart>
+            <fa-icon [icon]="threedot" id="dropdownBasic1" class="remove-caret btn" ngbDropdownToggle ></fa-icon>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="custom-dropdown-menu">
+              <button ngbDropdownItem>Edit</button>
+              <button ngbDropdownItem disabled="">Order Process</button>
+              <button ngbDropdownItem>Message</button>
+              <button ngbDropdownItem >Print</button>
+            </div>
+          </div>
+        </td>
+      </tr>        
+    </tbody>  
+  </table>
+</div>

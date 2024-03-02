@@ -1,0 +1,105 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-9 mb-5 mb-xl-0">
+      <div class="card bg-gradient-default shadow">
+        <div class="card-header bg-transparent">
+          <div class="row align-items-center">
+            <div class="col">
+              <!-- <h6 class="text-uppercase ls-1 mb-1">Overview</h6> -->
+              <h4 class="mb-0">Customer Name</h4>
+            </div>
+            <div class="col">
+              <ul class="nav nav-pills justify-content-end">
+                <li class="nav-item mr-md-0">
+                  <a href="#" class="nav-link">
+                    <span ngbTooltip="exampleemail.com"
+                      >
+                      Email</span
+                    >
+                  </a>
+                </li>
+                <li class="nav-item mr-md-0">
+                  <a href="#" class="nav-link">
+                    <span ngbTooltip="+1 908980977"
+                      >
+                      WhatsApp</span
+                    >
+                  </a>
+                </li>
+                <li class="nav-item mr-md-0">
+                  <div ngbDropdown class="d-inline-block" dropstart>
+                    <button
+                      class="btn btn-danger btn-sm dropdown-toggle"
+                      id="dropdownBasic1"
+                      type="button"
+                      ngbDropdownToggle
+                    >
+                      Action
+                    </button>
+                    <div
+                      ngbDropdownMenu
+                      aria-labelledby="dropdownBasic1"
+                      class="custom-dropdown-menu"
+                    >
+                      <button ngbDropdownItem routerLink="/credit-memo/create-credit-memo">Create Credit Memo</button>
+                      <button ngbDropdownItem>Print Statement</button>
+                      <button ngbDropdownItem>Send Statement</button>
+                      <button ngbDropdownItem>Send Product List</button>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="nav nav-pills justify-content-end">
+            <select
+              class="form-select"
+              aria-label="Select Territory"
+              style="width: 150px"
+            >
+              <option>Select Territory</option>
+              <option value="Austin">Austin</option>
+              <option value="Houston">Houston</option>
+              <option value="Dellas">Dellas</option>
+              <option value="Pick Up">Pick Up</option>
+            </select>
+          </div>
+        </div>
+        <p class="p-3">Billing address</p>
+      </div>
+    </div>
+    <div class="col-lg-3">
+      <div class="card shadow">
+        <div class="card-header bg-transparent">
+          <div class="row align-items-center">
+            <div class="col">
+              <!-- <h6 class="text-uppercase text-muted ls-1 mb-1">Performance</h6> -->
+              <h4 class="mb-0">Summary</h4>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <!-- Chart -->
+          <div class="chart">
+            <div style="border-left: 6px solid #17990c">
+              <p style="margin-left: 1rem; margin-bottom: 0; font-size: 0.8rem">
+                Open Balance
+              </p>
+              <p style="margin-left: 1rem; margin-top: 0">$33465</p>
+            </div>
+
+            <div style="border-left: 6px solid #ff0000">
+              <p style="margin-left: 1rem; margin-bottom: 0; font-size: 0.8rem">
+                Close Balance
+              </p>
+              <p style="margin-left: 1rem; margin-top: 0">$33465</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-customer-transaction></app-customer-transaction>
+</div>
