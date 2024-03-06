@@ -4,57 +4,29 @@
       <div class="card bg-gradient-default shadow">
         <div class="card-header bg-transparent">
           <div class="row align-items-center">
-            <div class="col">
-              <!-- <h6 class="text-uppercase ls-1 mb-1">Overview</h6> -->
-              <h4 class="mb-0">Customer Name</h4>
+            <div class="col-md-6 col">
+              <h5 class="mb-0 ">Customer Name</h5>
             </div>
-            <div class="col">
-              <ul class="nav nav-pills justify-content-end">
-                <li class="nav-item mr-md-0">
-                  <a href="#" class="nav-link">
-                    <span ngbTooltip="exampleemail.com"
-                      >
-                      Email</span
-                    >
-                  </a>
-                </li>
-                <li class="nav-item mr-md-0">
-                  <a href="#" class="nav-link">
-                    <span ngbTooltip="+1 908980977"
-                      >
-                      WhatsApp</span
-                    >
-                  </a>
-                </li>
-                <li class="nav-item mr-md-0">
-                  <div ngbDropdown class="d-inline-block" dropstart>
+            <div class="col-md-6 col">
+              <ul class="nav nav-pills">
+                <li class="nav-item mr-md-1" dropdown>
+                  <div class="dropdown">
                     <button
-                      class="btn btn-danger btn-sm dropdown-toggle"
-                      id="dropdownBasic1"
-                      type="button"
-                      ngbDropdownToggle
+                      class="btn btn-sm btn-danger dropdown-toggle"
+                      dropdownToggle
                     >
                       Action
                     </button>
-                    <div
-                      ngbDropdownMenu
-                      aria-labelledby="dropdownBasic1"
-                      class="custom-dropdown-menu"
-                    >
-                      <button ngbDropdownItem routerLink="/credit-memo/create-credit-memo">Create Credit Memo</button>
-                      <button ngbDropdownItem>Print Statement</button>
-                      <button ngbDropdownItem>Send Statement</button>
-                      <button ngbDropdownItem>Send Product List</button>
+                    <div class="dropdown-menu dropdown-menu-end" *dropdownMenu>
+                      <a class="dropdown-item" href="#">Create Credit Memo</a>
+                      <a class="dropdown-item" href="#">Print Statement</a>
+                      <a class="dropdown-item" href="#">Send Statement</a>
+                      <a class="dropdown-item" href="#">Send Product List</a>
                     </div>
                   </div>
                 </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="card-body">
-          <div class="nav nav-pills justify-content-end">
-            <select
+                <li class="nav-item mr-md-1">
+                  <select
               class="form-select"
               aria-label="Select Territory"
               style="width: 150px"
@@ -65,6 +37,23 @@
               <option value="Dellas">Dellas</option>
               <option value="Pick Up">Pick Up</option>
             </select>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="row align-items-center">
+            <div class="col-lg-8">
+                    <div><i class="mdi mdi-email" aria-hidden="true"></i> exampleemail.com</div>
+                    <div><i class="mdi mdi-whatsapp" aria-hidden="true"></i>+1 908980977 <i class="mdi mdi-pencil" aria-hidden="true" (click)="editwhatsapp.show()"></i></div>
+            </div>
+            <div class="col-lg-4 justify-content-end">
+      
+            </div>
+          </div>
+          <div class="nav nav-pills justify-content-end">
+            
           </div>
         </div>
         <p class="p-3">Billing address</p>
@@ -72,34 +61,111 @@
     </div>
     <div class="col-lg-3">
       <div class="card shadow">
-        <div class="card-header bg-transparent">
-          <div class="row align-items-center">
-            <div class="col">
+        <div class="card-header bg-transparent d-lg-flex d-none">
+          <div class="align-items-center">
               <!-- <h6 class="text-uppercase text-muted ls-1 mb-1">Performance</h6> -->
               <h4 class="mb-0">Summary</h4>
-            </div>
           </div>
         </div>
         <div class="card-body">
           <!-- Chart -->
           <div class="chart">
-            <div style="border-left: 6px solid #17990c">
+            <div class="row">
+              <div class="col-lg-12 col-md-6 col-sm-6 col-6 col">
+                <div style="border-left: 6px solid #17990c">
               <p style="margin-left: 1rem; margin-bottom: 0; font-size: 0.8rem">
                 Open Balance
               </p>
               <p style="margin-left: 1rem; margin-top: 0">$33465</p>
             </div>
-
-            <div style="border-left: 6px solid #ff0000">
+              </div>
+              <div class="col-lg-12 col-md-6 col-sm-6 col-6 col">
+                <div style="border-left: 6px solid #ff0000">
               <p style="margin-left: 1rem; margin-bottom: 0; font-size: 0.8rem">
                 Close Balance
               </p>
               <p style="margin-left: 1rem; margin-top: 0">$33465</p>
+            </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <app-customer-transaction></app-customer-transaction>
+  <!-- <app-customer-transaction></app-customer-transaction> -->
+</div>
+
+
+
+
+<!-- edit whatsapp modal -->
+<div
+  bsModal
+  #editwhatsapp="bs-modal"
+  class="modal fade"
+  id="showModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">
+          Update Whatsapp
+        </h5>
+        <button
+          type="button"
+          class="btn-close"
+          id="close-modal"
+          (click)="editwhatsapp.hide()"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form
+          class="needs-validation createorder-form"
+          id="createorder-form"
+          novalidate
+        >
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="mb-3">
+                <label for="name-field" class="form-label"
+                  >Whatsapp</label
+                >
+                <input
+                  type="text"
+                  id="name-field"
+                  class="form-control"
+                  placeholder="Enter Whatsapp Number"
+                  value="9988776655"
+                />
+              </div>
+            </div>
+            <div class="col-lg-12">
+              <div class="text-end">
+                <button
+                  type="button"
+                  class="btn btn-outline-secondary me-1"
+                  (click)="editwhatsapp.hide()"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  id="addNewOrder-btn"
+                  class="btn btn-success"
+                  (click)="editwhatsapp.hide()"
+                >
+                  Update
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <!-- end modal body -->
+    </div>
+  </div>
 </div>

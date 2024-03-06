@@ -7,6 +7,7 @@ import { ModalModule } from "ngx-bootstrap/modal";
 import { UIModule } from 'src/app/shared/ui/ui.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PaginationModule } from "ngx-bootstrap/pagination";
+import { UiSwitchModule } from "ngx-ui-switch";
 
 @NgModule({
   declarations: [UserSetupComponent],
@@ -18,6 +19,7 @@ import { PaginationModule } from "ngx-bootstrap/pagination";
     ReactiveFormsModule,
     FormsModule,
     PaginationModule,
+    UiSwitchModule,
   ],
 })
 export class UserSetupModule {}

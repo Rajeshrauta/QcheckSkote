@@ -1,26 +1,34 @@
 <div class="d-flex flex-wrap align-items-center py-2">
-  <div class="col-lg-2 col-md-3 col-12 col-sm-3 flex-grow-1 col ">
-        <div class="topnav-nav">
-            <div class="border p-2 m-1 max-height-1">
-                <div class="h6 mx-2 py-2">Product category</div>
-                <div class="d-flex align-items-center bg-primary">
-                    <div class="h6 mt-2 ps-2 py-2 w-100">All</div>
-                    <div class="ms-auto pe-2">
-                        <i
+  <div class="col-lg-2 col-md-3 col-12 col-sm-3 flex-grow-1 col">
+    <div class="topnav-nav">
+      <div class="border p-2 m-1 max-height-1">
+        <div class="h6 mx-2 py-2">Product category</div>
+        <div class="d-flex align-items-center bg-primary">
+          <div class="h6 mt-2 ps-2 py-2 w-100">All</div>
+          <div class="ms-auto pe-2">
+            <i
               class="mdi mdi-menu baricons hand"
               style="height: 22"
               (click)="toggleMenu()"
             ></i>
-                    </div>
-                </div>
-                <div *ngIf="showMenu" class="height" style="font-size: 14px;" id="myLinks">
-                    <div *ngFor="let value of ProductData" class="p-2 m-2 border-bottom hover">
-                        <span>{{value.ProductName}}</span>
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
+        <div
+          *ngIf="showMenu"
+          class="height"
+          style="font-size: 14px"
+          id="myLinks"
+        >
+          <div
+            *ngFor="let value of ProductData"
+            class="p-2 m-2 border-bottom hover"
+          >
+            <span>{{ value.ProductName }}</span>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
   <div class="col-lg-10 col-md-9 col-12 col-sm-9 flex-grow-1 col">
     <div class="border p-2 m-1 max-height-2">
       <div class="d-flex flex-wrap align-items-center my-1">

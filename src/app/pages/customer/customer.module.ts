@@ -10,6 +10,7 @@ import { CustomerListComponent } from './sub-components/customer-list/customer-l
 import { CustomerTransactionComponent } from './sub-components/customer-transaction/customer-transaction.component';
 import { CustomerInformationComponent } from './sub-components/customer-information/customer-information.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     FormsModule,
     PaginationModule,
     NgbModule,
+    BsDropdownModule,
   ],
 })
 export class CustomerModule {}
