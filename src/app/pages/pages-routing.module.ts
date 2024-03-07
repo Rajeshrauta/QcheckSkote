@@ -31,9 +31,28 @@ const routes: Routes = [
   {
     path: "communication",
     loadChildren: () =>
-      import("./communication/communication.module").then((m) => m.CommunicationModule
+      import("./communication/communication.module").then(
+        (m) => m.CommunicationModule
       ),
   },
+  {
+    path: "vendors",
+    loadChildren: () =>
+      import("./vendors/vendors.module").then((m) => m.VendorsModule),
+  },
+  {
+    path: "accounting",
+    loadChildren: () =>
+      import("./accounting/accounting.module").then((m) => m.AccountingModule),
+  },
+  {
+    path: "products-and-services",
+    loadChildren: () =>
+      import("./products-and-services/products-and-services.module").then(
+        (m) => m.ProductsAndServicesModule
+      ),
+  },
+  { path: 'reports', loadChildren: () => import('./reports/reports.module').then(m => m.ReportsModule) },
 ];
 
 @NgModule({

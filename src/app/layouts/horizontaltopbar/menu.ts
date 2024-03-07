@@ -170,13 +170,13 @@ export const MENU: MenuItem[] = [
       {
         id: 28,
         label: "Email",
-        link: "/",
+        link: "/communication/email-activity",
         parentId: 27,
       },
       {
         id: 29,
         label: "Whatsapp Chat",
-        link: "/",
+        link: "/communication/whatsapp-chat",
         parentId: 27,
       },
     ],
@@ -225,7 +225,7 @@ export const MENU: MenuItem[] = [
     icon: "mdi mdi-account-key",
     link: "/user-setup",
   },
-  
+
   // {
   //   id: 7,
   //   label: "MENUITEMS.UIELEMENTS.TEXT",

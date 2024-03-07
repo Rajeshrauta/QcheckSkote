@@ -5,26 +5,22 @@
 
 
 
-
-
-
-
-
-
-
 .max-height-1 {
-    max-height: 450px;
-    min-height: 450;
+    max-height:100vh;
+    min-height:100vh;
+}
+.max-height-2 {
+    max-height:100vh;
+    min-height:100vh;
 }
 
 .height {
     overflow-y: auto;
-    max-height: 335px;
+    max-height: calc(100vh - 130px);
 }
 
 .height2 {
-    overflow-y: auto;
-    max-height: 450px;
+    max-height: calc(100vh - 200px);
 }
 
 .caption-bold-1 {
@@ -67,18 +63,12 @@
     color: #ffffff;
 }
 
-.info-icon {
-    height: 22px;
-}
 
 .disabled {
     color: rgba(195, 198, 204, 1);
     pointer-events: none;
 }
 
-.free-fromcotrol {
-    background-color: wheat;
-}
 
 
 .border {
@@ -102,22 +92,29 @@
     cursor: pointer;
 }
 
-.topnav-nav {
-    overflow: hidden;
-    position: relative;
-}
-
-.topnav-nav .baricons {
-    display: none;
-}
-
-.hideShowNineMonthData {
-    display: none;
-}
 
 @media (min-width: 150px) and (max-width: 450px) {
     .minus-svg-icon1 {
         display: none;
+    }
+
+    .max-height-1 {
+        max-height: auto;
+        min-height: auto
+    }
+
+    .max-height-2 {
+        max-height: auto;
+        min-height: auto;
+    }
+
+    .height{
+        overflow-y: auto;
+        max-height: calc(100vh - 450px);
+    }
+
+    .height2 {
+        max-height: calc(100vh - 380px);
     }
 }
 
@@ -134,11 +131,6 @@
 }
 
 @media only screen and (max-width: 501px) {
-    .max-height {
-        max-height: auto;
-        min-height: auto
-    }
-
     .minus-svg-icon {
         height: 18px;
         position: relative;
@@ -170,8 +162,28 @@
         display: none !important;
     }
 
+    .max-height {
+        max-height: auto;
+        min-height: auto
+    }
+
+    .max-height-1 {
+        max-height: inherit;
+        min-height: auto
+    }
+
     .max-height-2 {
-        max-height: none;
+        max-height: auto;
+        min-height: auto;
+    }
+
+    .height{
+        overflow-y: auto;
+        max-height: calc(100vh - 450px);
+    }
+
+    .height2 {
+        max-height: calc(100vh - 380px);
     }
 
     .min-width-60 {
@@ -199,10 +211,30 @@
         padding-left: 5px;
         padding-right: 5px;
     }
+
+    .height2 {
+        max-height: calc(100vh - 380px);
+    }
+
+    .max-height-1 {
+        max-height: inherit;
+        min-height: auto
+    }
+
+    .max-height-2 {
+        max-height: inherit;
+        min-height: auto
+    }
 }
 
 
-@media only screen and (max-width: 1000px) {
+@media (min-width: 767px) and (max-width: 1024px) {
+    .height2 {
+        max-height: calc(100vh - 366px);
+    }
+}
+
+@media only screen and (max-width: 1024px) {
     .hideColumn {
         display: none;
     }
@@ -212,44 +244,18 @@
     }
 }
 
+
 @media only screen and (max-width: 450px),
 (min-device-width: 768px) and (max-device-width: 1024px) {
     .all-bgClr {
         background-color: rgb(48, 14, 196) !important;
         padding: 10px;
         color: #ffffff;
-    }
-
-    .max-height-1 {
-        max-height: auto;
-        min-height: auto
-    }
-
-    .max-height-2 {
-        max-height: none;
-        min-height: none;
-    }
-
-    .max-height-3 {
-        min-height: auto;
-    }
-
-    .height2 {
-        max-height: auto;
-    }
+    }    
 
     .width-33 {
         width: 33%;
     }
-
-    .info-icon {
-        height: 16px;
-    }
-
-    .topnav-nav .baricons {
-        display: block;
-    }
-
 
     table,
     thead,

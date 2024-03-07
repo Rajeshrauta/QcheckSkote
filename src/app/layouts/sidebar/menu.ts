@@ -168,13 +168,13 @@ export const MENU: MenuItem[] = [
       {
         id: 28,
         label: "Email",
-        link: "/",
+        link: "/communication/email-activity",
         parentId: 27,
       },
       {
         id: 29,
         label: "Whatsapp Chat",
-        link: "/",
+        link: "/communication/whatsapp-chat",
         parentId: 27,
       },
     ],

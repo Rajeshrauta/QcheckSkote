@@ -1,8 +1,8 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-lg-9 mb-5 mb-xl-0">
+    <div class="col-lg-9">
       <div class="card bg-gradient-default shadow">
-        <div class="card-header bg-transparent">
+        <div class="card-body">
           <div class="row align-items-center">
             <div class="col-md-6 col">
               <h5 class="mb-0">Customer Name</h5>
@@ -11,9 +11,8 @@
               <div class="row">
                 <div class="col-6">
                   <select
-                    class="form-select"
+                    class="form-select d-flex justify-content-end"
                     aria-label="Select Territory"
-                    style="width: 150px"
                   >
                     <option>Select Territory</option>
                     <option value="Austin">Austin</option>
@@ -23,7 +22,7 @@
                   </select>
                 </div>
                 <div class="col-6" dropdown>
-                  <div class="dropdown">
+                  <div class="dropdown d-flex justify-content-end">
                     <button
                       class="btn btn-sm btn-danger dropdown-toggle"
                       dropdownToggle
@@ -39,43 +38,9 @@
                   </div>
                 </div>
               </div>
-              <!-- <ul class="nav nav-pills">
-                <li class="nav-item mr-md-1" dropdown>
-                  <div class="dropdown">
-                    <button
-                      class="btn btn-sm btn-danger dropdown-toggle"
-                      dropdownToggle
-                    >
-                      Action
-                    </button>
-                    <div class="dropdown-menu dropdown-menu-end" *dropdownMenu>
-                      <a class="dropdown-item" href="#">Create Credit Memo</a>
-                      <a class="dropdown-item" href="#">Print Statement</a>
-                      <a class="dropdown-item" href="#">Send Statement</a>
-                      <a class="dropdown-item" href="#">Send Product List</a>
-                    </div>
-                  </div>
-                </li>
-                <li class="nav-item mr-md-1">
-                  <select
-                    class="form-select"
-                    aria-label="Select Territory"
-                    style="width: 150px"
-                  >
-                    <option>Select Territory</option>
-                    <option value="Austin">Austin</option>
-                    <option value="Houston">Houston</option>
-                    <option value="Dellas">Dellas</option>
-                    <option value="Pick Up">Pick Up</option>
-                  </select>
-                </li>
-              </ul> -->
             </div>
           </div>
-        </div>
-        <div class="card-body">
           <div class="row align-items-center">
-            <div class="col-lg-8">
               <div>
                 <i class="mdi mdi-email" aria-hidden="true"></i>
                 exampleemail.com
@@ -83,30 +48,28 @@
               <div>
                 <i class="mdi mdi-whatsapp" aria-hidden="true"></i>+1 908980977
                 <i
-                  class="mdi mdi-pencil"
+                  class="mdi mdi-pencil hand"
                   aria-hidden="true"
                   (click)="editwhatsapp.show()"
                 ></i>
               </div>
-            </div>
-            <div class="col-lg-4 justify-content-end"></div>
-          </div>
-          <div class="nav nav-pills justify-content-end"></div>
         </div>
-        <p class="p-3">Billing address</p>
+        <div class="row">
+          <div class="col-md-6">
+            <div><b>Address</b></div>
+            <div>4581 Finch St., Bayshore, CA 94326</div>
+          </div>
+          <div class="col-md-6">
+            <div><b>Billing address</b></div>
+            <div>4581 Finch St., Bayshore, CA 94326</div>
+          </div>
+        </div>
       </div>
+    </div>
     </div>
     <div class="col-lg-3">
       <div class="card shadow">
-        <div class="card-header bg-transparent d-lg-flex d-none">
-          <div class="align-items-center">
-            <!-- <h6 class="text-uppercase text-muted ls-1 mb-1">Performance</h6> -->
-            <h4 class="mb-0">Summary</h4>
-          </div>
-        </div>
         <div class="card-body">
-          <!-- Chart -->
-          <div class="chart">
             <div class="row">
               <div class="col-lg-12 col-md-6 col-sm-6 col-6 col">
                 <div style="border-left: 6px solid #17990c">
@@ -138,11 +101,9 @@
               </div>
             </div>
           </div>
-        </div>
       </div>
     </div>
   </div>
-  <!-- <app-customer-transaction></app-customer-transaction> -->
 </div>
 
 <!-- edit whatsapp modal -->
