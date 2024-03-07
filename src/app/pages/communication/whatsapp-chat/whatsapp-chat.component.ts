@@ -35,7 +35,7 @@ export class WhatsappChatComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     this.breadCrumbItems = [
       { label: "Communication" },
-      { label: "Chat", active: true },
+      { label: "Whatsapp Chat", active: true },
     ];
 
     this.formData = this.formBuilder.group({

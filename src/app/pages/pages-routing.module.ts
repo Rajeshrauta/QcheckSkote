@@ -52,7 +52,13 @@ const routes: Routes = [
         (m) => m.ProductsAndServicesModule
       ),
   },
-  { path: 'reports', loadChildren: () => import('./reports/reports.module').then(m => m.ReportsModule) },
+  {
+    path: "reports",
+    loadChildren: () =>
+      import("./reports/reports.module").then((m) => m.ReportsModule),
+  },
+  { path: 'creditmemo', loadChildren: () => import('./credit-memo/credit-memo.module').then(m => m.CreditMemoModule) },
+  { path: 'invoice', loadChildren: () => import('./invoice/invoice.module').then(m => m.InvoiceModule) },
 ];
 
 @NgModule({

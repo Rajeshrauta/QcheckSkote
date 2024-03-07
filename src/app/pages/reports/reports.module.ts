@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { UIModule } from "src/app/shared/ui/ui.module";
+
 
 import { ReportsRoutingModule } from './reports-routing.module';
-import { ReportsComponent } from './reports.component';
+import { CustomerReportsComponent } from './customer-reports/customer-reports.component';
+import { ItemReportsComponent } from './item-reports/item-reports.component';
+import { NoOrderReportsComponent } from './no-order-reports/no-order-reports.component';
+import { RolloverReportsComponent } from './rollover-reports/rollover-reports.component';
 
 
 @NgModule({
-  declarations: [
-    ReportsComponent
-  ],
-  imports: [
-    CommonModule,
-    ReportsRoutingModule
-  ]
+  declarations: [CustomerReportsComponent,ItemReportsComponent,NoOrderReportsComponent,RolloverReportsComponent],
+  imports: [CommonModule, ReportsRoutingModule, UIModule],
 })
-export class ReportsModule { }
+export class ReportsModule {}

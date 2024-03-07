@@ -6,6 +6,8 @@ export const MENU: MenuItem[] = [
     label: "MENUITEMS.MENU.TEXT",
     isTitle: true,
   },
+
+  //Dashboard
   {
     id: 2,
     label: "Dashboard",
@@ -37,12 +39,16 @@ export const MENU: MenuItem[] = [
       },
     ],
   },
+
+  //Customer
   {
     id: 7,
     label: "Customer",
     icon: "bx-user",
     link: "/customer",
   },
+
+  //Reports
   {
     id: 8,
     label: "Reports",
@@ -51,35 +57,39 @@ export const MENU: MenuItem[] = [
       {
         id: 9,
         label: "Customer Reports",
-        link: "/",
+        link: "/reports/customer-reports",
         parentId: 8,
       },
       {
         id: 10,
         label: "Item Reports",
-        link: "/",
+        link: "/reports/item-reports",
         parentId: 8,
       },
       {
         id: 11,
         label: "Rollover Reports",
-        link: "/",
+        link: "/reports/rollover-reports",
         parentId: 8,
       },
       {
         id: 12,
         label: "No Order Reports",
-        link: "/",
+        link: "/reports/no-order-reports",
         parentId: 8,
       },
     ],
   },
+
+  //Product and Services
   {
     id: 13,
     label: "Product and Service",
     icon: "bx-box",
-    link: "/",
+    link: "/products-and-services",
   },
+
+  // Setting
   {
     id: 14,
     label: "Settings",
@@ -88,53 +98,55 @@ export const MENU: MenuItem[] = [
       {
         id: 15,
         label: "Tab Setting",
-        link: "/",
+        link: "/setting/tab-setting",
         parentId: 14,
       },
       {
         id: 16,
         label: "Product List",
-        link: "/",
+        link: "/setting/product-list",
         parentId: 14,
       },
       {
         id: 17,
         label: "Manage Company",
-        link: "/",
+        link: "/setting/manage-company",
         parentId: 14,
       },
       {
         id: 18,
         label: "Sync",
-        link: "/",
+        link: "/setting/sync",
         parentId: 14,
       },
       {
         id: 19,
         label: "Hangfire Jobs",
-        link: "/",
+        link: "/setting/hangfire-jobs",
         parentId: 14,
       },
       {
         id: 20,
         label: "Shipping Company",
-        link: "/",
+        link: "/setting/shipping-company",
         parentId: 14,
       },
       {
         id: 21,
         label: "Rack Location",
-        link: "/",
+        link: "/setting/rack-location",
         parentId: 14,
       },
       {
         id: 22,
         label: "Pricing Rule",
-        link: "/",
+        link: "/setting/pricing-rule",
         parentId: 14,
       },
     ],
   },
+
+  //Accounting
   {
     id: 23,
     label: "Accounting",
@@ -142,24 +154,28 @@ export const MENU: MenuItem[] = [
     subItems: [
       {
         id: 24,
-        label: "Tuday Overdue",
-        link: "/",
+        label: "Today Overdue",
+        link: "/accounting/today-overdue",
         parentId: 23,
       },
       {
         id: 25,
         label: "All Overdue",
-        link: "/",
+        link: "/accounting/all-overdue",
         parentId: 23,
       },
     ],
   },
+
+  //Vendors
   {
     id: 26,
     label: "Vendors",
     icon: "mdi mdi-account-check",
-    link: "/",
+    link: "/vendors",
   },
+
+  //Communication
   {
     id: 27,
     label: "Communication",
@@ -179,6 +195,15 @@ export const MENU: MenuItem[] = [
       },
     ],
   },
+
+  //User Setup
+  {
+    id: 30,
+    label: "User Setup",
+    icon: "mdi mdi-account-key",
+    link: "/user-setup",
+  },
+
   // {
   //   id: 30,
   //   label: "User Setup",
@@ -216,13 +241,6 @@ export const MENU: MenuItem[] = [
   //     },
   //   ],
   // },
-
-  {
-    id: 26,
-    label: "User Setup",
-    icon: "mdi mdi-account-key",
-    link: "/user-setup",
-  },
 
   //   {
   //     id: 26,

@@ -46,11 +46,13 @@ export const MENU: MenuItem[] = [
       {
         id: 8,
         label: "Vendors",
-        link: "/",
+        link: "/vendors",
         parentId: 6,
       },
     ],
   },
+
+  //Reports
   {
     id: 8,
     label: "Reports",
@@ -59,35 +61,37 @@ export const MENU: MenuItem[] = [
       {
         id: 9,
         label: "Customer Reports",
-        link: "/",
+        link: "/reports/customer-reports",
         parentId: 8,
       },
       {
         id: 10,
         label: "Item Reports",
-        link: "/",
+        link: "/reports/item-reports",
         parentId: 8,
       },
       {
         id: 11,
         label: "Rollover Reports",
-        link: "/",
+        link: "/reports/rollover-reports",
         parentId: 8,
       },
       {
         id: 12,
         label: "No Order Reports",
-        link: "/",
+        link: "/reports/no-order-reports",
         parentId: 8,
       },
       {
         id: 13,
         label: "Product and Service",
-        link: "/",
+        link: "/products-and-services",
         parentId: 8,
       },
     ],
   },
+
+  //Setting
   {
     id: 14,
     label: "Settings",
@@ -96,49 +100,49 @@ export const MENU: MenuItem[] = [
       {
         id: 15,
         label: "Tab Setting",
-        link: "/",
+        link: "/setting/tab-setting",
         parentId: 14,
       },
       {
         id: 16,
         label: "Product List",
-        link: "/",
+        link: "/setting/product-list",
         parentId: 14,
       },
       {
         id: 17,
         label: "Manage Company",
-        link: "/",
+        link: "/setting/manage-company",
         parentId: 14,
       },
       {
         id: 18,
         label: "Sync",
-        link: "/",
+        link: "/setting/sync",
         parentId: 14,
       },
       {
         id: 19,
         label: "Hangfire Jobs",
-        link: "/",
+        link: "/setting/hangfire-jobs",
         parentId: 14,
       },
       {
         id: 20,
         label: "Shipping Company",
-        link: "/",
+        link: "/setting/shipping-company",
         parentId: 14,
       },
       {
         id: 21,
         label: "Rack Location",
-        link: "/",
+        link: "/setting/rack-location",
         parentId: 14,
       },
       {
         id: 22,
         label: "Pricing Rule",
-        link: "/",
+        link: "/setting/pricing-rule",
         parentId: 14,
       },
     ],
@@ -151,13 +155,13 @@ export const MENU: MenuItem[] = [
       {
         id: 24,
         label: "Tuday Overdue",
-        link: "/",
+        link: "/accounting/today-overdue",
         parentId: 23,
       },
       {
         id: 25,
         label: "All Overdue",
-        link: "/",
+        link: "/accounting/all-overdue",
         parentId: 23,
       },
     ],

@@ -1,0 +1,48 @@
+<div class="container-fluid">
+
+<div class="p-3">
+    <app-page-title title="Create Credit Memo" [breadcrumbItems]="breadCrumbItems">
+    </app-page-title>
+  </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-floating m-1">
+                <input type="text" class="form-control" placeholder="Customer Name" />
+                <label>Customer Name</label>
+            </div>
+        </div>
+        <div class="col-md-4 m-1">
+            <div class="form-floating">
+                <input type="text" class="form-control" placeholder="Customer Note" />
+                <label>Customer Note</label>
+            </div>
+        </div>
+        <div class="col-md-2 m-1">
+            <input type="button" class="btn btn-primary btn-lg" value="Create Credit Memo"/>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+    <table class="table table-hover mt-3">
+    <thead>
+      <tr>
+        <th scope="col">Product</th>
+        <th scope="col">Description</th>
+        <th scope="col">Unit Price</th>
+        <th scope="col">Qty</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of customerTransaction">
+        <td><input type="text" class="form-control form-control-sm" placeholder="{{item.Product}}"></td>
+        <td><input type="text" class="form-control form-control-sm" placeholder="{{item.Description}}"></td>
+        <td><input type="text" class="form-control form-control-sm" placeholder="{{item.UnitPrice}}"></td>
+        <td><input type="text" class="form-control form-control-sm" placeholder="{{item.Qty}}"></td>
+       <td><span class="mdi mdi-delete-circle-outline text-danger"></span></td>
+      </tr>        
+    </tbody>  
+  </table>
+</div>
+</div>

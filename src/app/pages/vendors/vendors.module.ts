@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { VendorsRoutingModule } from './vendors-routing.module';
 import { VendorsComponent } from './vendors.component';
+import { UIModule } from 'src/app/shared/ui/ui.module';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { VendorsComponent } from './vendors.component';
   ],
   imports: [
     CommonModule,
-    VendorsRoutingModule
+    VendorsRoutingModule,
+    UIModule
   ]
 })
 export class VendorsModule { }
