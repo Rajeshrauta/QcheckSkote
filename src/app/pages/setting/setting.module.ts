@@ -1,6 +1,7 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { NgxDropzoneModule } from "ngx-dropzone";
+import { BsDropdownModule } from "ngx-bootstrap/dropdown";
 
 import { UIModule } from "src/app/shared/ui/ui.module";
 import { SettingRoutingModule } from "./setting-routing.module";
@@ -24,6 +25,12 @@ import { TabSettingComponent } from "./tab-setting/tab-setting.component";
     SyncComponent,
     TabSettingComponent,
   ],
-  imports: [CommonModule, SettingRoutingModule, UIModule, NgxDropzoneModule],
+  imports: [
+    CommonModule,
+    SettingRoutingModule,
+    UIModule,
+    NgxDropzoneModule,
+    BsDropdownModule,
+  ],
 })
 export class SettingModule {}

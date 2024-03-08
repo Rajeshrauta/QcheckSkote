@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UIModule } from "src/app/shared/ui/ui.module";
-
+import { BsDropdownModule } from "ngx-bootstrap/dropdown";
 
 import { ReportsRoutingModule } from './reports-routing.module';
 import { CustomerReportsComponent } from './customer-reports/customer-reports.component';
@@ -11,7 +11,12 @@ import { RolloverReportsComponent } from './rollover-reports/rollover-reports.co
 
 
 @NgModule({
-  declarations: [CustomerReportsComponent,ItemReportsComponent,NoOrderReportsComponent,RolloverReportsComponent],
-  imports: [CommonModule, ReportsRoutingModule, UIModule],
+  declarations: [
+    CustomerReportsComponent,
+    ItemReportsComponent,
+    NoOrderReportsComponent,
+    RolloverReportsComponent,
+  ],
+  imports: [CommonModule, ReportsRoutingModule, UIModule, BsDropdownModule],
 })
 export class ReportsModule {}

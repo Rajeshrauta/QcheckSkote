@@ -7,7 +7,7 @@ import { UIModule } from "src/app/shared/ui/ui.module";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { SimplebarAngularModule } from "simplebar-angular";
 import { TabsModule } from "ngx-bootstrap/tabs";
-
+import { BsDropdownModule } from "ngx-bootstrap/dropdown";
 
 import { WhatsappChatComponent } from './whatsapp-chat/whatsapp-chat.component';
 import { EmailActivityComponent } from './email-activity/email-activity.component';
@@ -23,6 +23,7 @@ import { EmailActivityComponent } from './email-activity/email-activity.componen
     FormsModule,
     SimplebarAngularModule,
     TabsModule,
+    BsDropdownModule,
   ],
 })
 export class CommunicationModule {}

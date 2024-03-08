@@ -6,66 +6,121 @@
 
   <div class="card">
     <div class="card-body">
-      <table class="table table-hover">
-        <thead>
-          <tr>
-            <th style="width: 20px">
-              <div class="form-check font-size-16 align-middle">
-                <input class="form-check-input" type="checkbox" id="transactionCheck01" />
-                <label class="form-check-label" for="transactionCheck01"></label>
-              </div>
-            </th>
-            <th scope="col">Created On</th>
-            <th scope="col">Estimate-Id</th>
-            <th scope="col">Status</th>
-            <th scope="col">Assign-To</th>
-            <th scope="col">Assign-To</th>
-            <th scope="col">Amount</th>
-            <th scope="col">Customer</th>
-            <th scope="col">Comment</th>
-            <th scope="col">Total-Amount</th>
-            <th scope="col">Territory</th>
-            <th scope="col">Route</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
-              <div class="form-check font-size-16">
-                <input class="form-check-input" type="checkbox" />
-                <label class="form-check-label"></label>
-              </div>
-            </td>
-            <td>25 February 2024</td>
-            <td>445566</td>
-            <td>Pending</td>
-            <td>Ramesh</td>
-            <td>$123</td>
-            <td>Ram</td>
-            <td>
-              <div class="font-size-16">
-                <input class="form-control" type="text" />
-              </div>
-            </td>
-            <td>$123</td>
-            <td>BBSR</td>
-            <td>motto</td>
-            <td>motto</td>
-          </tr>
-          <tr>
-            <td>
-              <div class="form-check font-size-16">
-                <input class="form-check-input" type="checkbox" />
-                <label class="form-check-label"></label>
-              </div>
-            </td>
-            <td>25 February 2024</td>
-            <td>445566</td>
-            <td>$123</td>
-            <td>motto</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="row mb-2">
+        <div class="col-sm-4">
+          <div class="search-box me-2 mb-2 d-inline-block">
+            <div class="position-relative">
+              <input type="text" class="form-control" autocomplete="off" id="searchTableList" placeholder="Search...">
+              <i class="bx bx-search-alt search-icon"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-8">
+          <div class="text-sm-end">
+            <button type="button" class="btn btn-success btn-rounded mb-2 me-2"><i class="mdi mdi-refresh mr-1"></i>
+              Refresh</button>
+          </div>
+        </div><!-- end col-->
+      </div>
+      <div class="table-responsive mb-0">
+        <table class="table align-middle table-nowrap dt-responsive nowrap w-100 table-check" id="order-list">
+          <thead class="table-light">
+            <tr>
+              <th style="width: 20px">
+                <div class="form-check font-size-16 align-middle">
+                  <input class="form-check-input" type="checkbox" id="transactionCheck01" />
+                  <label class="form-check-label" for="transactionCheck01"></label>
+                </div>
+              </th>
+              <th class="align-middle">Created On</th>
+              <th class="align-middle">Estimate-Id</th>
+              <th class="align-middle">Status</th>
+              <th class="align-middle">Assign-To</th>
+              <th class="align-middle">Amount</th>
+              <th class="align-middle">Customer</th>
+              <th class="align-middle">Comment</th>
+              <th class="align-middle">Total-Amount</th>
+              <th class="align-middle">Territory</th>
+              <th class="align-middle">Route</th>
+              <th class="align-middle">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div class="form-check font-size-16">
+                  <input class="form-check-input" type="checkbox" />
+                  <label class="form-check-label"></label>
+                </div>
+              </td>
+              <td>25 February 2024</td>
+              <td>445566</td>
+              <td>Pending</td>
+              <td>Ramesh</td>
+              <td>$123</td>
+              <td>Ram</td>
+              <td>
+                <div class="font-size-16">
+                  <input class="form-control" type="text" />
+                </div>
+              </td>
+              <td>$123</td>
+              <td>BBSR</td>
+              <td>motto</td>
+              <td class="align-middle border-0 width-33">
+                <div class="dropdown" dropdown placement="bottom-left">
+                  <i class="mdi mdi-dots-vertical dropdown-toggle" dropdownToggle data-toggle="dropdown"
+                    aria-expanded="true"></i>
+                  <div class="dropdown-menu dropdown-menu-end" *dropdownMenu>
+                    <a class="dropdown-item" routerLink="/estimate/edit-estimate"><i
+                        class="mdi mdi-file-edit-outline"></i>Edit</a>
+                    <a class="dropdown-item" href="javascript: void(0);"><i class="mdi mdi-arrow-down"></i>Order
+                      Process</a>
+                    <a class="dropdown-item" href="javascript: void(0);"><i class="mdi mdi-message"></i>Message</a>
+                    <a class="dropdown-item" href="javascript: void(0);"><i class="mdi mdi-printer"></i>Print</a>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="form-check font-size-16">
+                  <input class="form-check-input" type="checkbox" />
+                  <label class="form-check-label"></label>
+                </div>
+              </td>
+              <td>25 February 2024</td>
+              <td>445566</td>
+              <td>Pending</td>
+              <td>Ramesh</td>
+              <td>$123</td>
+              <td>Ram</td>
+              <td>
+                <div class="font-size-16">
+                  <input class="form-control" type="text" />
+                </div>
+              </td>
+              <td>$123</td>
+              <td>BBSR</td>
+              <td>motto</td>
+              <td class="align-middle border-0 width-33">
+                <div class="dropdown" dropdown placement="bottom-left">
+                  <i class="mdi mdi-dots-vertical dropdown-toggle" dropdownToggle data-toggle="dropdown"
+                    aria-expanded="true"></i>
+                  <div class="dropdown-menu dropdown-menu-end" *dropdownMenu>
+                    <a class="dropdown-item" routerLink="/estimate/edit-estimate"><i
+                        class="mdi mdi-file-edit-outline"></i>Edit</a>
+                    <a class="dropdown-item" href="javascript: void(0);"><i class="mdi mdi-arrow-down"></i>Order
+                      Process</a>
+                    <a class="dropdown-item" href="javascript: void(0);"><i class="mdi mdi-message"></i>Message</a>
+                    <a class="dropdown-item" href="javascript: void(0);"><i class="mdi mdi-printer"></i>Print</a>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </div>

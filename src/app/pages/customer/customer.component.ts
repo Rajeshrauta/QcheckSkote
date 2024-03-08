@@ -251,5 +251,41 @@ export class CustomerComponent {
       Id: 1,
       ProductName: "Customer Name 10",
     },
+    {
+      Id: 1,
+      ProductName: "Customer Name 11",
+    },
+    {
+      Id: 1,
+      ProductName: "Customer Name 12",
+    },
+    {
+      Id: 1,
+      ProductName: "Customer Name 13",
+    },
+    {
+      Id: 1,
+      ProductName: "Customer Name 14",
+    },
+    {
+      Id: 1,
+      ProductName: "Customer Name 15",
+    },
+    {
+      Id: 1,
+      ProductName: "Customer Name 16",
+    },
+    {
+      Id: 1,
+      ProductName: "Customer Name 17",
+    },
+    {
+      Id: 1,
+      ProductName: "Customer Name 18",
+    },
+    {
+      Id: 1,
+      ProductName: "Customer Name 19",
+    },
   ];
 }

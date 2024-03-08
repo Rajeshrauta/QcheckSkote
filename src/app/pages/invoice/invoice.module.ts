@@ -6,13 +6,14 @@ import { CreateInvoiceComponent } from './create-invoice/create-invoice.componen
 import { EditInvoiceComponent } from './edit-invoice/edit-invoice.component';
 import { InvoiceLinkedWithEstimateComponent } from './invoice-linked-with-estimate/invoice-linked-with-estimate.component';
 import { UIModule } from 'src/app/shared/ui/ui.module';
+import { BsDropdownModule } from "ngx-bootstrap/dropdown";
 
 @NgModule({
-  declarations: [ CreateInvoiceComponent,EditInvoiceComponent,InvoiceLinkedWithEstimateComponent ],
-  imports: [
-    CommonModule,
-    InvoiceRoutingModule,
-    UIModule
-  ]
+  declarations: [
+    CreateInvoiceComponent,
+    EditInvoiceComponent,
+    InvoiceLinkedWithEstimateComponent,
+  ],
+  imports: [CommonModule, InvoiceRoutingModule, UIModule, BsDropdownModule],
 })
-export class InvoiceModule { }
+export class InvoiceModule {}

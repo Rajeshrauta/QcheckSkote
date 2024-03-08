@@ -3,7 +3,8 @@
 // 
 
 .page-title-box {
-    padding-bottom: $grid-gutter-width;
+    padding-bottom: 0;
+    // padding-bottom: $grid-gutter-width;
 
     .breadcrumb {
         background-color: transparent;

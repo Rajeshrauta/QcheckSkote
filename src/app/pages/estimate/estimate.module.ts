@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UIModule } from "src/app/shared/ui/ui.module";
+import { BsDropdownModule } from "ngx-bootstrap/dropdown";
 
 import { EstimateRoutingModule } from './estimate-routing.module';
 import { CreateEstimateComponent } from '../estimate/create-estimate/create-estimate.component';
@@ -26,8 +27,15 @@ import { FetchOrderComponent } from './fetch-order/fetch-order.component';
     EditEstimateComponent,
     EditManualEstimateComponent,
     CreateManualEstimateComponent,
-    NewOrderReceivedComponent,FetchOrderComponent
+    NewOrderReceivedComponent,
+    FetchOrderComponent,
   ],
-  imports: [CommonModule, EstimateRoutingModule, ReactiveFormsModule, UIModule],
+  imports: [
+    CommonModule,
+    EstimateRoutingModule,
+    ReactiveFormsModule,
+    UIModule,
+    BsDropdownModule,
+  ],
 })
 export class EstimateModule {}
