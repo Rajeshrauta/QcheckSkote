@@ -6,8 +6,8 @@
 
 
 .max-height-1 {
-    max-height:100vh;
-    min-height:100vh;
+    max-height:auto;
+    min-height:auto;
 }
 .max-height-2 {
     max-height:100vh;
@@ -30,11 +30,11 @@
 //     letter-spacing: -0.08 px !important;
 // }
 
-.sticky-th {
-    position: sticky;
-    top: 0;
-    z-index: 2;
-}
+// .sticky-th {
+//     position: sticky;
+//     top: 0;
+//     z-index: 2;
+// }
 
 .minus-svg-icon {
     height: 22px;
@@ -336,4 +336,3 @@
         display: inline-block !important;
     }
 }
-

@@ -1,7 +1,97 @@
 <div class="container-fluid">
 
-    <div class="p-3">
+  <div class="p-1">
     <app-page-title title="Products and Services" [breadcrumbItems]="breadCrumbItems">
     </app-page-title>
+  </div>
+
+  <div class="card">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="search-box d-inline-block">
+            <!-- <div class="position-relative">
+              <input type="text" class="form-control" autocomplete="off" id="searchTableList" placeholder="Search...">
+              <i class="bx bx-search-alt search-icon"></i>
+            </div> -->
+            <div class="dataTables_length" id="tickets-table_length"><label
+                class="d-inline-flex align-items-center">Show
+                <select name="tickets-table_length" aria-controls="tickets-table" name="pageSize"
+                  [(ngModel)]="service.pageSize" class="form-control form-control-sm mx-2">
+                  <option [ngValue]="10">10</option>
+                  <option [ngValue]="25">25</option>
+                  <option [ngValue]="50">50</option>
+                  <option [ngValue]="100">100</option>
+                </select> entries</label>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-8">
+          <div class="text-sm-end">
+            <div class="search-box d-inline-block">
+              <div class="position-relative mb-2 me-2">
+                <input type="text" class="form-control" autocomplete="off" id="searchTableList" placeholder="Search..." [(ngModel)]="service.searchTerm">
+                <i class="bx bx-search-alt search-icon"></i>
+              </div>
+            </div>
+            <button type="button" class="btn btn-success btn-rounded"><i
+                class="mdi mdi-microsoft-excel mr-1"></i>
+              Export to Excel</button>
+          </div>
+        </div><!-- end col-->
+      </div>
+      <div class="table-responsive mb-0">
+        <table class="table align-middle table-nowrap dt-responsive nowrap w-100 table-check" id="order-list">
+          <thead class="table-light">
+            <tr>
+              <th sortable="name" (sort)="onSort($event)">Item Name</th>
+              <th sortable="code" (sort)="onSort($event)">Item Code</th>
+              <th sortable="sku" (sort)="onSort($event)">SKU</th>
+              <th sortable="desc" (sort)="onSort($event)">Description</th>
+              <th sortable="price" (sort)="onSort($event)">Price</th>
+              <th sortable="qtyinhand" (sort)="onSort($event)">Qty in Hand</th>
+              <th>Color Code</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let table of tables$ | async;let i=index">
+            <tr>
+              <td>{{table.name}}</td>
+              <td>{{table.code}}</td>
+              <td>{{table.sku}}</td>
+              <td>{{table.desc}}</td>
+              <td>{{table.price}}</td>
+              <td>{{table.qtyinhand}}</td>
+              <td>
+                <select class="form-select" aria-label="Select Color">
+                  <option>Select</option>
+                  <option class="bg-danger">Red</option>
+                  <option class="bg-primary">Blue</option>
+                  <option class="bg-success">Green</option>
+                  <option class="bg-warning">Yellow</option>
+                  <option style="background-color: orangered;color:white;">Orange</option>
+                </select>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="row justify-content-md-between align-items-md-center mt-2">
+        <div class="col-sm-12 col-md-5">
+          <div class="dataTables_info mb-2" id="tickets-table_info" role="status" aria-live="polite">Showing
+            {{service.startIndex}} to
+            {{service.endIndex}} of {{service.totalRecords}}
+            entries
+          </div>
+        </div>
+        <!-- Pagination -->
+        <div class="col-sm-12 col-md-5">
+          <div class="text-md-right float-md-end pagination-rounded">
+            <pagination [totalItems]="total$ | async" [(ngModel)]="service.page">
+            </pagination>
+          </div>
+        </div>
+        <!-- End Pagination -->
+      </div>
+    </div>
   </div>
 </div>
