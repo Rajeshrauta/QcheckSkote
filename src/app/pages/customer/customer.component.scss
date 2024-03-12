@@ -4,7 +4,6 @@
 
 
 
-
 .max-height-1 {
     max-height:auto;
     min-height:auto;
@@ -16,18 +15,12 @@
 
 .height {
     overflow-y: auto;
-    max-height: calc(100vh - 130px);
+    // max-height: calc(100vh - 130px);
+    max-height: 118vh;
 }
 
 // .height2 {
 //     max-height: calc(100vh - 200px);
-// }
-
-// .caption-bold-1 {
-//     font-weight: 700 !important;
-//     font-size: 12px !important;
-//     line-height: 24px !important;
-//     letter-spacing: -0.08 px !important;
 // }
 
 // .sticky-th {
@@ -36,303 +29,18 @@
 //     z-index: 2;
 // }
 
-.minus-svg-icon {
-    height: 22px;
-    color: rgb(255, 0, 76);
-    cursor: pointer;
-}
-
-.plus-svg-icon {
-    height: 22px;
-    color: green;
-    cursor: pointer;
-
-}
-
-.bg-primary {
-    background-color: rgb(35, 35, 245) !important;
-    color: #ffffff;
-}
-
 .form-control {
     box-shadow: none !important;
 }
 
-.search-icon {
-    height: 16px;
-    color: #ffffff;
-}
-
-
-.disabled {
-    color: rgba(195, 198, 204, 1);
-    pointer-events: none;
-}
-
-
 
 .border {
-    border-radius: 10px;
-    border: 1px solid rgb(189, 189, 189) !important;
+    border-radius: 4px;
+    border: 1px solid rgb(134, 134, 134) !important;
 }
 
 .hover:hover {
     cursor: pointer;
-    background-color: rgb(216, 216, 216);
+    background-color: rgb(139, 116, 241);
     color: whitesmoke;
-}
-
-.margin-bottom1 {
-    margin-bottom: 10px;
-    border-bottom: 1px solid maroon;
-}
-
-
-.hand {
-    cursor: pointer;
-}
-
-
-@media (min-width: 150px) and (max-width: 450px) {
-    .minus-svg-icon1 {
-        display: none;
-    }
-
-    .max-height-1 {
-        max-height: auto;
-        min-height: auto
-    }
-
-    .max-height-2 {
-        max-height: auto;
-        min-height: auto;
-    }
-
-    .height{
-        overflow-y: auto;
-        max-height: calc(100vh - 450px);
-    }
-
-    .height2 {
-        max-height: calc(100vh - 380px);
-    }
-}
-
-@media only screen and (max-width: 350px) {
-    .width-33 {
-        width: 30%;
-    }
-
-    .align-middle {
-        padding-left: 5px;
-        padding-right: 5px;
-
-    }
-}
-
-@media only screen and (max-width: 501px) {
-    .minus-svg-icon {
-        height: 18px;
-        position: relative;
-    }
-
-    .plus-svg-icon {
-        height: 18px;
-    }
-
-    .align-middle {
-        padding-left: 10px;
-        padding-right: 10px;
-
-    }
-
-    .width-33 {
-        width: 33%;
-    }
-
-}
-
-@media (min-width: 450px) and (max-width: 576px) {
-
-    .minus-svg-icon1 {
-        display: none;
-    }
-
-    .label-header {
-        display: none !important;
-    }
-
-    .max-height {
-        max-height: auto;
-        min-height: auto
-    }
-
-    .max-height-1 {
-        max-height: inherit;
-        min-height: auto
-    }
-
-    .max-height-2 {
-        max-height: auto;
-        min-height: auto;
-    }
-
-    .height{
-        overflow-y: auto;
-        max-height: calc(100vh - 450px);
-    }
-
-    .height2 {
-        max-height: calc(100vh - 380px);
-    }
-
-    .min-width-60 {
-        padding: 5px;
-    }
-
-    .align-middle {
-        padding-left: 5px;
-        padding-right: 5px;
-    }
-
-}
-
-@media (min-width: 575px) and (max-width: 767px) {
-    .col {
-        width: 100%;
-    }
-
-    .min-width-60 {
-        min-width: 60px;
-        padding: 5px;
-    }
-
-    .align-middle {
-        padding-left: 5px;
-        padding-right: 5px;
-    }
-
-    .height2 {
-        max-height: calc(100vh - 380px);
-    }
-
-    .max-height-1 {
-        max-height: inherit;
-        min-height: auto
-    }
-
-    .max-height-2 {
-        max-height: inherit;
-        min-height: auto
-    }
-}
-
-
-@media (min-width: 767px) and (max-width: 1024px) {
-    .height2 {
-        max-height: calc(100vh - 366px);
-    }
-}
-
-@media only screen and (max-width: 1024px) {
-    .hideColumn {
-        display: none;
-    }
-
-    .hideShowNineMonthData {
-        display: block;
-    }
-}
-
-
-@media only screen and (max-width: 450px),
-(min-device-width: 768px) and (max-device-width: 1024px) {
-    .all-bgClr {
-        background-color: rgb(48, 14, 196) !important;
-        padding: 10px;
-        color: #ffffff;
-    }    
-
-    .width-33 {
-        width: 33%;
-    }
-
-    table,
-    thead,
-    tbody,
-    th,
-    td,
-    tr {
-        display: block;
-    }
-
-    /* Hide table headers (but not display: none;, for accessibility) */
-    thead tr {
-        position: absolute;
-        top: -9999px;
-        left: -9999px;
-    }
-
-    tr {
-        margin: 0 0 1rem 0;
-    }
-
-
-    td {
-        /* Behave  like a "row" */
-        border: none;
-        border-bottom: 1px solid #eee;
-        position: relative;
-    }
-
-    td:before {
-        /* Now like a table header */
-        position: absolute;
-        /* Top/left values mimic padding */
-        top: 0;
-        left: 6px;
-        width: 45%;
-        padding-right: 10px;
-        white-space: nowrap;
-    }
-
-    /*
-		Label the data
-    You could also use a data-* attribute and content for this. That way "bloats" the HTML, this way means you need to keep HTML and CSS in sync. Lea Verou has a clever way to handle with text-shadow.
-		*/
-    td:nth-of-type(1) {
-        padding: 0px !important;
-    }
-
-    td:nth-of-type(1):before {
-        content: "";
-    }
-
-    td:nth-of-type(2) {
-        display: inline-block !important;
-    }
-
-
-    td:nth-of-type(3) {
-        display: inline-block !important;
-    }
-
-
-    td:nth-of-type(4) {
-        display: inline-block !important;
-    }
-
-
-    td:nth-of-type(5) {
-        display: inline-block !important;
-    }
-    td:nth-of-type(6) {
-        display: inline-block !important;
-    }
-    td:nth-of-type(7) {
-        display: inline-block !important;
-    }
-    td:nth-of-type(8) {
-        display: inline-block !important;
-    }
 }

@@ -9,142 +9,102 @@
       <div class="card">
         <div class="card-body">
           <div class="row">
-            <div class="d-flex flex-wrap align-items-center py-2">
+            <div class="d-flex flex-wrap py-2">
               <div class="col-lg-2 col-md-3 col-12 col-sm-3 flex-grow-1 col">
-                <div class="border p-2 m-1 max-height-2">
-                  <div class="d-flex align-items-center">
-                    <div class="input-group mt-2 ps-2 w-100">
-                      <input type="text" class="form-control"  placeholder="Search" >
+                <div class="border p-2 m-1">
+                  <div class="">
+                    <div class="input-group mt-1 w-100">
+                      <input type="text" class="form-control" placeholder="Search">
                       <div class="input-group-append">
                         <span class="input-group-text" id="basic-addon2"><i class="mdi mdi-magnify" (click)="toggleMenu()"></i></span>
                       </div>
                     </div>
-                    <!-- <div class="mt-2 ps-2 w-100">
-                      <input type="text" class="form-control" />
-                    </div>
-                    <div class="ms-auto pe-2">
-                      
-                    </div> -->
                   </div>
-                  <div *ngIf="showMenu" class="height" style="font-size: 14px" id="myLinks">
-                    <div *ngFor="let value of ProductData" class="p-2 m-2 border-bottom hover">
+                  <div *ngIf="showMenu" class="height"  id="myLinks">
+                    <div *ngFor="let value of ProductData" class="pt-1 mt-1 border-bottom hover">
                       <span>{{ value.ProductName }}</span>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="col-lg-10 col-md-9 col-12 col-sm-9 flex-grow-1 col">
-                <div class="max-height-1">
-                  <app-customer-information></app-customer-information>
-                  <div class="table-responsive mb-0">
-                    <table class="table align-middle table-nowrap dt-responsive nowrap w-100 table-check" id="order-list">
-                      <thead class="table-light">
-                        <tr>
-                          <th class="align-middle">Type</th>
-                          <th class="align-middle">Created/Date</th>
-                          <th class="align-middle text-center">
-                            Id
-                          </th>
-                          <th class="align-middle">Balance</th>
-                          <th class="align-middle">Total</th>
-                          <th class="align-middle">
-                            Transaction/Date
-                          </th>
-                          <th class="align-middle">Comments</th>
-                          <th class="align-middle">Action</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr *ngFor="let dataItem of customerTransaction" class="margin-bottom1" style="font-size: 14px">
-                          <td class="align-middle border-0">
-                            <span for="">{{ dataItem.Type }}</span>
-                          </td>
-                          <td class="align-middle border-0 width-33">
-                            <span class="d-md-none d-sm-none label-header"
-                              style="font-size: 10px; display: flex">CreatedDate</span>
-                            <span for="">{{ dataItem.CreatedDate }}</span>
-                          </td>
+                  <div class="col-lg-10 col-md-9 col-12 col-sm-9 flex-grow-1 col">
+                    <div class="max-height-1">
+                      <app-customer-information></app-customer-information>
+                      <div class="table-responsive mb-0">
+                        <table class="table align-middle table-nowrap dt-responsive nowrap w-100 table-check"
+                          id="order-list">
+                          <thead class="table-light">
+                            <tr>
+                              <th class="align-middle">Type</th>
+                              <th class="align-middle">Created/Date</th>
+                              <th class="align-middle text-center">
+                                Id
+                              </th>
+                              <th class="align-middle">Balance</th>
+                              <th class="align-middle">Total</th>
+                              <th class="align-middle">
+                                Transaction/Date
+                              </th>
+                              <th class="align-middle">Comments</th>
+                              <th class="align-middle">Action</th>
+                            </tr>
+                          </thead>
+                          <tbody *ngFor="let dataItem of tables$ | async;let i=index">
+                            <tr>
+                              <td>{{ dataItem.type }}
+                              </td>
+                              <td>{{ dataItem.createddate }}</td>
+                              <td>{{ dataItem.id }}</td>
 
-                          <td class="align-middle border-0">
-                            <span class="d-md-none d-sm-none label-header"
-                              style="font-size: 10px; display: flex">Id</span>
-                            <span for="">{{ dataItem.Id }}</span>
-                          </td>
+                              <td>{{ dataItem.balance }}</td>
 
-                          <td class="align-middle border-0">
-                            <span class="d-md-none d-sm-none label-header"
-                              style="font-size: 10px; display: flex">Balance</span>
-                            <span for="">{{ dataItem.Balance }}</span>
-                          </td>
-
-                          <td class="align-middle border-0">
-                            <span class="d-md-none d-sm-none label-header"
-                              style="font-size: 10px; display: flex">Total</span>
-                            <span for="">{{ dataItem.Total }}</span>
-                          </td>
-                          <td class="align-middle border-0 width-33">
-                            <span class="d-md-none d-sm-none label-header"
-                              style="font-size: 10px; display: flex">TransactionDate</span>
-                            <span for="">{{ dataItem.TransactionDate }}</span>
-                          </td>
-                          <td class="align-middle border-0 width-33">
-                            <span class="d-md-none d-sm-none label-header"
-                              style="font-size: 10px; display: flex">Comments</span>
-                              <textarea class="form-control" id="Comments" rows="1"></textarea>
-                          </td>
-                          <td class="border-0 d-flex justify-content-center">
-                            <div class="dropdown" dropdown placement="bottom-left">
-                              <i class="fa fa-ellipsis-v dropdown-toggle" dropdownToggle data-toggle="dropdown"
-                                aria-expanded="true"><i class="fa fa-angle-down" aria-hidden="true"></i></i>
-                              <div class="dropdown-menu dropdown-menu-end" *dropdownMenu>
-                                <a class="dropdown-item" routerLink="/estimate/edit-estimate"><i
-                                    class="mdi mdi-file-edit-outline"></i>Edit</a>
-                                <a class="dropdown-item" href="javascript: void(0);"><i
-                                    class="mdi mdi-arrow-down"></i>Order
-                                  Process</a>
-                                <a class="dropdown-item" href="javascript: void(0);"><i
-                                    class="mdi mdi-message"></i>Message</a>
-                                <a class="dropdown-item" href="javascript: void(0);"><i
-                                    class="mdi mdi-printer"></i>Print</a>
-                              </div>
-                            </div>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                    <div class="card-footer py-4">
-                      <nav aria-label="...">
-                        <ul class="pagination justify-content-end mb-0">
-                          <li class="page-item disabled">
-                            <a class="page-link" href="javascript:void(0)" tabindex="-1">
-                              <i class="fas fa-angle-left"></i>
-                              <span class="sr-only">Previous</span>
-                            </a>
-                          </li>
-                          <li class="page-item active">
-                            <a class="page-link" href="javascript:void(0)">1</a>
-                          </li>
-                          <li class="page-item">
-                            <a class="page-link" href="javascript:void(0)">2 <span class="sr-only">(current)</span></a>
-                          </li>
-                          <li class="page-item">
-                            <a class="page-link" href="javascript:void(0)">3</a>
-                          </li>
-                          <li class="page-item">
-                            <a class="page-link" href="javascript:void(0)">
-                              <i class="fas fa-angle-right"></i>
-                              <span class="sr-only">Next</span>
-                            </a>
-                          </li>
-                        </ul>
-                      </nav>
+                              <td>{{ dataItem.total }}</td>
+                              <td>{{ dataItem.transactiondate }}</td>
+                              <td><textarea class="form-control" id="Comments" rows="1">{{ dataItem.Comments }}</textarea></td>
+                              <td class="d-flex justify-content-center">
+                                <div class="dropdown" dropdown placement="bottom-left">
+                                  <i class="fa fa-ellipsis-v dropdown-toggle" dropdownToggle data-toggle="dropdown"
+                                    aria-expanded="true"><i class="fa fa-angle-down" aria-hidden="true"></i></i>
+                                  <div class="dropdown-menu dropdown-menu-end" *dropdownMenu>
+                                    <a class="dropdown-item" routerLink="/estimate/edit-estimate"><i
+                                        class="mdi mdi-file-edit-outline"></i>Edit</a>
+                                    <a class="dropdown-item" href="javascript: void(0);"><i
+                                        class="mdi mdi-arrow-down"></i>Order
+                                      Process</a>
+                                    <a class="dropdown-item" href="javascript: void(0);"><i
+                                        class="mdi mdi-message"></i>Message</a>
+                                    <a class="dropdown-item" href="javascript: void(0);"><i
+                                        class="mdi mdi-printer"></i>Print</a>
+                                  </div>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="row justify-content-md-between align-items-md-center mt-2">
+                        <div class="col-sm-12 col-md-5">
+                          <div class="dataTables_info mb-2" id="tickets-table_info" role="status" aria-live="polite">
+                            Showing
+                            {{service.startIndex}} to
+                            {{service.endIndex}} of {{service.totalRecords}}
+                            entries
+                          </div>
+                        </div>
+                        <!-- Pagination -->
+                        <div class="col-sm-12 col-md-5">
+                          <div class="text-md-right float-md-end pagination-rounded">
+                            <pagination [totalItems]="total$ | async" [(ngModel)]="service.page">
+                            </pagination>
+                          </div>
+                        </div>
+                        <!-- End Pagination -->
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-</div>

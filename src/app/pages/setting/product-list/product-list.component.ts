@@ -14,8 +14,8 @@ export class ProductListComponent implements OnInit {
 
   ngOnInit() {
     this.breadCrumbItems = [
-      { label: "Forms" },
-      { label: "Form File Upload", active: true },
+      { label: "Product List" },
+      { label: "All", active: true },
     ];
   }
 

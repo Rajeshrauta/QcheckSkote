@@ -27,9 +27,9 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
     UIModule,
     ReactiveFormsModule,
     FormsModule,
-    PaginationModule,
+    PaginationModule.forRoot(),
     NgbModule,
-    BsDropdownModule,
+    BsDropdownModule.forRoot(),
   ],
 })
 export class CustomerModule {}
