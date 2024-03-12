@@ -1,6 +1,197 @@
 <div class="container-fluid">
-    <div class="p-3">
+  <div class="p-2">
     <app-page-title title="Tab Setting" [breadcrumbItems]="breadCrumbItems">
     </app-page-title>
   </div>
+
+  <div class="card">
+    <div class="card-body">
+      <div class="row mb-2">
+        <div class="col-sm-4">
+          <div class="search-box me-2 mb-2 d-inline-block">
+            <div class="position-relative">
+              <input type="text" class="form-control" autocomplete="off" id="searchTableList" placeholder="Search...">
+              <i class="bx bx-search-alt search-icon"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-8">
+          <div class="text-sm-end">
+            <button type="button" class="btn btn-success btn-rounded mb-2 me-2" (click)="addRecordModal.show()"><i class="mdi mdi-plus mr-1"></i>
+            Add new record</button>
+          </div>
+        </div><!-- end col-->
+      </div>
+      <div class="table-responsive mb-0">
+        <table class="table align-middle table-nowrap dt-responsive nowrap w-100 table-check" id="order-list">
+          <thead class="table-light">
+            <tr>
+              <th>Tab Name</th>
+              <th>Tab Configuration</th>
+              <th>Print Sequence</th>
+              <th>Image</th>
+              <th>Hide From Customers</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+        <tbody *ngFor="let data of TableData">
+            <tr>
+              <td>{{ data.tabname }}
+              <td>{{ data.tabconf }}
+              <td>{{ data.printseq }}
+              <td>{{ data.image }}
+              <td><div class="form-check font-size-16">
+                <input class="form-check-input" type="checkbox" [checked]="data.hide"/>
+                <label class="form-check-label"></label>
+              </div></td>
+              <td>
+                <div class="dropdown" dropdown placement="bottom-left">
+                  <i class="fa fa-ellipsis-v dropdown-toggle" dropdownToggle data-toggle="dropdown" aria-expanded="true"></i>
+                  <div class="dropdown-menu dropdown-menu-end" *dropdownMenu>
+                    <a class="dropdown-item" (click)="editRecordModal.show()"><i class="mdi mdi-file-edit-outline m-1"></i>Edit</a>
+                    <a class="dropdown-item" (click)="removeRecordModal.show()"><i class="mdi mdi-delete-outline m-1"></i>Delete</a>
+                    <a class="dropdown-item"><i class="mdi mdi-cloud-sync-outline m-1"></i>Sync</a>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
 </div>
+
+
+
+
+<!-- Add new Record -->
+
+<div bsModal #addRecordModal="bs-modal" class="modal fade" id="createUserModal" tabindex="-1"
+  aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add new Record</h5>
+        <button type="button" class="btn-close" id="close-modal" (click)="addRecordModal.hide()"></button>
+      </div>
+      <div class="modal-body">
+        <form class="needs-validation createorder-form" id="createorder-form" [formGroup]="addRecordForm"
+          (ngSubmit)="onaddRecordFormSubmit()">
+          <div class="row">
+            
+            <div class="col-lg-12">
+              <div class="mb-3">
+                <label for="email-field" class="form-label">Choose file</label>
+                <input type="file" class="form-control"
+                  formControlName="file" />
+                <div *ngIf="c.file.invalid && (c.file.dirty || c.file.touched)" class="text-danger">
+                  <div *ngIf="c.file.errors.required">
+                    Please upload the file.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-12">
+              <div class="text-end">
+                <button type="button" class="btn btn-outline-secondary me-1" (click)="addRecordModal.hide()">
+                  Cancel
+                </button>
+                <button type="submit" class="btn btn-success">
+                  Create
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <!-- end modal body -->
+    </div>
+  </div>
+</div>
+
+<!-- End Add new Record -->
+
+
+
+<!-- Edit Record -->
+
+<div bsModal #editRecordModal="bs-modal" class="modal fade" id="createUserModal" tabindex="-1"
+  aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit Record</h5>
+        <button type="button" class="btn-close" id="close-modal" (click)="editRecordModal.hide()"></button>
+      </div>
+      <div class="modal-body">
+        <form class="needs-validation createorder-form" id="createorder-form" [formGroup]="editRecordForm"
+          (ngSubmit)="onEditRecordFormSubmit()">
+          <div class="row">
+
+            <div class="col-lg-12">
+              <div class="mb-3">
+                <label for="email-field" class="form-label">Tab Name</label>
+                <input type="text" class="form-control" placeholder="Enter Tab Name" formControlName="tabname" />
+                <div *ngIf="e.tabname.invalid && (e.tabname.dirty || e.tabname.touched)" class="text-danger">
+                  <div *ngIf="e.tabname.errors.required">
+                    Tab Name is required.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-12">
+              <div class="text-end">
+                <button type="button" class="btn btn-outline-secondary me-1" (click)="editRecordModal.hide()">
+                  Cancel
+                </button>
+                <button type="submit" class="btn btn-success">
+                  Create
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <!-- end modal body -->
+    </div>
+  </div>
+</div>
+
+<!-- End Edit Record -->
+
+
+
+<!-- Delete user modal -->
+
+<div bsModal #removeRecordModal="bs-modal" class="modal fade" id="removeItemModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-md">
+    <div class="modal-content">
+      <div class="modal-body px-4 py-5 text-center">
+        <button type="button" class="btn-close position-absolute end-0 top-0 m-3"
+          (click)="removeRecordModal.hide()"></button>
+        <div class="avatar-sm mb-4 mx-auto">
+          <div class="avatar-title bg-primary text-primary bg-opacity-10 font-size-20 rounded-3">
+            <i class="mdi mdi-trash-can-outline"></i>
+          </div>
+        </div>
+        <p class="text-muted font-size-16 mb-4">
+          Are you Sure You want to Remove this Record ?
+        </p>
+
+        <div class="hstack gap-2 justify-content-center mb-0">
+          <button type="button" class="btn btn-danger" id="remove-item" >
+            Remove Now
+          </button>
+          <button type="button" class="btn btn-secondary" id="close-removeOrderModal" (click)="removeRecordModal.hide()">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- end removeItemModal -->
