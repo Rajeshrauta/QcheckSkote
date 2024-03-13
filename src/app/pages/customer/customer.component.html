@@ -26,25 +26,20 @@
                 </div>
               </div>
               <div class="col-lg-10 col-md-9 col-12 col-sm-9 flex-grow-1 col">
-                <div class="max-height-1">
                   <app-customer-information></app-customer-information>
                   <div class="table-responsive mb-0">
                     <table class="table align-middle table-nowrap dt-responsive nowrap w-100 table-check"
                       id="order-list">
                       <thead class="table-light">
                         <tr>
-                          <th class="align-middle">Type</th>
-                          <th class="align-middle">Created/Date</th>
-                          <th class="align-middle text-center">
-                            Id
-                          </th>
-                          <th class="align-middle">Balance</th>
-                          <th class="align-middle">Total</th>
-                          <th class="align-middle">
-                            Transaction/Date
-                          </th>
-                          <th class="align-middle">Comments</th>
-                          <th class="align-middle">Action</th>
+                          <th>Type</th>
+                          <th>Created/Date</th>
+                          <th>Id</th>
+                          <th>Balance</th>
+                          <th>Total</th>
+                          <th>Transaction/Date</th>
+                          <th>Comments</th>
+                          <th class="text-center">Action</th>
                         </tr>
                       </thead>
                       <tbody *ngFor="let dataItem of tables$ | async;let i=index">
@@ -112,7 +107,6 @@
                     <!-- End Pagination -->
                   </div>
                 </div>
-              </div>
             </div>
           </div>
         </div>
