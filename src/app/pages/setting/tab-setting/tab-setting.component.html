@@ -132,8 +132,8 @@
 
             <div class="col-lg-12">
               <div class="mb-3">
-                <label for="email-field" class="form-label">Tab Name</label>
-                <input type="text" class="form-control" placeholder="Enter Tab Name" formControlName="tabname" />
+                <label for="Tab Name" class="form-label">Tab Name</label>
+                <input type="text" id="Tab Name" class="form-control" placeholder="Enter Tab Name" formControlName="tabname" />
                 <div *ngIf="e.tabname.invalid && (e.tabname.dirty || e.tabname.touched)" class="text-danger">
                   <div *ngIf="e.tabname.errors.required">
                     Tab Name is required.
@@ -148,7 +148,7 @@
                   Cancel
                 </button>
                 <button type="submit" class="btn btn-success">
-                  Create
+                  Update
                 </button>
               </div>
             </div>

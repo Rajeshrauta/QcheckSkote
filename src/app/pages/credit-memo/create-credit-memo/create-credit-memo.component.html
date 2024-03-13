@@ -1,48 +1,265 @@
 <div class="container-fluid">
-
-<div class="p-3">
+  <div class="p-2">
     <app-page-title title="Create Credit Memo" [breadcrumbItems]="breadCrumbItems">
     </app-page-title>
   </div>
-
-    <div class="row">
-        <div class="col-md-4">
-            <div class="form-floating m-1">
-                <input type="text" class="form-control" placeholder="Customer Name" />
-                <label>Customer Name</label>
+  <div class="card">
+    <div class="card-body">
+      <div class="row mb-2">
+        <div class="col-sm-4">
+          <div class="search-box me-2 mb-2 d-inline-block">
+            <div class="position-relative">
+              <input type="text" class="form-control" autocomplete="off" id="searchTableList" placeholder="Search...">
+              <i class="bx bx-search-alt search-icon"></i>
             </div>
+          </div>
         </div>
-        <div class="col-md-4 m-1">
-            <div class="form-floating">
-                <input type="text" class="form-control" placeholder="Customer Note" />
-                <label>Customer Note</label>
-            </div>
-        </div>
-        <div class="col-md-2 m-1">
-            <input type="button" class="btn btn-primary btn-lg" value="Create Credit Memo"/>
-        </div>
+        <div class="col-sm-8">
+          <div class="text-sm-end">
+            <button type="button" class="btn btn-success btn-rounded mb-2 me-2" (click)="createMemeoModal.show()"><i
+                class="mdi mdi-plus mr-1"></i>
+              Add new record</button>
+          </div>
+        </div><!-- end col-->
+      </div>
+      <div class="table-responsive mb-0">
+        <table class="table align-middle table-nowrap dt-responsive nowrap w-100 table-check" id="order-list">
+          <thead class="table-light">
+            <tr>
+              <th scope="col">Product</th>
+              <th scope="col">Description</th>
+              <th scope="col">Unit Price</th>
+              <th scope="col">Qty</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of customerTransaction">
+              <td>{{item.Product}}</td>
+              <td>{{item.Description}}</td>
+              <td>{{item.UnitPrice}}</td>
+              <td>{{item.Qty}}</td>
+              <td>
+                <div class="dropdown" dropdown placement="bottom-left">
+                  <i class="fa fa-ellipsis-v dropdown-toggle" dropdownToggle data-toggle="dropdown"
+                    aria-expanded="true"></i>
+                  <div class="dropdown-menu dropdown-menu-end" *dropdownMenu>
+                    <a class="dropdown-item" (click)="editMemoModal.show()"><i
+                        class="mdi mdi-file-edit-outline m-1"></i>Edit</a>
+                    <a class="dropdown-item" (click)="removeMemoodal.show()"><i
+                        class="mdi mdi-delete-outline m-1"></i>Delete</a>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
+  </div>
+</div>
 
-    <div class="table-responsive">
-    <table class="table table-hover mt-3">
-    <thead>
-      <tr>
-        <th scope="col">Product</th>
-        <th scope="col">Description</th>
-        <th scope="col">Unit Price</th>
-        <th scope="col">Qty</th>
-        <th scope="col">Action</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let item of customerTransaction">
-        <td><input type="text" class="form-control form-control-sm" placeholder="{{item.Product}}"></td>
-        <td><input type="text" class="form-control form-control-sm" placeholder="{{item.Description}}"></td>
-        <td><input type="text" class="form-control form-control-sm" placeholder="{{item.UnitPrice}}"></td>
-        <td><input type="text" class="form-control form-control-sm" placeholder="{{item.Qty}}"></td>
-       <td><span class="mdi mdi-delete-circle-outline text-danger"></span></td>
-      </tr>        
-    </tbody>  
-  </table>
+
+
+
+
+<!-- Add new Record -->
+
+<div bsModal #createMemeoModal="bs-modal" class="modal fade" id="createUserModal" tabindex="-1"
+  aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add New Record</h5>
+        <button type="button" class="btn-close" id="close-modal" (click)="createMemeoModal.hide()"></button>
+      </div>
+      <div class="modal-body">
+        <form class="needs-validation createorder-form" id="createorder-form" [formGroup]="addMemoForm"
+          (ngSubmit)="onAddMemoFormSubmit()">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="mb-3">
+                <label for="Product" class="form-label">Product</label>
+                <input type="text" class="form-control" formControlName="product" id="Product" placeholder="Product Name" />
+                <div *ngIf="c.product.invalid && (c.product.dirty || c.product.touched)" class="text-danger">
+                  <div *ngIf="c.product.errors.required">
+                    Product name is required.
+                  </div>
+                </div>
+              </div>
+            </div>
+          
+            <div class="col-lg-6">
+              <div class="mb-3">
+                <label for="Quantity" class="form-label">Quantity</label>
+                <input type="text" class="form-control" formControlName="qty" id="Quantity" placeholder="Quantity" />
+                <div *ngIf="c.qty.invalid && (c.qty.dirty || c.qty.touched)" class="text-danger">
+                  <div *ngIf="c.qty.errors.required">
+                    Quantity name is required.
+                  </div>
+                </div>
+              </div>
+            </div>
+          
+            <div class="col-lg-6">
+              <div class="mb-3">
+                <label for="unitPrice" class="form-label">Unit Price</label>
+                <input type="text" class="form-control" formControlName="unitPrice" id="unitPrice" placeholder="Unit Price" />
+                <div *ngIf="c.unitPrice.invalid && (c.unitPrice.dirty || c.unitPrice.touched)" class="text-danger">
+                  <div *ngIf="c.unitPrice.errors.required">
+                    Unit Price is required.
+                  </div>
+                </div>
+              </div>
+            </div>
+          
+            <div class="col-lg-12">
+              <div class="mb-3">
+                <label for="Description" class="form-label">Description</label>
+                <textarea id="Description" class="form-control" rows="3" formControlName="desc"
+                  placeholder="Write description here..."></textarea>
+                <div *ngIf="c.desc.invalid && (c.desc.dirty || c.desc.touched)" class="text-danger">
+                  <div *ngIf="c.desc.errors.required">
+                    Description is required.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-12">
+              <div class="text-end">
+                <button type="button" class="btn btn-outline-secondary me-1" (click)="createMemeoModal.hide()">
+                  Cancel
+                </button>
+                <button type="submit" class="btn btn-success">
+                  Create
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <!-- end modal body -->
+    </div>
+  </div>
 </div>
+
+<!-- End Add new Record -->
+
+<!-- Edit new Record -->
+
+<div bsModal #editMemoModal="bs-modal" class="modal fade" id="createUserModal" tabindex="-1"
+  aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit Details</h5>
+        <button type="button" class="btn-close" id="close-modal" (click)="editMemoModal.hide()"></button>
+      </div>
+      <div class="modal-body">
+        <form class="needs-validation createorder-form" id="createorder-form" [formGroup]="editMemoForm"
+          (ngSubmit)="onEditMemoFormSubmit()">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="mb-3">
+                <label for="Product" class="form-label">Product</label>
+                <input type="text" class="form-control" formControlName="product" id="Product" placeholder="Product Name" />
+                <div *ngIf="e.product.invalid && (e.product.dirty || e.product.touched)"
+                  class="text-danger">
+                  <div *ngIf="e.product.errors.required">
+                    Product name is required.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6">
+              <div class="mb-3">
+                <label for="Quantity" class="form-label">Quantity</label>
+                <input type="text" class="form-control" formControlName="qty" id="Quantity" placeholder="Quantity" />
+                <div *ngIf="e.qty.invalid && (e.qty.dirty || e.qty.touched)" class="text-danger">
+                  <div *ngIf="e.qty.errors.required">
+                    Quantity name is required.
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col-lg-6">
+              <div class="mb-3">
+                <label for="unitPrice" class="form-label">Unit Price</label>
+                <input type="text" class="form-control" formControlName="unitPrice" id="unitPrice" placeholder="Unit Price" />
+                <div *ngIf="e.unitPrice.invalid && (e.unitPrice.dirty || e.unitPrice.touched)" class="text-danger">
+                  <div *ngIf="e.unitPrice.errors.required">
+                    Unit Price is required.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-12">
+              <div class="mb-3">
+                <label for="Description" class="form-label">Description</label>
+                <textarea id="Description" class="form-control" rows="3" formControlName="desc"
+                  placeholder="Write description here..."></textarea>
+                <div *ngIf="e.desc.invalid && (e.desc.dirty || e.desc.touched)" class="text-danger">
+                  <div *ngIf="e.desc.errors.required">
+                    Description is required.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-12">
+              <div class="text-end">
+                <button type="button" class="btn btn-outline-secondary me-1" (click)="editMemoModal.hide()">
+                  Cancel
+                </button>
+                <button type="submit" class="btn btn-success">
+                  Update
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <!-- end modal body -->
+    </div>
+  </div>
 </div>
+
+<!-- End Edit new Record -->
+
+
+<!-- Delete record modal -->
+
+<div bsModal #removeMemoodal="bs-modal" class="modal fade" id="removeItemModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-md">
+    <div class="modal-content">
+      <div class="modal-body px-4 py-5 text-center">
+        <button type="button" class="btn-close position-absolute end-0 top-0 m-3"
+          (click)="removeMemoodal.hide()"></button>
+        <div class="avatar-sm mb-4 mx-auto">
+          <div class="avatar-title bg-primary text-primary bg-opacity-10 font-size-20 rounded-3">
+            <i class="mdi mdi-trash-can-outline"></i>
+          </div>
+        </div>
+        <p class="text-muted font-size-16 mb-4">
+          Are you Sure You want to Remove this Record ?
+        </p>
+
+        <div class="hstack gap-2 justify-content-center mb-0">
+          <button type="button" class="btn btn-danger" id="remove-item">
+            Remove Now
+          </button>
+          <button type="button" class="btn btn-secondary" id="close-removeOrderModal"
+            (click)="removeMemoodal.hide()">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- end delete record Modal -->

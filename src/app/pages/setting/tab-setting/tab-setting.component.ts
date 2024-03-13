@@ -23,7 +23,7 @@ export class TabSettingComponent {
   addRecordForm: FormGroup;
   editRecordForm: FormGroup;
 
-   @ViewChild("addRecordModal", { static: false })
+  @ViewChild("addRecordModal", { static: false })
   addRecordModal?: ModalDirective;
   @ViewChild("editRecordModal", { static: false })
   editRecordModal?: ModalDirective;
