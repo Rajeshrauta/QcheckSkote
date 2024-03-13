@@ -28,14 +28,14 @@
           <tr>
             <th>Company Name</th>
             <th>Description</th>
-            <th>Action</th>
+            <th class="text-center">Action</th>
           </tr>
         </thead>
         <tbody *ngFor="let data of TableData">
           <tr>
             <td>{{ data.companyname }}
             <td>{{ data.desc }}
-            <td>
+            <td class="d-flex justify-content-center">
               <div class="dropdown" dropdown placement="bottom-left">
                 <i class="fa fa-ellipsis-v dropdown-toggle" dropdownToggle data-toggle="dropdown"
                   aria-expanded="true"></i>
