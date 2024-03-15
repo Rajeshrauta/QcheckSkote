@@ -4,210 +4,216 @@
     </app-page-title>
   </div>
   <div class="card">
-  <div class="card-body">
-    <div class="row mb-2">
-      <div class="col-sm-4">
-        <div class="search-box me-2 mb-2 d-inline-block">
-          <div class="position-relative">
-            <input type="text" class="form-control" autocomplete="off" id="searchTableList" placeholder="Search...">
-            <i class="bx bx-search-alt search-icon"></i>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-8">
-        <div class="text-sm-end">
-          <button type="button" class="btn btn-success btn-rounded mb-2 me-2" (click)="addCompanyModal.show()"><i
-              class="mdi mdi-plus mr-1"></i>
-            Add new record</button>
-        </div>
-      </div><!-- end col-->
-    </div>
-    <div class="table-responsive mb-0">
-      <table class="table align-middle table-nowrap dt-responsive nowrap w-100 table-check" id="order-list">
-        <thead class="table-light">
-          <tr>
-            <th>Company Name</th>
-            <th>Description</th>
-            <th class="text-center">Action</th>
-          </tr>
-        </thead>
-        <tbody *ngFor="let data of TableData">
-          <tr>
-            <td>{{ data.companyname }}
-            <td>{{ data.desc }}
-            <td class="d-flex justify-content-center">
-              <div class="dropdown" dropdown placement="bottom-left">
-                <i class="fa fa-ellipsis-v dropdown-toggle" dropdownToggle data-toggle="dropdown"
-                  aria-expanded="true"></i>
-                <div class="dropdown-menu dropdown-menu-end" *dropdownMenu>
-                  <a class="dropdown-item" (click)="editCompanyModal.show()"><i
-                      class="mdi mdi-file-edit-outline m-1"></i>Edit</a>
-                  <a class="dropdown-item" (click)="removeRecordModal.show()"><i
-                      class="mdi mdi-delete-outline m-1"></i>Delete</a>
-                </div>
-              </div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</div>
-
-
-
-
-
-<!-- Add new Record -->
-
-<div bsModal #addCompanyModal="bs-modal" class="modal fade" id="createUserModal" tabindex="-1"
-  aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Add new Company</h5>
-        <button type="button" class="btn-close" id="close-modal" (click)="addCompanyModal.hide()"></button>
-      </div>
-      <div class="modal-body">
-        <form class="needs-validation createorder-form" id="createorder-form" [formGroup]="addCompanyForm"
-          (ngSubmit)="onAddCompanyFormSubmit()">
-          <div class="row">
-
-            <div class="col-lg-12">
-              <div class="mb-3">
-                <label for="CompanyName" class="form-label">Company Name</label>
-                <input type="text" class="form-control" formControlName="companyname" id="CompanyName" />
-                <div *ngIf="c.companyname.invalid && (c.companyname.dirty || c.companyname.touched)" class="text-danger">
-                  <div *ngIf="c.companyname.errors.required">
-                    Company name is required.
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-12">
-              <div class="mb-3">
-                <label for="Description" class="form-label">Description</label>
-                <textarea id="Description" class="form-control" rows="3" formControlName="desc"></textarea>
-                <div *ngIf="c.desc.invalid && (c.desc.dirty || c.desc.touched)" class="text-danger">
-                  <div *ngIf="c.desc.errors.required">
-                    Description is required.
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-12">
-              <div class="text-end">
-                <button type="button" class="btn btn-outline-secondary me-1" (click)="addCompanyModal.hide()">
-                  Cancel
-                </button>
-                <button type="submit" class="btn btn-success">
-                  Create
-                </button>
-              </div>
+    <div class="card-body">
+      <div class="row mb-2">
+        <div class="col-sm-4">
+          <div class="search-box me-2 mb-2 d-inline-block">
+            <div class="position-relative">
+              <input type="text" class="form-control" autocomplete="off" id="searchTableList" placeholder="Search...">
+              <i class="bx bx-search-alt search-icon"></i>
             </div>
           </div>
-        </form>
+        </div>
+        <div class="col-sm-8">
+          <div class="text-sm-end">
+            <button type="button" class="btn btn-success btn-rounded mb-2 me-2" (click)="addCompanyModal.show()"><i
+                class="mdi mdi-plus mr-1"></i>
+              Add new record</button>
+          </div>
+        </div><!-- end col-->
       </div>
-      <!-- end modal body -->
-    </div>
-  </div>
-</div>
-
-<!-- End Add new Record -->
-
-
-<!-- Edit new Record -->
-
-<div bsModal #editCompanyModal="bs-modal" class="modal fade" id="createUserModal" tabindex="-1"
-  aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Edit Details</h5>
-        <button type="button" class="btn-close" id="close-modal" (click)="editCompanyModal.hide()"></button>
-      </div>
-      <div class="modal-body">
-        <form class="needs-validation createorder-form" id="createorder-form" [formGroup]="editCompanyForm"
-          (ngSubmit)="onEditCompanyFormSubmit()">
-          <div class="row">
-
-            <div class="col-lg-12">
-              <div class="mb-3">
-                <label for="CompanyName" class="form-label">Company Name</label>
-                <input type="text" class="form-control" formControlName="companyname" id="CompanyName" />
-                <div *ngIf="e.companyname.invalid && (e.companyname.dirty || e.companyname.touched)"
-                  class="text-danger">
-                  <div *ngIf="e.companyname.errors.required">
-                    Company name is required.
+      <div class="table-responsive mb-0">
+        <table class="table align-middle table-nowrap dt-responsive nowrap w-100 table-check" id="order-list">
+          <thead class="table-light">
+            <tr>
+              <th>Company Name</th>
+              <th>Description</th>
+              <th class="text-center">Action</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let data of TableData">
+            <tr>
+              <td>{{ data.companyname }}
+              <td>{{ data.desc }}
+              <td>
+                <div class="d-flex justify-content-center">
+                  <div style="z-index: 100; position: absolute;">
+                    <div class="dropdown" dropdown placement="bottom-left">
+                      <i class="fa fa-ellipsis-v dropdown-toggle" dropdownToggle data-toggle="dropdown"
+                        aria-expanded="true" style="z-index: -1; position: absolute;"></i>
+                      <div class="dropdown-menu dropdown-menu-end" *dropdownMenu>
+                        <a class="dropdown-item" (click)="editCompanyModal.show()"><i
+                            class="mdi mdi-file-edit-outline m-1"></i>Edit</a>
+                        <a class="dropdown-item" (click)="removeRecordModal.show()"><i
+                            class="mdi mdi-delete-outline m-1"></i>Delete</a>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </div>
-
-            <div class="col-lg-12">
-              <div class="mb-3">
-                <label for="Description" class="form-label">Description</label>
-                <textarea id="Description" class="form-control" rows="3" formControlName="desc" placeholder="Description"></textarea>
-                <div *ngIf="e.desc.invalid && (e.desc.dirty || e.desc.touched)" class="text-danger">
-                  <div *ngIf="e.desc.errors.required">
-                    Description is required.
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-12">
-              <div class="text-end">
-                <button type="button" class="btn btn-outline-secondary me-1" (click)="editCompanyModal.hide()">
-                  Cancel
-                </button>
-                <button type="submit" class="btn btn-success">
-                  Update
-                </button>
-              </div>
-            </div>
-          </div>
-        </form>
-      </div>
-      <!-- end modal body -->
-    </div>
-  </div>
-</div>
-
-<!-- End Edit new Record -->
-
-
-<!-- Delete record modal -->
-
-<div bsModal #removeRecordModal="bs-modal" class="modal fade" id="removeItemModal" tabindex="-1" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-md">
-    <div class="modal-content">
-      <div class="modal-body px-4 py-5 text-center">
-        <button type="button" class="btn-close position-absolute end-0 top-0 m-3"
-          (click)="removeRecordModal.hide()"></button>
-        <div class="avatar-sm mb-4 mx-auto">
-          <div class="avatar-title bg-primary text-primary bg-opacity-10 font-size-20 rounded-3">
-            <i class="mdi mdi-trash-can-outline"></i>
-          </div>
-        </div>
-        <p class="text-muted font-size-16 mb-4">
-          Are you Sure You want to Remove this Record ?
-        </p>
-
-        <div class="hstack gap-2 justify-content-center mb-0">
-          <button type="button" class="btn btn-danger" id="remove-item">
-            Remove Now
-          </button>
-          <button type="button" class="btn btn-secondary" id="close-removeOrderModal"
-            (click)="removeRecordModal.hide()">
-            Close
-          </button>
-        </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
-</div>
 
-<!-- end delete record Modal -->
+
+
+
+
+  <!-- Add new Record -->
+
+  <div bsModal #addCompanyModal="bs-modal" class="modal fade" id="createUserModal" tabindex="-1"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add new Company</h5>
+          <button type="button" class="btn-close" id="close-modal" (click)="addCompanyModal.hide()"></button>
+        </div>
+        <div class="modal-body">
+          <form class="needs-validation createorder-form" id="createorder-form" [formGroup]="addCompanyForm"
+            (ngSubmit)="onAddCompanyFormSubmit()">
+            <div class="row">
+
+              <div class="col-lg-12">
+                <div class="mb-3">
+                  <label for="CompanyName" class="form-label">Company Name</label>
+                  <input type="text" class="form-control" formControlName="companyname" id="CompanyName" />
+                  <div *ngIf="c.companyname.invalid && (c.companyname.dirty || c.companyname.touched)"
+                    class="text-danger">
+                    <div *ngIf="c.companyname.errors.required">
+                      Company name is required.
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-12">
+                <div class="mb-3">
+                  <label for="Description" class="form-label">Description</label>
+                  <textarea id="Description" class="form-control" rows="3" formControlName="desc"></textarea>
+                  <div *ngIf="c.desc.invalid && (c.desc.dirty || c.desc.touched)" class="text-danger">
+                    <div *ngIf="c.desc.errors.required">
+                      Description is required.
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-12">
+                <div class="text-end">
+                  <button type="button" class="btn btn-outline-secondary me-1" (click)="addCompanyModal.hide()">
+                    Cancel
+                  </button>
+                  <button type="submit" class="btn btn-success">
+                    Create
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <!-- end modal body -->
+      </div>
+    </div>
+  </div>
+
+  <!-- End Add new Record -->
+
+
+  <!-- Edit new Record -->
+
+  <div bsModal #editCompanyModal="bs-modal" class="modal fade" id="createUserModal" tabindex="-1"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Edit Details</h5>
+          <button type="button" class="btn-close" id="close-modal" (click)="editCompanyModal.hide()"></button>
+        </div>
+        <div class="modal-body">
+          <form class="needs-validation createorder-form" id="createorder-form" [formGroup]="editCompanyForm"
+            (ngSubmit)="onEditCompanyFormSubmit()">
+            <div class="row">
+
+              <div class="col-lg-12">
+                <div class="mb-3">
+                  <label for="CompanyName" class="form-label">Company Name</label>
+                  <input type="text" class="form-control" formControlName="companyname" id="CompanyName" />
+                  <div *ngIf="e.companyname.invalid && (e.companyname.dirty || e.companyname.touched)"
+                    class="text-danger">
+                    <div *ngIf="e.companyname.errors.required">
+                      Company name is required.
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-12">
+                <div class="mb-3">
+                  <label for="Description" class="form-label">Description</label>
+                  <textarea id="Description" class="form-control" rows="3" formControlName="desc"
+                    placeholder="Description"></textarea>
+                  <div *ngIf="e.desc.invalid && (e.desc.dirty || e.desc.touched)" class="text-danger">
+                    <div *ngIf="e.desc.errors.required">
+                      Description is required.
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-12">
+                <div class="text-end">
+                  <button type="button" class="btn btn-outline-secondary me-1" (click)="editCompanyModal.hide()">
+                    Cancel
+                  </button>
+                  <button type="submit" class="btn btn-success">
+                    Update
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <!-- end modal body -->
+      </div>
+    </div>
+  </div>
+
+  <!-- End Edit new Record -->
+
+
+  <!-- Delete record modal -->
+
+  <div bsModal #removeRecordModal="bs-modal" class="modal fade" id="removeItemModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-md">
+      <div class="modal-content">
+        <div class="modal-body px-4 py-5 text-center">
+          <button type="button" class="btn-close position-absolute end-0 top-0 m-3"
+            (click)="removeRecordModal.hide()"></button>
+          <div class="avatar-sm mb-4 mx-auto">
+            <div class="avatar-title bg-primary text-primary bg-opacity-10 font-size-20 rounded-3">
+              <i class="mdi mdi-trash-can-outline"></i>
+            </div>
+          </div>
+          <p class="text-muted font-size-16 mb-4">
+            Are you Sure You want to Remove this Record ?
+          </p>
+
+          <div class="hstack gap-2 justify-content-center mb-0">
+            <button type="button" class="btn btn-danger" id="remove-item">
+              Remove Now
+            </button>
+            <button type="button" class="btn btn-secondary" id="close-removeOrderModal"
+              (click)="removeRecordModal.hide()">
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- end delete record Modal -->

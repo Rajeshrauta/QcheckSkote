@@ -22,27 +22,27 @@
           </div>
         </div><!-- end col-->
       </div>
-      <div class="table-responsive mb-0">
+      <div class="table-responsive py-4">
         <table class="table align-middle table-nowrap dt-responsive nowrap w-100 table-check" id="order-list">
           <thead class="table-light">
             <tr>
-              <th style="width: 20px">
+              <td>
                 <div class="form-check font-size-16 align-middle">
                   <input class="form-check-input" type="checkbox" id="transactionCheck01" />
                   <label class="form-check-label" for="transactionCheck01"></label>
                 </div>
-              </th>
-              <th class="align-middle">Created On</th>
-              <th class="align-middle">Estimate-Id</th>
-              <th class="align-middle">Status</th>
-              <th class="align-middle">Assign-To</th>
-              <th class="align-middle">Amount</th>
-              <th class="align-middle">Customer</th>
-              <th class="align-middle">Comment</th>
-              <th class="align-middle">Total-Amount</th>
-              <th class="align-middle">Territory</th>
-              <th class="align-middle">Route</th>
-              <th class="align-middle">Action</th>
+              </td>
+              <th>Created On</th>
+              <th>Estimate-Id</th>
+              <th>Status</th>
+              <th>Assign-To</th>
+              <th>Amount</th>
+              <th>Customer</th>
+              <th>Comment</th>
+              <th>Total-Amount</th>
+              <th>Territory</th>
+              <th>Route</th>
+              <th class="text-center">Action</th>
             </tr>
           </thead>
           <tbody>
@@ -59,25 +59,23 @@
               <td>Ramesh</td>
               <td>$123</td>
               <td>Ram</td>
-              <td>
-                <div class="font-size-16">
-                  <input class="form-control" type="text" />
-                </div>
-              </td>
+              <td><textarea class="form-control" id="Comments" rows="1" placeholder="Comment"></textarea></td>
               <td>$123</td>
               <td>BBSR</td>
               <td>motto</td>
-              <td class="align-middle border-0 width-33">
-                <div class="dropdown" dropdown placement="bottom-left">
-                  <i class="mdi mdi-dots-vertical dropdown-toggle" dropdownToggle data-toggle="dropdown"
-                    aria-expanded="true"></i>
-                  <div class="dropdown-menu dropdown-menu-end" *dropdownMenu>
-                    <a class="dropdown-item" routerLink="/estimate/edit-estimate"><i
-                        class="mdi mdi-file-edit-outline"></i>Edit</a>
-                    <a class="dropdown-item" href="javascript: void(0);"><i class="mdi mdi-arrow-down"></i>Order
-                      Process</a>
-                    <a class="dropdown-item" href="javascript: void(0);"><i class="mdi mdi-message"></i>Message</a>
-                    <a class="dropdown-item" href="javascript: void(0);"><i class="mdi mdi-printer"></i>Print</a>
+              <td>
+                <div class="d-flex justify-content-center">
+                  <div style="z-index: 100; position: absolute;">
+                    <div class="dropdown" dropdown placement="bottom-left">
+                      <i class="fa fa-ellipsis-v dropdown-toggle" dropdownToggle data-toggle="dropdown" aria-expanded="true"
+                        style="z-index: -1; position: absolute;"></i>
+                      <div class="dropdown-menu dropdown-menu-end" *dropdownMenu>
+                        <a class="dropdown-item" routerLink="/estimate/edit-estimate"><i class="mdi mdi-file-edit-outline"></i>Edit</a>
+                        <a class="dropdown-item"><i class="mdi mdi-arrow-down"></i>Order Process</a>
+                        <a class="dropdown-item"><i class="mdi mdi-message"></i>Message</a>
+                        <a class="dropdown-item"><i class="mdi mdi-printer"></i>Print</a>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </td>
@@ -103,17 +101,19 @@
               <td>$123</td>
               <td>BBSR</td>
               <td>motto</td>
-              <td class="align-middle border-0 width-33">
-                <div class="dropdown" dropdown placement="bottom-left">
-                  <i class="mdi mdi-dots-vertical dropdown-toggle" dropdownToggle data-toggle="dropdown"
-                    aria-expanded="true"></i>
-                  <div class="dropdown-menu dropdown-menu-end" *dropdownMenu>
-                    <a class="dropdown-item" routerLink="/estimate/edit-estimate"><i
-                        class="mdi mdi-file-edit-outline"></i>Edit</a>
-                    <a class="dropdown-item" href="javascript: void(0);"><i class="mdi mdi-arrow-down"></i>Order
-                      Process</a>
-                    <a class="dropdown-item" href="javascript: void(0);"><i class="mdi mdi-message"></i>Message</a>
-                    <a class="dropdown-item" href="javascript: void(0);"><i class="mdi mdi-printer"></i>Print</a>
+              <td>
+                <div class="d-flex justify-content-center">
+                  <div style="z-index: 100; position: absolute;">
+                    <div class="dropdown" dropdown placement="bottom-left">
+                      <i class="fa fa-ellipsis-v dropdown-toggle" dropdownToggle data-toggle="dropdown" aria-expanded="true"
+                        style="z-index: -1; position: absolute;"></i>
+                      <div class="dropdown-menu dropdown-menu-end" *dropdownMenu>
+                        <a class="dropdown-item" routerLink="/estimate/edit-estimate"><i class="mdi mdi-file-edit-outline"></i>Edit</a>
+                        <a class="dropdown-item"><i class="mdi mdi-arrow-down"></i>Order Process</a>
+                        <a class="dropdown-item"><i class="mdi mdi-message"></i>Message</a>
+                        <a class="dropdown-item"><i class="mdi mdi-printer"></i>Print</a>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </td>

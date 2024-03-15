@@ -22,8 +22,8 @@
           </div>
         </div><!-- end col-->
       </div>
-      <div class="table-responsive mb-0">
-        <table class="table align-middle table-nowrap dt-responsive nowrap w-100 table-check" id="order-list">
+      <div class="table-responsive py-4">
+        <table class="table align-middle table-nowrap dt-responsive nowrap w-100 table-check">
           <thead class="table-light">
             <tr>
               <th style="width: 20px">
@@ -32,10 +32,11 @@
                   <label class="form-check-label" for="transactionCheck01"></label>
                 </div>
               </th>
-              <th class="align-middle">Created On</th>
-              <th class="align-middle">Id</th>
-              <th class="align-middle">Amount</th>
-              <th class="align-middle">Customer</th>
+              <th>Created On</th>
+              <th>Id</th>
+              <th>Amount</th>
+              <th>Customer</th>
+              <th class="text-center">Action</th>
             </tr>
           </thead>
           <tbody>
@@ -50,6 +51,21 @@
               <td>445566</td>
               <td>$123</td>
               <td>motto</td>
+              <td>
+                <div class="d-flex justify-content-center">
+                  <div style="z-index: 100; position: absolute;">
+                    <div class="dropdown" dropdown placement="bottom-left">
+                      <i class="fa fa-ellipsis-v dropdown-toggle" dropdownToggle data-toggle="dropdown" aria-expanded="true"
+                        style="z-index: -1; position: absolute;"></i>
+                      <div class="dropdown-menu dropdown-menu-end" *dropdownMenu>
+                        <a class="dropdown-item"><i class="mdi mdi-plus m-1"></i>Create Estimate</a>
+                        <a class="dropdown-item"><i class="mdi mdi-message m-1"></i>Send Email</a>
+                        <a class="dropdown-item"><i class="mdi mdi-delete-outline m-1"></i>Delete</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </td>
             </tr>
             <tr>
               <td>
@@ -62,6 +78,23 @@
               <td>445566</td>
               <td>$123</td>
               <td>motto</td>
+              <td>
+                <div class="d-flex justify-content-center">
+                  <div style="z-index: 100; position:absolute;">
+                    <div class="dropdown" dropdown placement="bottom-left">
+                      <i class="fa fa-ellipsis-v dropdown-toggle" dropdownToggle data-toggle="dropdown" aria-expanded="true"
+                        style="z-index: -1; position: absolute;"></i>
+                      <div class="dropdown-menu dropdown-menu-end" *dropdownMenu>
+                        <a class="dropdown-item"><i
+                            class="mdi mdi-plus m-1"></i>Create Estimate</a>
+                            <a class="dropdown-item"><i class="mdi mdi-message m-1"></i>Send Email</a>
+                        <a class="dropdown-item"><i
+                            class="mdi mdi-delete-outline m-1"></i>Delete</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </td>
             </tr>
           </tbody>
         </table>

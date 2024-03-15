@@ -1,8 +1,5 @@
 <div class="container-fluid">
-  <app-page-title
-    title="User Setup"
-    [breadcrumbItems]="breadCrumbItems"
-  ></app-page-title>
+  <app-page-title title="User Setup" [breadcrumbItems]="breadCrumbItems"></app-page-title>
 
   <div class="row">
     <div class="col-12">
@@ -12,35 +9,23 @@
             <div class="col-sm-4">
               <div class="search-box me-2 mb-2 d-inline-block">
                 <div class="position-relative">
-                  <input
-                    type="text"
-                    class="form-control"
-                    autocomplete="off"
-                    id="searchTableList"
-                    placeholder="Search..."
-                  />
+                  <input type="text" class="form-control" autocomplete="off" id="searchTableList"
+                    placeholder="Search..." />
                   <i class="bx bx-search-alt search-icon"></i>
                 </div>
               </div>
             </div>
             <div class="col-sm-8">
               <div class="text-sm-end">
-                <button
-                  type="button"
-                  class="btn btn-success btn-rounded mb-2 me-2"
-                  (click)="createUserModal.show()"
-                >
+                <button type="button" class="btn btn-success btn-rounded mb-2 me-2" (click)="createUserModal.show()">
                   <i class="mdi mdi-plus mr-1"></i> Create User
                 </button>
               </div>
             </div>
           </div>
 
-          <div class="table-responsive mb-0">
-            <table
-              class="table align-middle table-nowrap dt-responsive nowrap w-100 table-check"
-              id="order-list"
-            >
+          <div class="table-responsive mb-0 py-4">
+            <table class="table align-middle table-nowrap dt-responsive nowrap w-100 table-check" id="order-list">
               <thead class="table-light">
                 <tr>
                   <th class="align-middle">Name</th>
@@ -55,92 +40,48 @@
                 </tr>
               </thead>
               <tbody>
-                <tr
-                  *ngFor="let data of usersData; let i = index"
-                  id="o_{{ data.id }}"
-                >
+                <tr *ngFor="let data of usersData; let i = index" id="o_{{ data.id }}">
                   <td>{{ data.name }}</td>
                   <td>{{ data.email }}</td>
                   <td>{{ data.phone }}</td>
                   <td>{{ data.type }}</td>
                   <td>
                     <div class="form-check form-switch">
-                      <input
-                        type="checkbox"
-                        class="form-check-input"
-                        [checked]="data.enabled"
-                        disabled
-                      />
+                      <input type="checkbox" class="form-check-input" [checked]="data.enabled" disabled />
                     </div>
                   </td>
                   <td>
-                    <div
-                      class="form-check form-switch"
-                      *ngIf="data.type !== 'Customer'"
-                    >
-                      <input
-                        type="checkbox"
-                        class="form-check-input"
-                        [checked]="data.phoneverified"
-                        disabled
-                      />
+                    <div class="form-check form-switch" *ngIf="data.type !== 'Customer'">
+                      <input type="checkbox" class="form-check-input" [checked]="data.phoneverified" disabled />
                     </div>
                   </td>
                   <td>
-                    <div
-                      class="form-check form-switch"
-                      *ngIf="data.type !== 'Customer'"
-                    >
-                      <input
-                        type="checkbox"
-                        class="form-check-input"
-                        [checked]="data.emailverified"
-                        disabled
-                      />
+                    <div class="form-check form-switch" *ngIf="data.type !== 'Customer'">
+                      <input type="checkbox" class="form-check-input" [checked]="data.emailverified" disabled />
                     </div>
                   </td>
                   <td>
-                    <div
-                      class="form-check form-switch"
-                      *ngIf="data.type !== 'Customer'"
-                    >
-                      <input
-                        type="checkbox"
-                        class="form-check-input"
-                        [checked]="data.twofactorenabled"
-                        disabled
-                      />
+                    <div class="form-check form-switch" *ngIf="data.type !== 'Customer'">
+                      <input type="checkbox" class="form-check-input" [checked]="data.twofactorenabled" disabled />
                     </div>
                   </td>
                   <td>
-                    <div class="dropdown" dropdown placement="bottom-left">
-                      <i class="fa fa-ellipsis-v dropdown-toggle" dropdownToggle data-toggle="dropdown" aria-expanded="true"></i>
-                      <div class="dropdown-menu dropdown-menu-end" *dropdownMenu>
-                        <a class="dropdown-item" (click)="editModal(i)"><i class="mdi mdi-file-edit-outline m-1"></i>Edit</a>
-                        <a class="dropdown-item" (click)="confirm(i)"><i class="mdi mdi-delete-outline m-1"></i>Delete</a>
-                        <a class="dropdown-item" (click)="passwodResetModal.show()"><i class="mdi mdi-lock-reset m-1"></i>Reset Password</a>
+                    <div class="d-flex justify-content-center">
+                      <div style="z-index: 100; position: absolute;">
+                        <div class="dropdown" dropdown placement="bottom-left">
+                          <i class="fa fa-ellipsis-v dropdown-toggle" dropdownToggle data-toggle="dropdown"
+                            aria-expanded="true"></i>
+                          <div class="dropdown-menu dropdown-menu-end" *dropdownMenu>
+                            <a class="dropdown-item" (click)="editModal(i)"><i
+                                class="mdi mdi-file-edit-outline m-1"></i>Edit</a>
+                            <a class="dropdown-item" (click)="confirm(i)"><i
+                                class="mdi mdi-delete-outline m-1"></i>Delete</a>
+                            <a class="dropdown-item" (click)="passwodResetModal.show()"><i
+                                class="mdi mdi-lock-reset m-1"></i>Reset Password</a>
+                          </div>
+                        </div>
                       </div>
                     </div>
-                    <!-- <div class="d-flex gap-3">
-                      <a
-                        href="javascript:void(0);"
-                        class="text-success"
-                        (click)="editModal(i)"
-                        ><i class="mdi mdi-pencil font-size-18"></i
-                      ></a>
-                      <a
-                        href="javascript:void(0);"
-                        class="text-danger"
-                        (click)="confirm(i)"
-                        ><i class="mdi mdi-delete font-size-18"></i
-                      ></a>
-                      <a
-                        href="javascript:void(0);"
-                        class="text-primary"
-                        (click)="passwodResetModal.show()"
-                        ><i class="mdi mdi-lock-reset font-size-18"></i
-                      ></a>
-                    </div> -->
                   </td>
                 </tr>
               </tbody>
@@ -159,53 +100,27 @@
 
 
 <!-- password reset modal -->
-<div
-  bsModal
-  #passwodResetModal="bs-modal"
-  class="modal fade"
-  id="showModal"
-  tabindex="-1"
-  aria-labelledby="exampleModalLabel"
-  aria-hidden="true"
->
+<div bsModal #passwodResetModal="bs-modal" class="modal fade" id="showModal" tabindex="-1"
+  aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Reset Password</h5>
-        <button
-          type="button"
-          class="btn-close"
-          id="close-modal"
-          (click)="passwodResetModal.hide()"
-        ></button>
+        <button type="button" class="btn-close" id="close-modal" (click)="passwodResetModal.hide()"></button>
       </div>
       <div class="modal-body">
-        <form
-          [formGroup]="passwordForm"
-          (ngSubmit)="onResetPasswordSubmit()"
-          class="needs-validation createorder-form"
-          id="createorder-form"
-        >
+        <form [formGroup]="passwordForm" (ngSubmit)="onResetPasswordSubmit()" class="needs-validation createorder-form"
+          id="createorder-form">
           <div class="row">
             <div class="col-lg-12">
               <div class="mb-3">
-                <label for="currentPassword" class="form-label"
-                  >Current Password</label
-                >
-                <input
-                  type="password"
-                  formControlName="currentPassword"
-                  class="form-control"
-                  id="currentPassword"
-                  placeholder="Enter current password"
-                />
-                <div
-                  *ngIf="
+                <label for="currentPassword" class="form-label">Current Password</label>
+                <input type="password" formControlName="currentPassword" class="form-control" id="currentPassword"
+                  placeholder="Enter current password" />
+                <div *ngIf="
                     f.currentPassword.invalid &&
                     (f.currentPassword.dirty || f.currentPassword.touched)
-                  "
-                  class="text-danger"
-                >
+                  " class="text-danger">
                   <div *ngIf="f.currentPassword.errors.required">
                     Current password is required.
                   </div>
@@ -215,20 +130,12 @@
             <div class="col-lg-12">
               <div class="mb-3">
                 <label for="newPassword" class="form-label">New Password</label>
-                <input
-                  type="password"
-                  formControlName="newPassword"
-                  class="form-control"
-                  id="newPassword"
-                  placeholder="Enter new password"
-                />
-                <div
-                  *ngIf="
+                <input type="password" formControlName="newPassword" class="form-control" id="newPassword"
+                  placeholder="Enter new password" />
+                <div *ngIf="
                     f.newPassword.invalid &&
                     (f.newPassword.dirty || f.newPassword.touched)
-                  "
-                  class="text-danger"
-                >
+                  " class="text-danger">
                   <div *ngIf="f.newPassword.errors.required">
                     New password is required.
                   </div>
@@ -240,32 +147,20 @@
             </div>
             <div class="col-lg-12">
               <div class="mb-3">
-                <label for="confirmPassword" class="form-label"
-                  >Confirm Password</label
-                >
-                <input
-                  type="password"
-                  formControlName="confirmPassword"
-                  class="form-control"
-                  id="confirmPassword"
-                  placeholder="Confirm new password"
-                />
-                <div
-                  *ngIf="
+                <label for="confirmPassword" class="form-label">Confirm Password</label>
+                <input type="password" formControlName="confirmPassword" class="form-control" id="confirmPassword"
+                  placeholder="Confirm new password" />
+                <div *ngIf="
                     f.confirmPassword.invalid &&
                     (f.confirmPassword.dirty || f.confirmPassword.touched)
-                  "
-                  class="text-danger"
-                >
+                  " class="text-danger">
                   <div *ngIf="f.confirmPassword.errors.required">
                     Confirm password is required.
                   </div>
-                  <div
-                    *ngIf="
+                  <div *ngIf="
                       f.confirmPassword.errors?.mismatch &&
                       f.confirmPassword.touched
-                    "
-                  >
+                    ">
                     Passwords do not match.
                   </div>
                 </div>
@@ -273,18 +168,10 @@
             </div>
             <div class="col-lg-12">
               <div class="text-end">
-                <button
-                  type="button"
-                  class="btn btn-outline-secondary me-1"
-                  (click)="passwodResetModal.hide()"
-                >
+                <button type="button" class="btn btn-outline-secondary me-1" (click)="passwodResetModal.hide()">
                   Cancel
                 </button>
-                <button
-                  type="submit"
-                  id="reset-password-btn"
-                  class="btn btn-danger"
-                >
+                <button type="submit" id="reset-password-btn" class="btn btn-danger">
                   Reset
                 </button>
               </div>
@@ -299,115 +186,74 @@
 <!-- end of password reset modal -->
 
 <!-- edit user modal -->
-<div
-  bsModal
-  #editUserModal="bs-modal"
-  class="modal fade"
-  id="showModal"
-  tabindex="-1"
-  aria-labelledby="exampleModalLabel"
-  aria-hidden="true"
->
+<div bsModal #editUserModal="bs-modal" class="modal fade" id="showModal" tabindex="-1"
+  aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">
           Update User Information
         </h5>
-        <button
-          type="button"
-          class="btn-close"
-          id="close-modal"
-          (click)="editUserModal.hide()"
-        ></button>
+        <button type="button" class="btn-close" id="close-modal" (click)="editUserModal.hide()"></button>
       </div>
       <div class="modal-body">
-        <form
-          class="needs-validation createorder-form"
-          id="createorder-form"
-          novalidate
-        >
+        <form class="needs-validation createorder-form" id="createorder-form" novalidate>
           <div class="row">
             <div class="col-lg-12">
               <div class="mb-3">
-                <label for="name-field" class="form-label"
-                  >Name</label
-                >
-                <input
-                  type="text"
-                  id="name-field"
-                  class="form-control"
-                  placeholder="Enter users name"
-                />
+                <label for="name-field" class="form-label">Name</label>
+                <input type="text" id="name-field" class="form-control" placeholder="Enter users name" />
               </div>
             </div>
             <div class="col-lg-12">
               <div class="mb-3">
                 <label for="phone-field" class="form-label">Phone Number</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="phone-field"
-                  placeholder="123-45-678"
-                />
+                <input type="text" class="form-control" id="phone-field" placeholder="123-45-678" />
               </div>
             </div>
             <div class="col-6">
               <div class="mb-3 row">
-                <label for="verify-phone-field" class="form-label col-6"
-                  >Verify Phone</label
-                >
+                <label for="verify-phone-field" class="form-label col-6">Verify Phone</label>
                 <div class="form-check form-switch col-6">
-                  <ui-switch id="verify-phone-field"  color="#556ee6"  [checked]="true" uncheckedLabel="No" checkedLabel="Yes" size="small" class="me-1"></ui-switch>
+                  <ui-switch id="verify-phone-field" color="#556ee6" [checked]="true" uncheckedLabel="No"
+                    checkedLabel="Yes" size="small" class="me-1"></ui-switch>
                 </div>
               </div>
             </div>
             <div class="col-6">
               <div class="mb-3 row">
-                <label for="verify-email-field" class="form-label col-6"
-                  >Verify Email</label
-                >
+                <label for="verify-email-field" class="form-label col-6">Verify Email</label>
                 <div class="form-check form-switch col-6">
-                  <ui-switch id="verify-email-field" color="#556ee6"  [checked]="true" uncheckedLabel="No" checkedLabel="Yes" size="small" class="me-1"></ui-switch>
+                  <ui-switch id="verify-email-field" color="#556ee6" [checked]="true" uncheckedLabel="No"
+                    checkedLabel="Yes" size="small" class="me-1"></ui-switch>
                 </div>
               </div>
             </div>
             <div class="col-6">
               <div class="mb-3 row">
-                <label for="enable-user-field" class="form-label col-6"
-                  >Enable User</label
-                >
+                <label for="enable-user-field" class="form-label col-6">Enable User</label>
                 <div class="form-check form-switch col-6">
-                  <ui-switch id="twofactor-auth-field" color="#556ee6"  [checked]="true" uncheckedLabel="No" checkedLabel="Yes" size="small" class="me-1"></ui-switch>
+                  <ui-switch id="twofactor-auth-field" color="#556ee6" [checked]="true" uncheckedLabel="No"
+                    checkedLabel="Yes" size="small" class="me-1"></ui-switch>
                 </div>
               </div>
             </div>
             <div class="col-6">
               <div class="mb-3 row">
-                <label for="twofactor-auth-field" class="form-label col-6"
-                  >Two Factor Enable</label
-                >
+                <label for="twofactor-auth-field" class="form-label col-6">Two Factor Enable</label>
                 <div class="form-check form-switch col-6">
-                  <ui-switch id="twofactor-auth-field" color="#556ee6"  [checked]="true" uncheckedLabel="No" checkedLabel="Yes" size="small" class="me-1"></ui-switch>
+                  <ui-switch id="twofactor-auth-field" color="#556ee6" [checked]="true" uncheckedLabel="No"
+                    checkedLabel="Yes" size="small" class="me-1"></ui-switch>
                 </div>
               </div>
             </div>
 
             <div class="col-lg-12">
               <div class="text-end">
-                <button
-                  type="button"
-                  class="btn btn-outline-secondary me-1"
-                  (click)="editUserModal.hide()"
-                >
+                <button type="button" class="btn btn-outline-secondary me-1" (click)="editUserModal.hide()">
                   Cancel
                 </button>
-                <button
-                  type="submit"
-                  id="addNewOrder-btn"
-                  class="btn btn-success"
-                  (click)="edituser()"
-                >
+                <button type="submit" id="addNewOrder-btn" class="btn btn-success" (click)="edituser()">
                   Update
                 </button>
               </div>
@@ -423,44 +269,23 @@
 
 <!-- create user modal -->
 
-<div
-  bsModal
-  #createUserModal="bs-modal"
-  class="modal fade"
-  id="createUserModal"
-  tabindex="-1"
-  aria-labelledby="exampleModalLabel"
-  aria-hidden="true"
->
+<div bsModal #createUserModal="bs-modal" class="modal fade" id="createUserModal" tabindex="-1"
+  aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Create User</h5>
-        <button
-          type="button"
-          class="btn-close"
-          id="close-modal"
-          (click)="createUserModal.hide()"
-        ></button>
+        <button type="button" class="btn-close" id="close-modal" (click)="createUserModal.hide()"></button>
       </div>
       <div class="modal-body">
-        <form
-          class="needs-validation createorder-form"
-          id="createorder-form"
-          [formGroup]="createUserForm"
-          (ngSubmit)="onCreateUserSubmit()"
-        >
+        <form class="needs-validation createorder-form" id="createorder-form" [formGroup]="createUserForm"
+          (ngSubmit)="onCreateUserSubmit()">
           <div class="row">
             <div class="col-lg-12">
               <div class="mb-3">
                 <label for="usertype-field" class="form-label">User Type</label>
-                <select
-                  class="form-control"
-                  name="usertype-field"
-                  id="usertype-field"
-                  formControlName="usertype"
-                  (change)="updateSelectedUserType($event.target.value)"
-                >
+                <select class="form-control" name="usertype-field" id="usertype-field" formControlName="usertype"
+                  (change)="updateSelectedUserType($event.target.value)">
                   <option value="">Select Type</option>
                   <option value="Customer">Customer</option>
                   <option value="Sales User">Sales User</option>
@@ -468,7 +293,7 @@
                   <option value="Accounting User">Accounting User</option>
                   <option value="Warehouse User">Warehouse User</option>
                 </select>
-                <div *ngIf="c.usertype.invalid && (c.usertype.dirty || c.usertype.touched)" class="text-danger" >
+                <div *ngIf="c.usertype.invalid && (c.usertype.dirty || c.usertype.touched)" class="text-danger">
                   <div *ngIf="c.usertype.errors.required">
                     Usertype is required.
                   </div>
@@ -478,48 +303,31 @@
             <div class="col-lg-12">
               <div class="mb-3">
                 <label for="username-field" class="form-label">Name</label>
-                  <input 
-                  type="text"
-                  id="name-field"
-                  class="form-control"
-                  placeholder="Enter user name"
-                  formControlName="name"
-                  *ngIf="selectedUserType !== 'Customer'"
-                />
-                  <input
-                  list="customers"
-                  id="name-field"
-                  class="form-control"
-                  placeholder="Enter customer name"
-                  formControlName="name"
-                  *ngIf="selectedUserType === 'Customer'"
-                  />
-                  <datalist id="customers">
+                <input type="text" id="name-field" class="form-control" placeholder="Enter user name"
+                  formControlName="name" *ngIf="selectedUserType !== 'Customer'" />
+                <input list="customers" id="name-field" class="form-control" placeholder="Enter customer name"
+                  formControlName="name" *ngIf="selectedUserType === 'Customer'" />
+                <datalist id="customers">
                   <option value="Neal Matthews"></option>
                   <option value="Jamal Burnett"></option>
                   <option value="Juan Mitchell"></option>
                   <option value="Ronald Taylor"></option>
                   <option value="Jacob Hunter"></option>
                   <option value="Dustin Moser"></option>
-                  </datalist>
-                    <div *ngIf="c.name.invalid && (c.name.dirty || c.name.touched)" class="text-danger" >
+                </datalist>
+                <div *ngIf="c.name.invalid && (c.name.dirty || c.name.touched)" class="text-danger">
                   <div *ngIf="c.name.errors.required">
                     Name is required.
                   </div>
-                </div>                  
+                </div>
               </div>
             </div>
             <div class="col-lg-12">
               <div class="mb-3">
                 <label for="email-field" class="form-label">Email address</label>
-                <input
-                  type="email"
-                  class="form-control"
-                  id="email-field"
-                  placeholder="name@example.com"
-                  formControlName="email"
-                />
-                <div *ngIf="c.email.invalid && (c.email.dirty || c.email.touched)" class="text-danger" >
+                <input type="email" class="form-control" id="email-field" placeholder="name@example.com"
+                  formControlName="email" />
+                <div *ngIf="c.email.invalid && (c.email.dirty || c.email.touched)" class="text-danger">
                   <div *ngIf="c.email.errors.required">
                     Email is required.
                   </div>
@@ -529,14 +337,9 @@
             <div class="col-lg-12">
               <div class="mb-3">
                 <label for="password-field" class="form-label">Password</label>
-                <input
-                  type="password"
-                  class="form-control"
-                  id="password-field"
-                  placeholder="Password"
-                  formControlName="password"
-                />
-                <div *ngIf="c.password.invalid && (c.password.dirty || c.password.touched)" class="text-danger" >
+                <input type="password" class="form-control" id="password-field" placeholder="Password"
+                  formControlName="password" />
+                <div *ngIf="c.password.invalid && (c.password.dirty || c.password.touched)" class="text-danger">
                   <div *ngIf="c.password.errors.required">
                     Password is required.
                   </div>
@@ -546,28 +349,16 @@
             <div class="col-lg-12" *ngIf="selectedUserType !== 'Customer'">
               <div class="mb-3">
                 <label for="phone-field" class="form-label">Phone</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="phone-field"
-                  placeholder="123-45-678 (Optional)"
-                />
+                <input type="text" class="form-control" id="phone-field" placeholder="123-45-678 (Optional)" />
               </div>
             </div>
 
             <div class="col-lg-12">
               <div class="text-end">
-                <button
-                  type="button"
-                  class="btn btn-outline-secondary me-1"
-                  (click)="createUserModal.hide()"
-                >
+                <button type="button" class="btn btn-outline-secondary me-1" (click)="createUserModal.hide()">
                   Cancel
                 </button>
-                <button
-                  type="submit"
-                  class="btn btn-success"
-                >
+                <button type="submit" class="btn btn-success">
                   Create
                 </button>
               </div>
@@ -584,26 +375,14 @@
 <!-- Delete user modal -->
 
 <!-- Modal -->
-<div
-  bsModal
-  #removeItemModal="bs-modal"
-  class="modal fade"
-  id="removeItemModal"
-  tabindex="-1"
-  aria-hidden="true"
->
+<div bsModal #removeItemModal="bs-modal" class="modal fade" id="removeItemModal" tabindex="-1" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-md">
     <div class="modal-content">
       <div class="modal-body px-4 py-5 text-center">
-        <button
-          type="button"
-          class="btn-close position-absolute end-0 top-0 m-3"
-          (click)="removeItemModal.hide()"
-        ></button>
+        <button type="button" class="btn-close position-absolute end-0 top-0 m-3"
+          (click)="removeItemModal.hide()"></button>
         <div class="avatar-sm mb-4 mx-auto">
-          <div
-            class="avatar-title bg-primary text-primary bg-opacity-10 font-size-20 rounded-3"
-          >
+          <div class="avatar-title bg-primary text-primary bg-opacity-10 font-size-20 rounded-3">
             <i class="mdi mdi-trash-can-outline"></i>
           </div>
         </div>
@@ -612,20 +391,10 @@
         </p>
 
         <div class="hstack gap-2 justify-content-center mb-0">
-          <button
-            type="button"
-            class="btn btn-danger"
-            id="remove-item"
-            (click)="deleteUser()"
-          >
+          <button type="button" class="btn btn-danger" id="remove-item" (click)="deleteUser()">
             Remove Now
           </button>
-          <button
-            type="button"
-            class="btn btn-secondary"
-            id="close-removeOrderModal"
-            (click)="removeItemModal.hide()"
-          >
+          <button type="button" class="btn btn-secondary" id="close-removeOrderModal" (click)="removeItemModal.hide()">
             Close
           </button>
         </div>
