@@ -9,7 +9,7 @@ import { DispatchedRouteComponent } from './dispatched-route/dispatched-route.co
 const routes: Routes = [
   {
     path: "",
-    redirectTo: "dispatch-route",
+    redirectTo: "order-received",
     pathMatch: "full",
   },
 

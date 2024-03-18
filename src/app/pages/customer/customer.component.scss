@@ -11,8 +11,8 @@
 .height {
     overflow-y: auto;
     // max-height: calc(100vh - 130px);
-    max-height: 118vh;
-    min-height:118vh;
+    max-height: 85vh;
+    min-height:85vh;
 }
 
 // .height2 {
@@ -39,22 +39,4 @@
     cursor: pointer;
     background-color: rgb(139, 116, 241);
     color: whitesmoke;
-}
-
-
-#sidebar {
-    width: 60px;
-    min-width: 60px;
-    z-index: 1000;
-    transition: all .25s ease-in-out;
-    background-color: #0e2238;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
-.sticky-th {
-    position: sticky;
-    top: 0;
-    z-index: 2;
 }

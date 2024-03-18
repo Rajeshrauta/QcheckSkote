@@ -26,86 +26,86 @@
                 </div>
               </div>
               <div class="col-lg-10 col-md-9 col-12 col-sm-9 flex-grow-1 col">
-                  <app-customer-information></app-customer-information>
-                  <div class="table-responsive mb-0">
-                    <table class="table align-middle table-nowrap dt-responsive nowrap w-100 table-check"
-                      id="order-list">
-                      <thead class="table-light">
-                        <tr>
-                          <th class="sticky-th">Type</th>
-                          <th class="sticky-th">Created Date</th>
-                          <th class="sticky-th">Id</th>
-                          <th class="sticky-th">Balance</th>
-                          <th class="sticky-th">Total</th>
-                          <th class="sticky-th">Transaction Date</th>
-                          <th class="sticky-th">Comments</th>
-                          <th class="text-center sticky-th">Action</th>
-                        </tr>
-                      </thead>
-                      <tbody *ngFor="let dataItem of tables$ | async;let i=index">
-                        <tr>
-                          <td>{{ dataItem.type }}
-                          </td>
-                          <td>{{ dataItem.createddate }}</td>
-                          <td>{{ dataItem.id }}</td>
-
-                          <td>{{ dataItem.balance }}</td>
-
-                          <td>{{ dataItem.total }}</td>
-                          <td>{{ dataItem.transactiondate }}</td>
-                          <td><textarea class="form-control" id="Comments" rows="1">{{ dataItem.Comments }}</textarea></td>
-                          <td>
-                            <div class="d-flex justify-content-center">
-                              <div style="z-index: 100; position: absolute;">
-                                <div class="dropdown" dropdown placement="bottom-left">
-                                  <i class="fa fa-ellipsis-v dropdown-toggle" dropdownToggle data-toggle="dropdown" aria-expanded="true"
-                                    style="z-index: -1; position: absolute;"></i>
-                                  <div class="dropdown-menu dropdown-menu-end" *dropdownMenu>
-                                    <a class="dropdown-item" routerLink="/estimate/edit-estimate"><i
-                                        class="mdi mdi-file-edit-outline"></i>Edit</a>
-                                    <a class="dropdown-item" href="javascript: void(0);"><i class="mdi mdi-arrow-down"></i>Order Process</a>
-                                    <a class="dropdown-item" href="javascript: void(0);"><i class="mdi mdi-message"></i>Message</a>
-                                    <a class="dropdown-item" href="javascript: void(0);"><i class="mdi mdi-printer"></i>Print</a>
-                                  </div>
+                <app-customer-information></app-customer-information>
+                <div class="table-responsive mb-0">
+                  <table class="table align-middle table-nowrap dt-responsive nowrap w-100 table-check" id="order-list">
+                    <thead class="table-light">
+                      <tr>
+                        <th>Type</th>
+                        <th>Created Date</th>
+                        <th>Id</th>
+                        <th>Balance</th>
+                        <th>Total</th>
+                        <th>Transaction Date</th>
+                        <th>Comments</th>
+                        <th class="text-center sticky-th">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody *ngFor="let dataItem of tables$ | async;let i=index">
+                      <tr>
+                        <td class="py-0 m-0">{{ dataItem.type }}</td>
+                        <td class="py-0 m-0">{{ dataItem.createddate }}</td>
+                        <td class="py-0 m-0">{{ dataItem.id }}</td>
+                        <td class="py-0 m-0">{{ dataItem.balance }}</td>
+                        <td class="py-0 m-0">{{ dataItem.total }}</td>
+                        <td class="py-0 m-0">{{ dataItem.transactiondate }}</td>
+                        <td class="py-0 m-0"><textarea class="form-control" id="Comments"
+                            rows="1">{{ dataItem.Comments }}</textarea></td>
+                        <td class="py-0 m-0">
+                          <div class="d-flex justify-content-center">
+                              <div class="dropdown" dropdown placement="bottom-left">
+                                <button class="btn btn-none dropdown-toggle" dropdownToggle data-toggle="dropdown"
+                                  aria-expanded="true">
+                                  <i class="fa fa-ellipsis-v"></i></button>
+                                <div class="dropdown-menu dropdown-menu-end" *dropdownMenu>
+                                  <a class="dropdown-item" routerLink="/estimate/edit-estimate"><i
+                                      class="mdi mdi-file-edit-outline"></i>Edit</a>
+                                  <a class="dropdown-item" href="javascript: void(0);"><i
+                                      class="mdi mdi-arrow-down"></i>Order Process</a>
+                                  <a class="dropdown-item" href="javascript: void(0);"><i
+                                      class="mdi mdi-message"></i>Message</a>
+                                  <a class="dropdown-item" href="javascript: void(0);"><i
+                                      class="mdi mdi-printer"></i>Print</a>
                                 </div>
                               </div>
                             </div>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                  <div class="row justify-content-md-between align-items-md-center mt-2">
-                    <div class="col-sm-12 col-md-3">
-                      <div class="dataTables_info mb-2" id="tickets-table_info" role="status" aria-live="polite">
-                        Showing
-                        {{service.startIndex}} to
-                        {{service.endIndex}} of {{service.totalRecords}}
-                        entries
-                      </div>
-                    </div>
-                    <div class="col-sm-12 col-md-3">
-                      <div class="dataTables_length" id="tickets-table_length"><label
-                          class="d-inline-flex align-items-center">Show
-                          <select name="tickets-table_length" aria-controls="tickets-table" name="pageSize"
-                            [(ngModel)]="service.pageSize" class="form-control form-control-sm mx-2">
-                            <option [ngValue]="10">10</option>
-                            <option [ngValue]="25">25</option>
-                            <option [ngValue]="50">50</option>
-                            <option [ngValue]="100">100</option>
-                          </select> entries</label>
-                      </div>
-                    </div>
-                    <!-- Pagination -->
-                    <div class="col-sm-12 col-md-5">
-                      <div class="text-md-right float-md-end pagination-rounded">
-                        <pagination [totalItems]="total$ | async" [(ngModel)]="service.page">
-                        </pagination>
-                      </div>
-                    </div>
-                    <!-- End Pagination -->
-                  </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
+                <div class="row align-items-md-center mt-2">
+                  <div class="col-sm-12 col-md-4">
+                    <div class="dataTables_length" id="tickets-table_length"><label
+                        class="d-inline-flex align-items-center">Show
+                        <select name="tickets-table_length" aria-controls="tickets-table" name="pageSize"
+                          [(ngModel)]="service.pageSize" class="form-control form-control-sm mx-2">
+                          <option [ngValue]="10">10</option>
+                          <option [ngValue]="25">25</option>
+                          <option [ngValue]="50">50</option>
+                          <option [ngValue]="100">100</option>
+                        </select> entries</label>
+                    </div>
+                  </div>
+                  <div class="col-sm-12 col-md-4 d-flex justify-content-center">
+                    <div class="dataTables_info mb-2" id="tickets-table_info" role="status" aria-live="polite">
+                      Showing
+                      {{service.startIndex}} to
+                      {{service.endIndex}} of {{service.totalRecords}}
+                      entries
+                    </div>
+                  </div>
+                  <!-- Pagination -->
+                  <div class="col-sm-12 col-md-4">
+                    <div class="text-md-right float-md-end pagination-rounded">
+                      <pagination [totalItems]="total$ | async" [(ngModel)]="service.page"
+                        [itemsPerPage]="service.pageSize">
+                      </pagination>
+                    </div>
+                  </div>
+                  <!-- End Pagination -->
+                </div>
+              </div>
             </div>
           </div>
         </div>

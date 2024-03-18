@@ -10,26 +10,15 @@
       <div class="row">
         <div class="col-sm-4">
           <div class="search-box d-inline-block">
-            <div class="dataTables_length" id="tickets-table_length"><label
-                class="d-inline-flex align-items-center">Show
-                <select name="tickets-table_length" aria-controls="tickets-table" name="pageSize"
-                  [(ngModel)]="service.pageSize" class="form-control form-control-sm mx-2">
-                  <option [ngValue]="10">10</option>
-                  <option [ngValue]="25">25</option>
-                  <option [ngValue]="50">50</option>
-                  <option [ngValue]="100">100</option>
-                </select> entries</label>
+            <div class="position-relative mb-2 me-2">
+              <input type="text" class="form-control" autocomplete="off" id="searchTableList" placeholder="Search..."
+                [(ngModel)]="service.searchTerm">
+              <i class="bx bx-search-alt search-icon"></i>
             </div>
           </div>
         </div>
         <div class="col-sm-8">
           <div class="text-sm-end">
-            <div class="search-box d-inline-block">
-              <div class="position-relative mb-2 me-2">
-                <input type="text" class="form-control" autocomplete="off" id="searchTableList" placeholder="Search..." [(ngModel)]="service.searchTerm">
-                <i class="bx bx-search-alt search-icon"></i>
-              </div>
-            </div>
             <button type="button" class="btn btn-success btn-rounded"><i
                 class="mdi mdi-microsoft-excel mr-1"></i>
               Export to Excel</button>
@@ -51,13 +40,13 @@
           </thead>
           <tbody *ngFor="let table of tables$ | async;let i=index">
             <tr>
-              <td>{{table.name}}</td>
-              <td>{{table.code}}</td>
-              <td>{{table.sku}}</td>
-              <td>{{table.desc}}</td>
-              <td>{{table.price}}</td>
-              <td>{{table.qtyinhand}}</td>
-              <td>
+              <td class="py-0 m-0">{{table.name}}</td>
+              <td class="py-0 m-0">{{table.code}}</td>
+              <td class="py-0 m-0">{{table.sku}}</td>
+              <td class="py-0 m-0">{{table.desc}}</td>
+              <td class="py-0 m-0">{{table.price}}</td>
+              <td class="py-0 m-0">{{table.qtyinhand}}</td>
+              <td class="py-0 m-0">
                 <select class="form-select" aria-label="Select Color">
                   <option>Select</option>
                   <option class="bg-danger">Red</option>
@@ -71,18 +60,30 @@
           </tbody>
         </table>
       </div>
-      <div class="row justify-content-md-between align-items-md-center mt-2">
-        <div class="col-sm-12 col-md-5">
-          <div class="dataTables_info mb-2" id="tickets-table_info" role="status" aria-live="polite">Showing
+      <div class="row align-items-md-center mt-2">
+        <div class="col-sm-12 col-md-4">
+          <div class="dataTables_length" id="tickets-table_length"><label class="d-inline-flex align-items-center">Show
+              <select name="tickets-table_length" aria-controls="tickets-table" name="pageSize" [(ngModel)]="service.pageSize"
+                class="form-control form-control-sm mx-2">
+                <option [ngValue]="10">10</option>
+                <option [ngValue]="25">25</option>
+                <option [ngValue]="50">50</option>
+                <option [ngValue]="100">100</option>
+              </select> entries</label>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-4 d-flex justify-content-center">
+          <div class="dataTables_info mb-2" id="tickets-table_info" role="status" aria-live="polite">
+            Showing
             {{service.startIndex}} to
             {{service.endIndex}} of {{service.totalRecords}}
             entries
           </div>
         </div>
         <!-- Pagination -->
-        <div class="col-sm-12 col-md-5">
+        <div class="col-sm-12 col-md-4">
           <div class="text-md-right float-md-end pagination-rounded">
-            <pagination [totalItems]="total$ | async" [(ngModel)]="service.page">
+            <pagination [totalItems]="(total$ | async)!" [(ngModel)]="service.page" [itemsPerPage]="service.pageSize">
             </pagination>
           </div>
         </div>
