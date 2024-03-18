@@ -1,6 +1,30 @@
 <div class="container-fluid">
-    <div class="p-3">
-    <app-page-title title="Rack Location" [breadcrumbItems]="breadCrumbItems">
-    </app-page-title>
+  <div class="p-2">
+    <app-page-title title="Rack Location" [breadcrumbItems]="breadCrumbItems"></app-page-title>
   </div>
+
+  <table class="table table-hover mt-3">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col" class="table-last-col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Customer Name 1</td>
+        <td class="table-last-col">
+          <i class="mdi mdi-delete-outline"></i>
+        </td>
+      </tr>
+
+      <tr>
+        <td>Customer Name 2</td>
+        <td class="table-last-col">
+          <i class="mdi mdi-delete-outline"></i>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
 </div>

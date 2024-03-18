@@ -21,6 +21,7 @@ import { DispatchedRouteComponent } from './dispatched-route/dispatched-route.co
 import { PendingOrdersComponent } from './pending-orders/pending-orders.component';
 import { OrderReceivedComponent } from './order-received/order-received.component';
 import { PaginationModule } from "ngx-bootstrap/pagination";
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 @NgModule({
   declarations: [
     DispatchRouteComponent,
@@ -43,6 +44,7 @@ import { PaginationModule } from "ngx-bootstrap/pagination";
     SimplebarAngularModule,
     ModalModule.forRoot(),
     PaginationModule,
+    BsDatepickerModule
   ],
   providers: [BsDropdownConfig],
 })

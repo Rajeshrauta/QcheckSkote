@@ -3,7 +3,6 @@ import {
   FormBuilder,
   FormGroup,
   Validators,
-  ValidatorFn,
 } from "@angular/forms";
 
 import { BsModalRef, BsModalService, ModalDirective } from 'ngx-bootstrap/modal';

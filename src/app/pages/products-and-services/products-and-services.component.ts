@@ -69,48 +69,4 @@ export class ProductsAndServicesComponent implements OnInit {
     this.service.sortColumn = column;
     this.service.sortDirection = direction;
   }
-
-
-  // products = [
-  //   {
-  //     Itemname: "Item 1",
-  //     Itemcode: "IC001",
-  //     Sku: "12",
-  //     Desc: "Item description",
-  //     Price: "$128",
-  //     Qtyinhand: "1222",
-  //   },
-  //   {
-  //     Itemname: "Item 1",
-  //     Itemcode: "IC001",
-  //     Sku: "12",
-  //     Desc: "Item description",
-  //     Price: "$128",
-  //     Qtyinhand: "1222",
-  //   },
-  //   {
-  //     Itemname: "Item 1",
-  //     Itemcode: "IC001",
-  //     Sku: "12",
-  //     Desc: "Item description",
-  //     Price: "$128",
-  //     Qtyinhand: "1222",
-  //   },
-  //   {
-  //     Itemname: "Item 1",
-  //     Itemcode: "IC001",
-  //     Sku: "12",
-  //     Desc: "Item description",
-  //     Price: "$128",
-  //     Qtyinhand: "1222",
-  //   },
-  //   {
-  //     Itemname: "Item 1",
-  //     Itemcode: "IC001",
-  //     Sku: "12",
-  //     Desc: "Item description",
-  //     Price: "$128",
-  //     Qtyinhand: "1222",
-  //   }
-  // ]
 }
