@@ -11,6 +11,7 @@ import { CustomerTransactionComponent } from './sub-components/customer-transact
 import { CustomerInformationComponent } from './sub-components/customer-information/customer-information.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { SimplebarAngularModule } from "simplebar-angular";
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
     FormsModule,
     PaginationModule.forRoot(),
     NgbModule,
+    SimplebarAngularModule,
     BsDropdownModule.forRoot(),
   ],
 })

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChildren, QueryList,HostListener } from '@angular/core';
+import { Component, OnInit, ViewChildren, QueryList, HostListener, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { NgbModal, NgbModalOptions } from "@ng-bootstrap/ng-bootstrap";
 import { FormArray, FormBuilder, FormGroup } from "@angular/forms";
 import { DecimalPipe } from '@angular/common';
@@ -18,9 +18,9 @@ import { AdvancedSortableDirective, SortEvent } from './utilities/customer-sorta
 })
 
 
-export class CustomerComponent {
+export class CustomerComponent implements OnInit,AfterViewInit {
   breadCrumbItems: Array<{}>;
-  public showMenu: boolean = window.innerWidth > 450;
+  height : number;
 
    // Table data
   tableData: Table[];
@@ -28,6 +28,9 @@ export class CustomerComponent {
   hideme: boolean[] = [];
   tables$: Observable<Table[]>;
   total$: Observable<number>;
+
+  @ViewChild('sourceElement') sourceElementRef: ElementRef;
+  @ViewChild('targetElement') targetElementRef: ElementRef;
 
   @ViewChildren(AdvancedSortableDirective) headers: QueryList<AdvancedSortableDirective>;
   public isCollapsed = true;
@@ -38,15 +41,28 @@ export class CustomerComponent {
     this.tables$ = service.tables$;
     this.total$ = service.total$;
   }
+  ngAfterViewInit() {
+    this.adjustElementHeight();
 
+    setInterval(() => {
+      const currentHeight = this.sourceElementRef.nativeElement.offsetHeight;
+      if (this.height !== currentHeight) {
+        this.adjustElementHeight();
+      }
+    }, 10);
+  }
 
-
-
-
-  @HostListener("window:resize", ["$event"])
-  onResize(event: any) {
-    // Update showMenu value when window is resized
-    this.showMenu = window.innerWidth > 450;
+  private adjustElementHeight() {
+    const sourceHeight = this.sourceElementRef.nativeElement.offsetHeight;
+    const screenWidth = window.innerWidth;
+    if (screenWidth >= 575) {
+      this.height = sourceHeight;
+      console.error("big"+sourceHeight);
+    }
+    else{
+      this.height = 200;
+      console.error("small" + screenWidth);
+    }
   }
 
   ngOnInit(): void {
@@ -58,6 +74,11 @@ export class CustomerComponent {
     this._fetchData();
   }
 
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    this.adjustElementHeight();
+  }
   
   changeValue(i) {
     this.hideme[i] = !this.hideme[i];
@@ -86,12 +107,6 @@ export class CustomerComponent {
     });
     this.service.sortColumn = column;
     this.service.sortDirection = direction;
-  }
-
-
-  
-  toggleMenu() {
-    this.showMenu = !this.showMenu;
   }
 
 

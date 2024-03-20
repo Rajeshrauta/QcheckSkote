@@ -12,20 +12,21 @@
             <div class="d-flex flex-wrap py-2">
               <div class="col-lg-2 col-md-3 col-12 col-sm-3 flex-grow-1 col">
                 <div class="border p-2 m-1">
-                  <div class="input-group mt-1 w-100">
-                    <input type="text" class="form-control" placeholder="Search">
-                    <div class="input-group-append">
-                      <span class="input-group-text" id="basic-addon2"><i class="mdi mdi-magnify"></i></span>
+                  <div class="search-box d-inline-block mt-1 w-100">
+                    <div class="position-relative mb-2">
+                      <input type="text" class="form-control" autocomplete="off" id="searchTableList" placeholder="Search...">
+                      <i class="bx bx-search-alt search-icon"></i>
                     </div>
                   </div>
-                  <div *ngIf="showMenu" class="height" id="myLinks">
+                  <ngx-simplebar [style.height]="height-73 +'px'">
                     <div *ngFor="let value of ProductData" class="pt-1 mt-1 border-bottom hover">
                       <span>{{ value.ProductName }}</span>
                     </div>
-                  </div>
+                  </ngx-simplebar>
                 </div>
               </div>
               <div class="col-lg-10 col-md-9 col-12 col-sm-9 flex-grow-1 col">
+                <div #sourceElement>
                 <app-customer-information></app-customer-information>
                 <div class="table-responsive mb-0">
                   <table class="table align-middle table-nowrap dt-responsive nowrap w-100 table-check" id="order-list">
@@ -38,7 +39,7 @@
                         <th>Total</th>
                         <th>Transaction Date</th>
                         <th>Comments</th>
-                        <th class="text-center sticky-th">Action</th>
+                        <th class="text-center">Action</th>
                       </tr>
                     </thead>
                     <tbody *ngFor="let dataItem of tables$ | async;let i=index">
@@ -53,22 +54,22 @@
                             rows="1">{{ dataItem.Comments }}</textarea></td>
                         <td class="py-0 m-0">
                           <div class="d-flex justify-content-center">
-                              <div class="dropdown" dropdown placement="bottom-left">
-                                <button class="btn btn-none dropdown-toggle" dropdownToggle data-toggle="dropdown"
-                                  aria-expanded="true">
-                                  <i class="fa fa-ellipsis-v"></i></button>
-                                <div class="dropdown-menu dropdown-menu-end" *dropdownMenu>
-                                  <a class="dropdown-item" routerLink="/estimate/edit-estimate"><i
-                                      class="mdi mdi-file-edit-outline"></i>Edit</a>
-                                  <a class="dropdown-item" href="javascript: void(0);"><i
-                                      class="mdi mdi-arrow-down"></i>Order Process</a>
-                                  <a class="dropdown-item" href="javascript: void(0);"><i
-                                      class="mdi mdi-message"></i>Message</a>
-                                  <a class="dropdown-item" href="javascript: void(0);"><i
-                                      class="mdi mdi-printer"></i>Print</a>
-                                </div>
+                            <div class="dropdown" dropdown placement="bottom-left">
+                              <button class="btn btn-none dropdown-toggle" dropdownToggle data-toggle="dropdown"
+                                aria-expanded="true">
+                                <i class="fa fa-ellipsis-v"></i></button>
+                              <div class="dropdown-menu dropdown-menu-end" *dropdownMenu>
+                                <a class="dropdown-item" routerLink="/estimate/edit-estimate"><i
+                                    class="mdi mdi-file-edit-outline"></i>Edit</a>
+                                <a class="dropdown-item" href="javascript: void(0);"><i
+                                    class="mdi mdi-arrow-down"></i>Order Process</a>
+                                <a class="dropdown-item" href="javascript: void(0);"><i
+                                    class="mdi mdi-message"></i>Message</a>
+                                <a class="dropdown-item" href="javascript: void(0);"><i
+                                    class="mdi mdi-printer"></i>Print</a>
                               </div>
                             </div>
+                          </div>
                         </td>
                       </tr>
                     </tbody>
@@ -105,6 +106,7 @@
                   </div>
                   <!-- End Pagination -->
                 </div>
+              </div>
               </div>
             </div>
           </div>

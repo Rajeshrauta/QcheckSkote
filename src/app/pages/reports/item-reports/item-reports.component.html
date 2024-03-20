@@ -1,6 +1,39 @@
 <div class="container-fluid">
-    <div class="p-3">
+    <div class="p-2">
     <app-page-title title="Item Reports" [breadcrumbItems]="breadCrumbItems">
     </app-page-title>
-  </div>
-</div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col">
+                <label for="customer" class="form-label">Select Item</label>
+                <input type="text" class="form-control" id="customer" placeholder="Item.." />
+              </div>
+              <div class="col">
+                <label for="customer" class="form-label">Report Period</label>
+                <input type="text" class="form-control" id="customer" autocomplete="off" />
+              </div>
+              <div class="col">
+                <label for="customer" class="form-label">Start Date</label>
+                <input bsDatepicker class="form-control" id="customer" placeholder="dd/mm/yyyy" [bsConfig]="bsConfig"
+                  autocomplete="off" />
+              </div>
+              <div class="col">
+                <label for="customer" class="form-label">End Date</label>
+                <input bsDatepicker class="form-control" id="customer" placeholder="dd/mm/yyyy" [bsConfig]="bsConfig"
+                  autocomplete="off" />
+              </div>
+              <div class="col">
+                <div class="d-flex justify-content-center m-4">
+                  <button type="button" class="btn btn-success btn-rounded">View Report</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
