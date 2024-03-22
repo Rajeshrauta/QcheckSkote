@@ -50,12 +50,6 @@ import { UserSetupModule } from './user-setup/user-setup.module';
     SimplebarAngularModule,
     LightboxModule,
     PickerModule,
-
-    DashboardsModule,
-    EstimateModule,
-    CustomerModule,
-    SettingModule,
-    UserSetupModule
   ],
   providers: [DatePipe],
 })

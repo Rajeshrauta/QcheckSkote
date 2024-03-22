@@ -57,11 +57,9 @@ export class CustomerComponent implements OnInit,AfterViewInit {
     const screenWidth = window.innerWidth;
     if (screenWidth >= 575) {
       this.height = sourceHeight;
-      console.error("big"+sourceHeight);
     }
     else{
       this.height = 200;
-      console.error("small" + screenWidth);
     }
   }
 

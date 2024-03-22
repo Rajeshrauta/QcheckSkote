@@ -8,7 +8,6 @@ import { SyncComponent } from './sync/sync.component';
 import { HangfireJobsComponent } from './hangfire-jobs/hangfire-jobs.component';
 import { ShippingCompanyComponent } from './shipping-company/shipping-company.component';
 import { RackLocationComponent } from './rack-location/rack-location.component';
-import { PricingRuleComponent } from './pricing-rule/pricing-rule.component';
 
 
 const routes: Routes = [
@@ -45,10 +44,9 @@ const routes: Routes = [
     path: "rack-location",
     component: RackLocationComponent,
   },
-  {
-    path: "pricing-rule",
-    component: PricingRuleComponent,
-  },
+  { path: 'pricing-rule', 
+        loadChildren: () => import('./pricing-rule/pricing-rule.module')
+        .then(m => m.PricingRuleModule) },
 ];
 
 @NgModule({

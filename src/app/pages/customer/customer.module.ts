@@ -6,8 +6,6 @@ import { PaginationModule } from "ngx-bootstrap/pagination";
 import { CustomerRoutingModule } from './customer-routing.module';
 import { CustomerComponent } from './customer.component';
 import { UIModule } from "src/app/shared/ui/ui.module";
-import { CustomerListComponent } from './sub-components/customer-list/customer-list.component';
-import { CustomerTransactionComponent } from './sub-components/customer-transaction/customer-transaction.component';
 import { CustomerInformationComponent } from './sub-components/customer-information/customer-information.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
@@ -17,8 +15,6 @@ import { SimplebarAngularModule } from "simplebar-angular";
 @NgModule({
   declarations: [
     CustomerComponent,
-    CustomerListComponent,
-    CustomerTransactionComponent,
     CustomerInformationComponent,
   ],
   imports: [

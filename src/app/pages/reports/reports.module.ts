@@ -9,6 +9,7 @@ import { CustomerReportsComponent } from './customer-reports/customer-reports.co
 import { ItemReportsComponent } from './item-reports/item-reports.component';
 import { NoOrderReportsComponent } from './no-order-reports/no-order-reports.component';
 import { RolloverReportsComponent } from './rollover-reports/rollover-reports.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -18,6 +19,6 @@ import { RolloverReportsComponent } from './rollover-reports/rollover-reports.co
     NoOrderReportsComponent,
     RolloverReportsComponent,
   ],
-  imports: [CommonModule, ReportsRoutingModule, UIModule, BsDropdownModule, BsDatepickerModule],
+  imports: [CommonModule, ReportsRoutingModule, UIModule, BsDropdownModule, BsDatepickerModule,ReactiveFormsModule],
 })
 export class ReportsModule {}

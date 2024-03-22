@@ -1,0 +1,211 @@
+<div class="container-fluid">
+    <div class="p-2">
+        <app-page-title title="Edit Pricing Rule" [breadcrumbItems]="breadCrumbItems">
+        </app-page-title>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <form class="needs-validation createorder-form">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-4">
+                                <label for="rulename" class="form-label">Rule Name</label>
+                                <input type="text" class="form-control" id="rulename" autocomplete="off" value="Rule Name"/>
+                            </div>
+    
+                            <div class="col-sm-12 col-md-4">
+                                <label for="customer" class="form-label">Customer</label>
+                                <input type="text" class="form-control" id="customer" value="Customer Name" />
+                            </div>
+    
+                            <div class="col-sm-12 col-md-4">
+                                <div class="text-sm-end m-4">
+                                    <button type="button" class="btn btn-success btn-rounded">Update Rule</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="table-responsive mb-0">
+                        <table class="table align-middle table-nowrap dt-responsive nowrap w-100 table-check table-hover ">
+                            <thead class="table-light">
+                                <tr>
+                                    <th class="px-1">Products / Services</th>
+                                    <td class="px-1">Description</td>
+                                    <td class="px-1">Actual Price</td>
+                                    <td class="px-1">New Price</td>
+                                    <th class="text-center px-1">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="p-1 m-0">Product Name</td>
+                                    <td class="p-1 m-0">Product Description</td>
+                                    <td class="p-1 m-0">$71</td>
+                                    <td class="p-1 m-0"><input type="text" class="form-control" style="width: 50px; height: 20px;padding: 1mm;" value="$100"></td>
+                                    <td class="py-0 m-0">
+                                        <div class="d-flex justify-content-center">
+                                            <a class="btn btn-none" (click)="editRecordModal.show()"><i class="mdi mdi-pencil"></i></a>
+                                            <a class="btn btn-none"><i class="mdi mdi-delete text-danger"></i></a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="p-1 m-0">Product Name</td>
+                                    <td class="p-1 m-0">Product Description</td>
+                                    <td class="p-1 m-0">$71</td>
+                                    <td class="p-1 m-0"><input type="text" class="form-control" style="width: 50px; height: 20px;padding: 1mm;"
+                                            value="$100"></td>
+                                    <td class="py-0 m-0">
+                                        <div class="d-flex justify-content-center">
+                                            <a class="btn btn-none" (click)="editRecordModal.show()"><i class="mdi mdi-pencil"></i></a>
+                                            <a class="btn btn-none"><i class="mdi mdi-delete text-danger"></i></a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="p-1 m-0"><button class="btn btn-rounded btn-primary"
+                                            (click)="addRecordModal.show()">Add</button></td>
+                                    <td class="p-1 m-0"></td>
+                                    <td class="p-1 m-0"></td>
+                                    <td class="p-1 m-0"><input type="text" class="form-control"
+                                            style="width: 50px; height: 20px;padding: 1mm;"></td>
+                                    <td class="py-0 m-0">
+                                        <div class="d-flex justify-content-center">
+                                            <a class="btn btn-none" (click)="editRecordModal.show()"><i
+                                                    class="mdi mdi-pencil"></i></a>
+                                            <a class="btn btn-none"><i class="mdi mdi-delete text-danger"></i></a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    
+    
+    <!-- Add new Record -->
+    
+    <div bsModal #addRecordModal="bs-modal" class="modal fade" id="createUserModal" tabindex="-1"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Add new Record</h5>
+                    <button type="button" class="btn-close" id="close-modal" (click)="addRecordModal.hide()"></button>
+                </div>
+                <div class="modal-body">
+                    <form class="needs-validation createorder-form" id="createorder-form">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="mb-3">
+                                    <label for="email-field" class="form-label">Product/Service</label>
+                                    <input type="text" class="form-control" formControlName="product"
+                                        placeholder="Select Product" />
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="mb-3">
+                                    <label for="email-field" class="form-label">Description</label>
+                                    <textarea id="Description" class="form-control" rows="2" formControlName="description"
+                                        placeholder="Description"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                                <div class="mb-3">
+                                    <label for="email-field" class="form-label">Actual Price</label>
+                                    <input type="text" class="form-control" formControlName="actualprice" value="$71"
+                                        disabled />
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                                <div class="mb-3">
+                                    <label for="email-field" class="form-label">New Price</label>
+                                    <input type="text" class="form-control" formControlName="newprice" />
+                                </div>
+                            </div>
+    
+                            <div class="col-lg-12">
+                                <div class="text-end">
+                                    <button type="button" class="btn btn-outline-secondary me-1"
+                                        (click)="addRecordModal.hide()">
+                                        Cancel
+                                    </button>
+                                    <button type="submit" class="btn btn-success">
+                                        Add
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!-- end modal body -->
+            </div>
+        </div>
+    </div>
+    
+    <!-- End Add new Record -->
+    
+    
+    <div bsModal #editRecordModal="bs-modal" class="modal fade" id="createUserModal" tabindex="-1"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Add new Record</h5>
+                    <button type="button" class="btn-close" id="close-modal" (click)="editRecordModal.hide()"></button>
+                </div>
+                <div class="modal-body">
+                    <form class="needs-validation createorder-form" id="createorder-form">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="mb-3">
+                                    <label for="email-field" class="form-label">Product/Service</label>
+                                    <input type="text" class="form-control" formControlName="product"
+                                        value="Product Name" />
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="mb-3">
+                                    <label for="Description" class="form-label">Description</label>
+                                    <textarea id="Description" class="form-control" rows="2"
+                                        formControlName="description">Product Description</textarea>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                                <div class="mb-3">
+                                    <label for="email-field" class="form-label">Actual Price</label>
+                                    <input type="text" class="form-control" formControlName="actualprice" value="$71"
+                                        disabled />
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                                <div class="mb-3">
+                                    <label for="email-field" class="form-label">New Price</label>
+                                    <input type="text" class="form-control" formControlName="newprice" value="$100" />
+                                </div>
+                            </div>
+    
+                            <div class="col-lg-12">
+                                <div class="text-end">
+                                    <button type="button" class="btn btn-outline-secondary me-1"
+                                        (click)="editRecordModal.hide()">
+                                        Cancel
+                                    </button>
+                                    <button type="submit" class="btn btn-success">
+                                        Update
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!-- end modal body -->
+            </div>
+        </div>
+    </div>

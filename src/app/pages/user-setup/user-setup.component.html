@@ -25,53 +25,53 @@
           </div>
 
           <div class="table-responsive mb-0 py-4">
-            <table class="table align-middle table-nowrap dt-responsive nowrap w-100 table-check" id="order-list">
+            <table class="table align-middle table-nowrap dt-responsive nowrap w-100 table-check table-hover ">
               <thead class="table-light">
                 <tr>
-                  <th class="align-middle">Name</th>
-                  <th class="align-middle">Email</th>
-                  <th class="align-middle">Phone</th>
-                  <th class="align-middle">Role</th>
-                  <th class="align-middle">Enabled</th>
-                  <th class="align-middle">Email-Verified</th>
-                  <th class="align-middle">Phone-Verified</th>
-                  <th class="align-middle">Two-Factor-enabled</th>
-                  <th class="align-middle">Action</th>
+                  <th class="px-1">Name</th>
+                  <th class="px-1">Email</th>
+                  <th class="px-1">Phone</th>
+                  <th class="px-1">Role</th>
+                  <th class="px-1">Enabled</th>
+                  <th class="px-1">Email-Verified</th>
+                  <th class="px-1">Phone-Verified</th>
+                  <th class="px-1">Two-Factor-enabled</th>
+                  <th class="px-1">Action</th>
                 </tr>
               </thead>
               <tbody>
                 <tr *ngFor="let data of usersData; let i = index" id="o_{{ data.id }}">
-                  <td>{{ data.name }}</td>
-                  <td>{{ data.email }}</td>
-                  <td>{{ data.phone }}</td>
-                  <td>{{ data.type }}</td>
-                  <td>
+                  <td class="p-1 m-0">{{ data.name }}</td>
+                  <td class="p-1 m-0">{{ data.email }}</td>
+                  <td class="p-1 m-0">{{ data.phone }}</td>
+                  <td class="p-1 m-0">{{ data.type }}</td>
+                  <td class="p-1 m-0">
                     <div class="form-check form-switch">
                       <input type="checkbox" class="form-check-input" [checked]="data.enabled" disabled />
                     </div>
                   </td>
-                  <td>
+                  <td class="p-1 m-0">
                     <div class="form-check form-switch" *ngIf="data.type !== 'Customer'">
                       <input type="checkbox" class="form-check-input" [checked]="data.phoneverified" disabled />
                     </div>
                   </td>
-                  <td>
+                  <td class="p-1 m-0">
                     <div class="form-check form-switch" *ngIf="data.type !== 'Customer'">
                       <input type="checkbox" class="form-check-input" [checked]="data.emailverified" disabled />
                     </div>
                   </td>
-                  <td>
+                  <td class="p-1 m-0">
                     <div class="form-check form-switch" *ngIf="data.type !== 'Customer'">
                       <input type="checkbox" class="form-check-input" [checked]="data.twofactorenabled" disabled />
                     </div>
                   </td>
-                  <td>
+                  <td class="p-1 m-0">
                     <div class="d-flex justify-content-center">
-                      <div style="z-index: 100; position: absolute;">
-                        <div class="dropdown" dropdown placement="bottom-left">
-                          <i class="fa fa-ellipsis-v dropdown-toggle" dropdownToggle data-toggle="dropdown"
-                            aria-expanded="true"></i>
-                          <div class="dropdown-menu dropdown-menu-end" *dropdownMenu>
+                        <div class="dropdown" dropdown>
+                          <button class="btn btn-none dropdown-toggle" dropdownToggle data-toggle="dropdown"
+                            aria-expanded="true">
+                          <i class="fa fa-ellipsis-v"></i></button>
+                        <div class="dropdown-menu dropdown-menu-end" *dropdownMenu>
                             <a class="dropdown-item" (click)="editModal(i)"><i
                                 class="mdi mdi-file-edit-outline m-1"></i>Edit</a>
                             <a class="dropdown-item" (click)="confirm(i)"><i
@@ -80,7 +80,6 @@
                                 class="mdi mdi-lock-reset m-1"></i>Reset Password</a>
                           </div>
                         </div>
-                      </div>
                     </div>
                   </td>
                 </tr>
@@ -109,8 +108,7 @@
         <button type="button" class="btn-close" id="close-modal" (click)="passwodResetModal.hide()"></button>
       </div>
       <div class="modal-body">
-        <form [formGroup]="passwordForm" (ngSubmit)="onResetPasswordSubmit()" class="needs-validation createorder-form"
-          id="createorder-form">
+        <form [formGroup]="passwordForm" (ngSubmit)="onResetPasswordSubmit()" class="needs-validation createorder-form" >
           <div class="row">
             <div class="col-lg-12">
               <div class="mb-3">
@@ -197,7 +195,7 @@
         <button type="button" class="btn-close" id="close-modal" (click)="editUserModal.hide()"></button>
       </div>
       <div class="modal-body">
-        <form class="needs-validation createorder-form" id="createorder-form" novalidate>
+        <form class="needs-validation createorder-form" novalidate>
           <div class="row">
             <div class="col-lg-12">
               <div class="mb-3">
@@ -278,7 +276,7 @@
         <button type="button" class="btn-close" id="close-modal" (click)="createUserModal.hide()"></button>
       </div>
       <div class="modal-body">
-        <form class="needs-validation createorder-form" id="createorder-form" [formGroup]="createUserForm"
+        <form class="needs-validation createorder-form" [formGroup]="createUserForm"
           (ngSubmit)="onCreateUserSubmit()">
           <div class="row">
             <div class="col-lg-12">

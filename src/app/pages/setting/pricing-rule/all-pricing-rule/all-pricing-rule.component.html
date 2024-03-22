@@ -1,0 +1,170 @@
+<div class="container-fluid">
+    <div class="p-2">
+        <app-page-title title="Pricing Rule" [breadcrumbItems]="breadCrumbItems">
+        </app-page-title>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="text-sm-end mb-2">
+                        <button type="button" class="btn btn-success btn-rounded" routerLink="/setting/pricing-rule/create"><i
+                                class="mdi mdi-plus mr-1"></i>
+                            Create new</button>
+                    </div><!-- end col-->
+                    <div class="table-responsive mb-0">
+                        <table
+                            class="table align-middle table-nowrap dt-responsive nowrap w-100 table-check table-hover ">
+                            <thead class="table-light">
+                                <tr>
+                                    <th class="px-1">Rule Name</th>
+                                    <th class="px-1">Created On</th>
+                                    <th class="px-1">Last Modified</th>
+                                    <th class="text-center px-1">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="p-1 m-0">Rule Name 1</td>
+                                    <td class="p-1 m-0">22/04/2024</td>
+                                    <td class="p-1 m-0">22/04/2024</td>
+                                    <td class="py-0 m-0">
+                                        <div class="d-flex justify-content-center">
+                                            <div class="dropdown" dropdown placement="bottom-left">
+                                                <button class="btn btn-none dropdown-toggle" dropdownToggle data-toggle="dropdown" aria-expanded="true">
+                                                    <i class="fa fa-ellipsis-v"></i></button>
+                                                <div class="dropdown-menu dropdown-menu-end" *dropdownMenu>
+                                                    <a class="dropdown-item btn btn-none" routerLink="/setting/pricing-rule/edit"><i class="mdi mdi-file-edit-outline"></i>Edit</a>
+                                                    <a class="dropdown-item btn btn-none" ><i class="mdi mdi-delete"></i>Delete</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="p-1 m-0">Rule Name 2</td>
+                                    <td class="p-1 m-0">22/04/2024</td>
+                                    <td class="p-1 m-0">22/04/2024</td>
+                                    <td class="py-0 m-0">
+                                        <div class="d-flex justify-content-center">
+                                            <div class="dropdown" dropdown placement="bottom-left">
+                                                <button class="btn btn-none dropdown-toggle" dropdownToggle data-toggle="dropdown" aria-expanded="true">
+                                                    <i class="fa fa-ellipsis-v"></i></button>
+                                                <div class="dropdown-menu dropdown-menu-end" *dropdownMenu>
+                                                    <a class="dropdown-item btn btn-none" routerLink="/setting/pricing-rule/edit"><i class="mdi mdi-file-edit-outline"></i>Edit</a>
+                                                    <a class="dropdown-item btn btn-none"><i class="mdi mdi-delete"></i>Delete</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="p-1 m-0">Rule Name 3</td>
+                                    <td class="p-1 m-0">22/04/2024</td>
+                                    <td class="p-1 m-0">22/04/2024</td>
+                                    <td class="py-0 m-0">
+                                        <div class="d-flex justify-content-center">
+                                            <div class="dropdown" dropdown placement="bottom-left">
+                                                <button class="btn btn-none dropdown-toggle" dropdownToggle data-toggle="dropdown" aria-expanded="true">
+                                                    <i class="fa fa-ellipsis-v"></i></button>
+                                                <div class="dropdown-menu dropdown-menu-end" *dropdownMenu>
+                                                    <a class="dropdown-item btn btn-none" routerLink="/setting/pricing-rule/edit"><i class="mdi mdi-file-edit-outline"></i>Edit</a>
+                                                    <a class="dropdown-item btn btn-none"><i class="mdi mdi-delete"></i>Delete</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<!-- Add new Record -->
+
+<div bsModal #addRecordModal="bs-modal" class="modal fade" id="createUserModal" tabindex="-1"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add new Record</h5>
+                <button type="button" class="btn-close" id="close-modal" (click)="addRecordModal.hide()"></button>
+            </div>
+            <div class="modal-body">
+                <form class="needs-validation createorder-form">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-4">
+                            <label for="customer" class="form-label">Item Name</label>
+                            <input type="text" class="form-control" id="customer" autocomplete="off" />
+                        </div>
+
+                        <div class="col-sm-12 col-md-4">
+                            <label for="customer" class="form-label">Customer</label>
+                            <input type="text" class="form-control" id="customer" placeholder="Customer" />
+                        </div>
+
+                        <div class="col-sm-12 col-md-4">
+                            <div class="text-sm-end m-4">
+                                <button type="button" class="btn btn-success btn-rounded">Create Rule</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+                <div class="table-responsive mb-0">
+                    <table class="table align-middle table-nowrap dt-responsive nowrap w-100 table-check table-hover ">
+                        <thead class="table-light">
+                            <tr>
+                                <th class="px-1">Products / Services</th>
+                                <td class="px-1">Description</td>
+                                <td class="px-1">Actual Price</td>
+                                <td class="px-1">New Price</td>
+                                <th class="text-center px-1">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="p-1 m-0">Castco garlic naan vp</td>
+                                <td class="p-1 m-0">Castco garlic naan vp</td>
+                                <td class="p-1 m-0">150</td>
+                                <td class="p-1 m-0"><input type="text" class="form-control"
+                                        style="width: 50px; height: 20px;padding: 1mm;"></td>
+                            </tr>
+                            <tr>
+                                <td class="p-1 m-0">Castco garlic naan vp</td>
+                                <td class="p-1 m-0">Castco garlic naan vp</td>
+                                <td class="p-1 m-0">105</td>
+                                <td class="p-1 m-0"><input type="text" class="form-control"
+                                        style="width: 50px; height: 20px;padding: 1mm;"></td>
+                            </tr>
+                            <tr>
+                                <td class="p-1 m-0">Castco garlic naan vp</td>
+                                <td class="p-1 m-0">Castco garlic naan vp</td>
+                                <td class="p-1 m-0">163</td>
+                                <td class="p-1 m-0"><input type="text" class="form-control"
+                                        style="width: 50px; height: 20px;padding: 1mm;"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-secondary me-1"
+                    (click)="addRecordModal.hide()">Cancel</button>
+                <button type="submit" class="btn btn-success">Create</button>
+            </div>
+            <!-- end modal body -->
+        </div>
+    </div>
+</div>
+
+<!-- End Add new Record -->

@@ -17,7 +17,7 @@ import { Observable } from 'rxjs';
   styleUrl: "./user-setup.component.scss",
 })
 export class UserSetupComponent {
-  usersData = UsersData;
+  usersData: any[] = [];
   users?: any;
   deletId: any;
 
@@ -57,6 +57,7 @@ export class UserSetupComponent {
       { label: "All User", active: true },
     ];
 
+    this.usersData = UsersData;
     this.passwordForm = this.formBuilder.group(
       {
         currentPassword: ["", Validators.required],

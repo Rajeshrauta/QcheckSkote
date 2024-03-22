@@ -7,31 +7,42 @@
     <div class="col-12">
       <div class="card">
         <div class="card-body">
-          <div class="row">
-            <div class="col">
-              <label for="customer" class="form-label">Customer</label>
-              <input type="text" class="form-control" id="customer" placeholder="Customer" />
-            </div>
-            <div class="col">
-              <label for="customer" class="form-label">Report Period</label>
-              <input type="text" class="form-control" id="customer" autocomplete="off" />
-            </div>
-            <div class="col">
-              <label for="customer" class="form-label">Start Date</label>
-              <input bsDatepicker class="form-control" id="customer" placeholder="dd/mm/yyyy" [bsConfig]="bsConfig"
-                autocomplete="off" />
-            </div>
-            <div class="col">
-              <label for="customer" class="form-label">End Date</label>
-              <input bsDatepicker class="form-control" id="customer" placeholder="dd/mm/yyyy" [bsConfig]="bsConfig"
-                autocomplete="off" />
-            </div>
-            <div class="col">
-              <div class="d-flex justify-content-center m-4">
-                <button type="button" class="btn btn-success btn-rounded">View Report</button>
+          <form [formGroup]="reportForm">
+            <div class="row">
+              <div class="col">
+                <label for="customer" class="form-label">Customer</label>
+                <input type="text" class="form-control" id="customer" placeholder="Customer" />
+              </div>
+              <div class="col">
+                <label for="customer" class="form-label">Report Period</label>
+                <select class="form-select d-flex justify-content-end" aria-label="Report Period" formControlName="reportPeriod"
+                  (change)="updateDates($event.target.value)">
+                  <option value="today">Today</option>
+                  <option value="thisweek">This Week</option>
+                  <option value="thismonth">This Month</option>
+                  <option value="thisyear">This Year</option>
+                  <option value="lastweek">Last Week</option>
+                  <option value="lastmonth">Last Month</option>
+                  <option value="lastyear">Last Year</option>
+                </select>
+              </div>
+              <div class="col">
+                <label for="startDate" class="form-label">Start Date</label>
+                <input bsDatepicker class="form-control" id="startDate" placeholder="dd/mm/yyyy" [bsConfig]="bsConfig"
+                  formControlName="startDate" autocomplete="off" />
+              </div>
+              <div class="col">
+                <label for="endDate" class="form-label">End Date</label>
+                <input bsDatepicker class="form-control" id="endDate" placeholder="dd/mm/yyyy" [bsConfig]="bsConfig"
+                  formControlName="endDate" autocomplete="off" />
+              </div>
+              <div class="col">
+                <div class="d-flex justify-content-center m-4">
+                  <button type="button" class="btn btn-success btn-rounded">View Report</button>
+                </div>
               </div>
             </div>
-          </div>
+          </form>
   
           <div class="row">
             <div class="col-md-3">
@@ -39,13 +50,14 @@
             </div>
             <div class="col-md-9">
               <div class="table-responsive mb-0">
-                <table class="table align-middle table-nowrap dt-responsive nowrap w-100 table-check" id="order-list">
+                <table class="table align-middle table-nowrap dt-responsive nowrap w-100 table-check table-hover ">
                   <thead class="table-light">
                     <tr>
                       <th class="px-1">Name</th>
-                      <th class="px-1">01/01/2024 - 01/02/2024</th>
-                      <th class="px-1">01/02/2024 - 01/03/2024</th>
-                      <th class="px-1">01/03/2024 - 01/04/2024</th>
+                      <td class="px-1">01/01 - 01/02/2024</td>
+                      <td class="px-1">01/02 - 01/03/2024</td>
+                      <td class="px-1">01/03 - 01/04/2024</td>
+                      <th class="px-1">Total</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -54,18 +66,21 @@
                       <td class="p-1 m-0">12</td>
                       <td class="p-1 m-0">23</td>
                       <td class="p-1 m-0">32 </td>
+                      <td class="p-1 m-0">67 </td>
                     </tr>
                     <tr>
                       <td class="p-1 m-0">Jamal Burnett</td>
                       <td class="p-1 m-0">35</td>
                       <td class="p-1 m-0">56</td>
                       <td class="p-1 m-0">96</td>
+                      <td class="p-1 m-0">187 </td>
                     </tr>
                     <tr>
                       <td class="p-1 m-0">Juan Mitchell</td>
                       <td class="p-1 m-0">42</td>
                       <td class="p-1 m-0">47</td>
                       <td class="p-1 m-0">45</td>
+                      <td class="p-1 m-0">134 </td>
                     </tr>
                   </tbody>
                 </table>

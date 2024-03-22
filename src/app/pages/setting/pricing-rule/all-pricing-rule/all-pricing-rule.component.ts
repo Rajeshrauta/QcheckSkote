@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: "app-pricing-rule",
-  templateUrl: "./pricing-rule.component.html",
-  styleUrl: "./pricing-rule.component.scss",
+  selector: 'app-all-pricing-rule',
+  templateUrl: './all-pricing-rule.component.html',
+  styleUrl: './all-pricing-rule.component.scss'
 })
-export class PricingRuleComponent {
+export class AllPricingRuleComponent {
   breadCrumbItems: Array<{}>;
 
   ngOnInit(): void {
