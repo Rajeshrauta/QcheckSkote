@@ -7,11 +7,16 @@ import { Component } from '@angular/core';
 })
 export class SyncComponent {
   breadCrumbItems: Array<{}>;
+  selectedTable: string = "entitySyncDetails";
 
   ngOnInit(): void {
     this.breadCrumbItems = [
       { label: "Setting" },
       { label: "Sync", active: true },
     ];
+  }
+
+  selectTable(table: string) {
+    this.selectedTable = table;
   }
 }

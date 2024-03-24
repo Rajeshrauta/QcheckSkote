@@ -7,16 +7,15 @@ import { Component } from '@angular/core';
 })
 export class CreatePricingRuleComponent {
   breadCrumbItems: Array<{}>;
-  showTableBody: boolean = false;
+  selectValue: string[];
+
 
   ngOnInit(): void {
     this.breadCrumbItems = [
       { label: "Setting" },
       { label: "Create Pricing Rule", active: true },
     ];
-  }
 
-  toggleTableBody() {
-    this.showTableBody = !this.showTableBody;
+    this.selectValue = ['Alaska', 'Hawaii', 'California', 'Nevada', 'Oregon', 'Washington', 'Arizona', 'Colorado', 'Idaho', 'Montana', 'Nebraska', 'New Mexico', 'North Dakota', 'Utah', 'Wyoming', 'Alabama', 'Arkansas', 'Illinois', 'Iowa'];
   }
 }

@@ -4,98 +4,103 @@
     </app-page-title>
   </div>
 
-  <div class="card">
-    <div class="card-body">
-      <div class="row mb-2">
-        <div class="col-sm-4">
-          <div class="search-box me-2 mb-2 d-inline-block">
-            <div class="position-relative">
-              <input type="text" class="form-control" autocomplete="off" id="searchTableList" placeholder="Search...">
-              <i class="bx bx-search-alt search-icon"></i>
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="row mt-2 mb-2">
+            <div class="col-sm-4">
+              <div class="search-box me-2 mb-2 d-inline-block">
+                <div class="position-relative">
+                  <input type="text" class="form-control" autocomplete="off" id="searchTableList"
+                    placeholder="Search...">
+                  <i class="bx bx-search-alt search-icon"></i>
+                </div>
+              </div>
             </div>
+            <div class="col-sm-8">
+              <div class="text-sm-end">
+                <button type="button" class="btn btn-success btn-rounded mb-2 me-2"><i class="mdi mdi-refresh mr-1"></i>
+                  Refresh</button>
+              </div>
+            </div><!-- end col-->
+          </div>
+          <div class="table-responsive pb-4">
+            <table class="table align-middle table-nowrap dt-responsive nowrap w-100 table-check table-hover ">
+              <thead class="table-light">
+                <tr>
+                  <th style="width: 20px">
+                    <div class="form-check font-size-16 align-middle">
+                      <input class="form-check-input" type="checkbox" id="transactionCheck01" />
+                      <label class="form-check-label" for="transactionCheck01"></label>
+                    </div>
+                  </th>
+                  <th>Created On</th>
+                  <th>Id</th>
+                  <th>Amount</th>
+                  <th>Customer</th>
+                  <th class="text-center">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <div class="form-check font-size-16">
+                      <input class="form-check-input" type="checkbox" />
+                      <label class="form-check-label"></label>
+                    </div>
+                  </td>
+                  <td>25 February 2024</td>
+                  <td>445566</td>
+                  <td>$123</td>
+                  <td>motto</td>
+                  <td>
+                    <div class="d-flex justify-content-center">
+                      <div style="z-index: 100; position: absolute;">
+                        <div class="dropdown" dropdown placement="bottom-left">
+                          <i class="fa fa-ellipsis-v dropdown-toggle" dropdownToggle data-toggle="dropdown"
+                            aria-expanded="true" style="z-index: -1; position: absolute;"></i>
+                          <div class="dropdown-menu dropdown-menu-end" *dropdownMenu>
+                            <a class="dropdown-item"><i class="mdi mdi-plus m-1"></i>Create Estimate</a>
+                            <a class="dropdown-item"><i class="mdi mdi-message m-1"></i>Send Email</a>
+                            <a class="dropdown-item"><i class="mdi mdi-delete-outline m-1"></i>Delete</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="form-check font-size-16">
+                      <input class="form-check-input" type="checkbox" />
+                      <label class="form-check-label"></label>
+                    </div>
+                  </td>
+                  <td>25 February 2024</td>
+                  <td>445566</td>
+                  <td>$123</td>
+                  <td>motto</td>
+                  <td>
+                    <div class="d-flex justify-content-center">
+                      <div style="z-index: 100; position:absolute;">
+                        <div class="dropdown" dropdown placement="bottom-left">
+                          <i class="fa fa-ellipsis-v dropdown-toggle" dropdownToggle data-toggle="dropdown"
+                            aria-expanded="true" style="z-index: -1; position: absolute;"></i>
+                          <div class="dropdown-menu dropdown-menu-end" *dropdownMenu>
+                            <a class="dropdown-item"><i class="mdi mdi-plus m-1"></i>Create Estimate</a>
+                            <a class="dropdown-item"><i class="mdi mdi-message m-1"></i>Send Email</a>
+                            <a class="dropdown-item"><i class="mdi mdi-delete-outline m-1"></i>Delete</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
-        <div class="col-sm-8">
-          <div class="text-sm-end">
-            <button type="button" class="btn btn-success btn-rounded mb-2 me-2"><i class="mdi mdi-refresh mr-1"></i>
-              Refresh</button>
-          </div>
-        </div><!-- end col-->
-      </div>
-      <div class="table-responsive pb-4">
-        <table class="table align-middle table-nowrap dt-responsive nowrap w-100 table-check table-hover ">
-          <thead class="table-light">
-            <tr>
-              <th style="width: 20px">
-                <div class="form-check font-size-16 align-middle">
-                  <input class="form-check-input" type="checkbox" id="transactionCheck01" />
-                  <label class="form-check-label" for="transactionCheck01"></label>
-                </div>
-              </th>
-              <th>Created On</th>
-              <th>Id</th>
-              <th>Amount</th>
-              <th>Customer</th>
-              <th class="text-center">Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                <div class="form-check font-size-16">
-                  <input class="form-check-input" type="checkbox" />
-                  <label class="form-check-label"></label>
-                </div>
-              </td>
-              <td>25 February 2024</td>
-              <td>445566</td>
-              <td>$123</td>
-              <td>motto</td>
-              <td>
-                <div class="d-flex justify-content-center">
-                  <div style="z-index: 100; position: absolute;">
-                    <div class="dropdown" dropdown placement="bottom-left">
-                      <i class="fa fa-ellipsis-v dropdown-toggle" dropdownToggle data-toggle="dropdown"
-                        aria-expanded="true" style="z-index: -1; position: absolute;"></i>
-                      <div class="dropdown-menu dropdown-menu-end" *dropdownMenu>
-                        <a class="dropdown-item"><i class="mdi mdi-plus m-1"></i>Create Estimate</a>
-                        <a class="dropdown-item"><i class="mdi mdi-message m-1"></i>Send Email</a>
-                        <a class="dropdown-item"><i class="mdi mdi-delete-outline m-1"></i>Delete</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <div class="form-check font-size-16">
-                  <input class="form-check-input" type="checkbox" />
-                  <label class="form-check-label"></label>
-                </div>
-              </td>
-              <td>25 February 2024</td>
-              <td>445566</td>
-              <td>$123</td>
-              <td>motto</td>
-              <td>
-                <div class="d-flex justify-content-center">
-                  <div style="z-index: 100; position:absolute;">
-                    <div class="dropdown" dropdown placement="bottom-left">
-                      <i class="fa fa-ellipsis-v dropdown-toggle" dropdownToggle data-toggle="dropdown"
-                        aria-expanded="true" style="z-index: -1; position: absolute;"></i>
-                      <div class="dropdown-menu dropdown-menu-end" *dropdownMenu>
-                        <a class="dropdown-item"><i class="mdi mdi-plus m-1"></i>Create Estimate</a>
-                        <a class="dropdown-item"><i class="mdi mdi-message m-1"></i>Send Email</a>
-                        <a class="dropdown-item"><i class="mdi mdi-delete-outline m-1"></i>Delete</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
       </div>
     </div>
   </div>

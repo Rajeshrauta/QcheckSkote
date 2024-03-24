@@ -11,6 +11,7 @@ export class CustomerReportsComponent implements OnInit {
   breadCrumbItems: Array<{}>;
   reportForm: FormGroup;
   bsConfig: Partial<BsDatepickerConfig>;
+  selectValue: string[];
 
   constructor(private formBuilder: FormBuilder) {
     this.bsConfig = Object.assign({}, {
@@ -31,6 +32,8 @@ export class CustomerReportsComponent implements OnInit {
       startDate: [new Date()],
       endDate: [new Date()]
     });
+
+    this.selectValue = ['Alaska', 'Hawaii', 'California', 'Nevada', 'Oregon', 'Washington', 'Arizona', 'Colorado', 'Idaho', 'Montana', 'Nebraska', 'New Mexico', 'North Dakota', 'Utah', 'Wyoming', 'Alabama', 'Arkansas', 'Illinois', 'Iowa'];
   }
 
 

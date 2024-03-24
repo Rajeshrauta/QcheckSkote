@@ -8,40 +8,51 @@
       <div class="card">
         <div class="card-body">
           <form [formGroup]="reportForm">
-          <div class="row">
-            <div class="col">
-              <label for="customer" class="form-label">Customer</label>
-              <input type="text" class="form-control" id="customer" placeholder="Customer" />
-            </div>
-            <div class="col">
-              <label for="customer" class="form-label">Report Period</label>
-              <select class="form-select d-flex justify-content-end" aria-label="Report Period" formControlName="reportPeriod" (change)="updateDates($event.target.value)">
-                <option value="today">Today</option>
-                <option value="thisweek">This Week</option>
-                <option value="thismonth">This Month</option>
-                <option value="thisyear">This Year</option>
-                <option value="lastweek">Last Week</option>
-                <option value="lastmonth">Last Month</option>
-                <option value="lastyear">Last Year</option>
-              </select>
-            </div>
-            <div class="col">
-              <label for="startDate" class="form-label">Start Date</label>
-              <input bsDatepicker class="form-control" id="startDate" placeholder="dd/mm/yyyy" [bsConfig]="bsConfig" formControlName="startDate"
-                autocomplete="off" />
-            </div>
-            <div class="col">
-              <label for="endDate" class="form-label">End Date</label>
-              <input bsDatepicker class="form-control" id="endDate"placeholder="dd/mm/yyyy" [bsConfig]="bsConfig" formControlName="endDate"
-                autocomplete="off" />
-            </div>
-            <div class="col">
-              <div class="d-flex justify-content-center m-4">
-                <button type="button" class="btn btn-success btn-rounded">View Report</button>
+            <div class="row">
+              <div class="col">
+                <label for="customer" class="form-label">Customer</label>
+                <ng-select [items]="selectValue" id="customer" placeholder="Select Customer"></ng-select>
+              </div>
+              <div class="col">
+                <label for="customer" class="form-label">Report Period</label>
+                <select class="form-select d-flex justify-content-end" aria-label="Report Period"
+                  formControlName="reportPeriod" (change)="updateDates($event.target.value)">
+                  <option value="today">Today</option>
+                  <option value="thisweek">This Week</option>
+                  <option value="thismonth">This Month</option>
+                  <option value="thisyear">This Year</option>
+                  <option value="lastweek">Last Week</option>
+                  <option value="lastmonth">Last Month</option>
+                  <option value="lastyear">Last Year</option>
+                </select>
+              </div>
+              <div class="col">
+                <label for="startDate" class="form-label">Start Date</label>
+                <input bsDatepicker class="form-control" id="startDate" placeholder="dd/mm/yyyy" [bsConfig]="bsConfig"
+                  formControlName="startDate" autocomplete="off" />
+              </div>
+              <div class="col">
+                <label for="endDate" class="form-label">End Date</label>
+                <input bsDatepicker class="form-control" id="endDate" placeholder="dd/mm/yyyy" [bsConfig]="bsConfig"
+                  formControlName="endDate" autocomplete="off" />
+              </div>
+              <div class="col">
+                <div class="d-flex justify-content-center m-4">
+                  <button type="button" class="btn btn-success btn-rounded">View Report</button>
+                </div>
               </div>
             </div>
-          </div>
           </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
 
           <div class="row">
             <div class="col-md-3">

@@ -2,12 +2,11 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AllOverdueComponent } from './all-overdue/all-overdue.component';
 import { TodayOverdueComponent } from './today-overdue/today-overdue.component';
+import { AccountingComponent } from './accounting.component';
 
 const routes: Routes = [
   {
-    path: "",
-    redirectTo: "all-overdue",
-    pathMatch: "full",
+    path: "", component: AccountingComponent,
   },
 
   {

@@ -1,0 +1,249 @@
+<div class="container-fluid">
+    <div class="p-2">
+        <app-page-title title="Accounting" [breadcrumbItems]="breadCrumbItems">
+        </app-page-title>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-4 mb-2 text-center">
+                            <button type="button" class="btn btn-primary  btn-block">Statement for open amount >
+                                0</button>
+                        </div>
+                        <div class="col-sm-12 col-md-4 mb-2 text-center">
+                            <button type="button" class="btn btn-primary  btn-block">Statement for overdue amount >
+                                0</button>
+                        </div>
+                        <div class="col-sm-12 col-md-4 mb-2 text-center">
+                            <button type="button" class="btn btn-primary  btn-block">Send Product list to all
+                                customer</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end select2 -->
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="search-box d-inline-block">
+                        <div class="position-relative mb-2 me-2">
+                            <!-- <label for="customer" class="form-label">Report Period</label> -->
+                            <select class="form-select d-flex justify-content-end" aria-label="Report Period"
+                                (change)="selectTable($event.target.value)">
+                                <option value="todayOverdue">Today Overdue</option>
+                                <option value="allOverdue">All Overdue</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="table-responsive mb-0" [ngSwitch]="selectedTable">
+                        <table
+                            class="table align-middle table-nowrap dt-responsive nowrap w-100 table-check table-hover "
+                            *ngSwitchCase="'todayOverdue'">
+                            <thead class="table-light">
+                                <tr>
+                                    <th scope="col">Last Modified</th>
+                                    <th scope="col">Invoice Id</th>
+                                    <th scope="col">Customer</th>
+                                    <th scope="col">Balance</th>
+                                    <th scope="col">Due Date</th>
+                                    <th scope="col">Total Ammount</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody class="table-responsive mb-0">
+                                <tr>
+                                    <td>22/03/2022</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td class="align-middle border-0 width-33">
+                                        <div class="dropdown" dropdown placement="bottom-left">
+                                            <i class="mdi mdi-dots-vertical dropdown-toggle" dropdownToggle
+                                                data-toggle="dropdown" aria-expanded="true"></i>
+                                            <div class="dropdown-menu dropdown-menu-end" *dropdownMenu>
+                                                <a class="dropdown-item" routerLink="/estimate/edit-estimate"><i
+                                                        class="mdi mdi-file-edit-outline"></i>Edit</a>
+                                                <a class="dropdown-item" href="javascript: void(0);"><i
+                                                        class="mdi mdi-message"></i>Email</a>
+                                                <a class="dropdown-item" href="javascript: void(0);"><i
+                                                        class="mdi mdi-printer"></i>Print</a>
+                                                <a class="dropdown-item" href="javascript: void(0);"><span
+                                                        class="mdi mdi-whatsapp"></span>Whatsapp</a>
+                                                <a class="dropdown-item" href="javascript: void(0);"><span
+                                                        class="mdi mdi-delete-circle-outline text-danger"></span>Delete</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td class="align-middle border-0 width-33">
+                                        <div class="dropdown" dropdown placement="bottom-left">
+                                            <i class="mdi mdi-dots-vertical dropdown-toggle" dropdownToggle
+                                                data-toggle="dropdown" aria-expanded="true"></i>
+                                            <div class="dropdown-menu dropdown-menu-end" *dropdownMenu>
+                                                <a class="dropdown-item" routerLink="/estimate/edit-estimate"><i
+                                                        class="mdi mdi-file-edit-outline"></i>Edit</a>
+                                                <a class="dropdown-item" href="javascript: void(0);"><i
+                                                        class="mdi mdi-message"></i>Email</a>
+                                                <a class="dropdown-item" href="javascript: void(0);"><i
+                                                        class="mdi mdi-printer"></i>Print</a>
+                                                <a class="dropdown-item" href="javascript: void(0);"><span
+                                                        class="mdi mdi-whatsapp"></span>Whatsapp</a>
+                                                <a class="dropdown-item" href="javascript: void(0);"><span
+                                                        class="mdi mdi-delete-circle-outline text-danger"></span>Delete</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td class="align-middle border-0 width-33">
+                                        <div class="dropdown" dropdown placement="bottom-left">
+                                            <i class="mdi mdi-dots-vertical dropdown-toggle" dropdownToggle
+                                                data-toggle="dropdown" aria-expanded="true"></i>
+                                            <div class="dropdown-menu dropdown-menu-end" *dropdownMenu>
+                                                <a class="dropdown-item" routerLink="/estimate/edit-estimate"><i
+                                                        class="mdi mdi-file-edit-outline"></i>Edit</a>
+                                                <a class="dropdown-item" href="javascript: void(0);"><i
+                                                        class="mdi mdi-message"></i>Email</a>
+                                                <a class="dropdown-item" href="javascript: void(0);"><i
+                                                        class="mdi mdi-printer"></i>Print</a>
+                                                <a class="dropdown-item" href="javascript: void(0);"><span
+                                                        class="mdi mdi-whatsapp"></span>Whatsapp</a>
+                                                <a class="dropdown-item" href="javascript: void(0);"><span
+                                                        class="mdi mdi-delete-circle-outline text-danger"></span>Delete</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <table
+                            class="table align-middle table-nowrap dt-responsive nowrap w-100 table-check table-hover "
+                            *ngSwitchCase="'allOverdue'">
+                            <thead class="table-light">
+                                <tr>
+                                    <th scope="col">Last Modified</th>
+                                    <th scope="col">Invoice Id</th>
+                                    <th scope="col">Customer</th>
+                                    <th scope="col">Balance</th>
+                                    <th scope="col">Due Date</th>
+                                    <th scope="col">Total Ammount</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody class="table-responsive mb-0">
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td class="align-middle border-0 width-33">
+                                        <div class="dropdown" dropdown placement="bottom-left">
+                                            <i class="mdi mdi-dots-vertical dropdown-toggle" dropdownToggle
+                                                data-toggle="dropdown" aria-expanded="true"></i>
+                                            <div class="dropdown-menu dropdown-menu-end" *dropdownMenu>
+                                                <a class="dropdown-item" routerLink="/estimate/edit-estimate"><i
+                                                        class="mdi mdi-file-edit-outline"></i>Edit</a>
+                                                <a class="dropdown-item" href="javascript: void(0);"><i
+                                                        class="mdi mdi-message"></i>Email</a>
+                                                <a class="dropdown-item" href="javascript: void(0);"><i
+                                                        class="mdi mdi-printer"></i>Print</a>
+                                                <a class="dropdown-item" href="javascript: void(0);"><span
+                                                        class="mdi mdi-whatsapp"></span>Whatsapp</a>
+                                                <a class="dropdown-item" href="javascript: void(0);"><span
+                                                        class="mdi mdi-delete-circle-outline text-danger"></span>Delete</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td class="align-middle border-0 width-33">
+                                        <div class="dropdown" dropdown placement="bottom-left">
+                                            <i class="mdi mdi-dots-vertical dropdown-toggle" dropdownToggle
+                                                data-toggle="dropdown" aria-expanded="true"></i>
+                                            <div class="dropdown-menu dropdown-menu-end" *dropdownMenu>
+                                                <a class="dropdown-item" routerLink="/estimate/edit-estimate"><i
+                                                        class="mdi mdi-file-edit-outline"></i>Edit</a>
+                                                <a class="dropdown-item" href="javascript: void(0);"><i
+                                                        class="mdi mdi-message"></i>Email</a>
+                                                <a class="dropdown-item" href="javascript: void(0);"><i
+                                                        class="mdi mdi-printer"></i>Print</a>
+                                                <a class="dropdown-item" href="javascript: void(0);"><span
+                                                        class="mdi mdi-whatsapp"></span>Whatsapp</a>
+                                                <a class="dropdown-item" href="javascript: void(0);"><span
+                                                        class="mdi mdi-delete-circle-outline text-danger"></span>Delete</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td class="align-middle border-0 width-33">
+                                        <div class="dropdown" dropdown placement="bottom-left">
+                                            <i class="mdi mdi-dots-vertical dropdown-toggle" dropdownToggle
+                                                data-toggle="dropdown" aria-expanded="true"></i>
+                                            <div class="dropdown-menu dropdown-menu-end" *dropdownMenu>
+                                                <a class="dropdown-item" routerLink="/estimate/edit-estimate"><i
+                                                        class="mdi mdi-file-edit-outline"></i>Edit</a>
+                                                <a class="dropdown-item" href="javascript: void(0);"><i
+                                                        class="mdi mdi-message"></i>Email</a>
+                                                <a class="dropdown-item" href="javascript: void(0);"><i
+                                                        class="mdi mdi-printer"></i>Print</a>
+                                                <a class="dropdown-item" href="javascript: void(0);"><span
+                                                        class="mdi mdi-whatsapp"></span>Whatsapp</a>
+                                                <a class="dropdown-item" href="javascript: void(0);"><span
+                                                        class="mdi mdi-delete-circle-outline text-danger"></span>Delete</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

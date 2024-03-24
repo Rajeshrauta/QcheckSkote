@@ -8,9 +8,10 @@ import { TodayOverdueComponent } from './today-overdue/today-overdue.component';
 import { BsDropdownModule } from "ngx-bootstrap/dropdown";
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AccountingComponent } from './accounting.component';
 
 @NgModule({
-  declarations: [AllOverdueComponent, TodayOverdueComponent],
+  declarations: [AllOverdueComponent, TodayOverdueComponent,AccountingComponent],
   imports: [
     CommonModule, 
     AccountingRoutingModule, 

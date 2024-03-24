@@ -4,6 +4,7 @@ import { BsDropdownModule } from "ngx-bootstrap/dropdown";
 import { UIModule } from "src/app/shared/ui/ui.module";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { ModalModule } from "ngx-bootstrap/modal";
+import { NgSelectModule } from '@ng-select/ng-select';
 
 import { PricingRuleRoutingModule } from './pricing-rule-routing.module';
 import { CreatePricingRuleComponent } from './create-pricing-rule/create-pricing-rule.component';
@@ -24,7 +25,8 @@ import { AllPricingRuleComponent } from './all-pricing-rule/all-pricing-rule.com
     ReactiveFormsModule, 
     UIModule, 
     BsDropdownModule,
-    ModalModule
+    ModalModule,
+    NgSelectModule
   ]
 })
 export class PricingRuleModule { }

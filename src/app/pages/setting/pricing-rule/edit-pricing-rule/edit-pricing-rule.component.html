@@ -22,7 +22,7 @@
     
                             <div class="col-sm-12 col-md-4">
                                 <div class="text-sm-end m-4">
-                                    <button type="button" class="btn btn-success btn-rounded">Update Rule</button>
+                                    <button type="button" class="btn btn-success btn-rounded"  routerLink="/setting/pricing-rule">Update Rule</button>
                                 </div>
                             </div>
                         </div>
@@ -40,7 +40,7 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td class="p-1 m-0">Product Name</td>
+                                    <td class="p-1 m-0" (click)="editRecordModal.show()">Product Name</td>
                                     <td class="p-1 m-0">Product Description</td>
                                     <td class="p-1 m-0">$71</td>
                                     <td class="p-1 m-0"><input type="text" class="form-control" style="width: 50px; height: 20px;padding: 1mm;" value="$100"></td>
@@ -52,7 +52,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="p-1 m-0">Product Name</td>
+                                    <td class="p-1 m-0" (click)="editRecordModal.show()">Product Name</td>
                                     <td class="p-1 m-0">Product Description</td>
                                     <td class="p-1 m-0">$71</td>
                                     <td class="p-1 m-0"><input type="text" class="form-control" style="width: 50px; height: 20px;padding: 1mm;"
@@ -96,7 +96,7 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Add new Record</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Add</h5>
                     <button type="button" class="btn-close" id="close-modal" (click)="addRecordModal.hide()"></button>
                 </div>
                 <div class="modal-body">
@@ -157,7 +157,7 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Add new Record</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Edit</h5>
                     <button type="button" class="btn-close" id="close-modal" (click)="editRecordModal.hide()"></button>
                 </div>
                 <div class="modal-body">

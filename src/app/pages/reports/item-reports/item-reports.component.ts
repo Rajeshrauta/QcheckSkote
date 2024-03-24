@@ -11,6 +11,9 @@ export class ItemReportsComponent {
   breadCrumbItems: Array<{}>;
   reportForm: FormGroup;
   bsConfig: Partial<BsDatepickerConfig>;
+  selectValue: string[];
+
+  selectedTable: string = "itemBoughtByCustomer";
 
   constructor(private formBuilder: FormBuilder) {
     this.bsConfig = Object.assign({}, {
@@ -32,6 +35,12 @@ export class ItemReportsComponent {
       startDate: [new Date()],
       endDate: [new Date()]
     });
+
+    this.selectValue = ['Alaska', 'Hawaii', 'California', 'Nevada', 'Oregon', 'Washington', 'Arizona', 'Colorado', 'Idaho', 'Montana', 'Nebraska', 'New Mexico', 'North Dakota', 'Utah', 'Wyoming', 'Alabama', 'Arkansas', 'Illinois', 'Iowa'];
+  }
+
+  selectTable(table: string) {
+    this.selectedTable = table;
   }
 
 

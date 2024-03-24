@@ -145,27 +145,32 @@ export const MENU: MenuItem[] = [
       },
     ],
   },
-
-  //Accounting
   {
     id: 23,
     label: "Accounting",
     icon: "bx-calculator",
-    subItems: [
-      {
-        id: 24,
-        label: "Today Overdue",
-        link: "/accounting/today-overdue",
-        parentId: 23,
-      },
-      {
-        id: 25,
-        label: "All Overdue",
-        link: "/accounting/all-overdue",
-        parentId: 23,
-      },
-    ],
+    link: "/accounting",
   },
+  //Accounting
+  // {
+  //   id: 23,
+  //   label: "Accounting",
+  //   icon: "bx-calculator",
+  //   subItems: [
+  //     {
+  //       id: 24,
+  //       label: "Today Overdue",
+  //       link: "/accounting/today-overdue",
+  //       parentId: 23,
+  //     },
+  //     {
+  //       id: 25,
+  //       label: "All Overdue",
+  //       link: "/accounting/all-overdue",
+  //       parentId: 23,
+  //     },
+  //   ],
+  // },
 
   //Vendors
   {

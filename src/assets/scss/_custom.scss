@@ -139,11 +139,11 @@
 
 .ng-dropdown-panel {
     border-color: $input-border-color;
-    background-color: var(--#{$prefix}custom-white);
+    // background-color: var(--#{$prefix}custom-white);
 }
 
 .ng-dropdown-panel .ng-dropdown-panel-items .ng-option {
-    background-color: var(--#{$prefix}custom-white);
+    // background-color: var(--#{$prefix}custom-white);
     color: var(--#{$prefix}body-color);
 }
 

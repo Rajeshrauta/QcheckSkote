@@ -1,6 +1,91 @@
 <div class="container-fluid">
-    <div class="p-3">
+  <div class="p-3">
     <app-page-title title="Sync" [breadcrumbItems]="breadCrumbItems">
     </app-page-title>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <form class="needs-validation createorder-form">
+            <div class="row">
+              <div class="col-sm-4">
+                <div class="search-box d-inline-block">
+                  <div class="position-relative mb-2 me-2">
+                    <!-- <label for="customer" class="form-label">Report Period</label> -->
+                    <select class="form-select d-flex justify-content-end" aria-label="Report Period" (change)="selectTable($event.target.value)">
+                      <option value="entitySyncDetails">Entity Sync Details</option>
+                      <option value="pendingCustomerOrder">Pending Customer Order</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+          <div class="table-responsive mb-0" [ngSwitch]="selectedTable">
+            <table class="table align-middle table-nowrap dt-responsive nowrap w-100 table-check table-hover " *ngSwitchCase="'entitySyncDetails'">
+              <thead class="table-light">
+                <tr>
+                  <th class="px-1">Entity Id</th>
+                  <td class="px-1">Entity Name</td>
+                  <td class="px-1">Last Sync</td>
+                  <td class="px-1">Total</td>
+                  <th class="text-center px-1">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="p-1 m-0">1</td>
+                  <td class="p-1 m-0">Customer</td>
+                  <td class="p-1 m-0">22/03/2023 12:27 PM</td>
+                  <td class="p-1 m-0">30</td>
+                  <td class="py-0 m-0">
+                    <div class="d-flex justify-content-center">
+                      <a class="btn btn-none"><i class="mdi mdi-sync text-primary"></i></a>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="p-1 m-0">2</td>
+                  <td class="p-1 m-0">Estimate</td>
+                  <td class="p-1 m-0">22/03/2023 12:23 PM</td>
+                  <td class="p-1 m-0">35</td>
+                  <td class="py-0 m-0">
+                    <div class="d-flex justify-content-center">
+                      <a class="btn btn-none"><i class="mdi mdi-sync text-primary"></i></a>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+            <table class="table align-middle table-nowrap dt-responsive nowrap w-100 table-check table-hover "
+              *ngSwitchCase="'pendingCustomerOrder'">
+              <thead class="table-light">
+                <tr>
+                  <th class="px-1">Seriel Number</th>
+                  <td class="px-1">Customer Name</td>
+                  <td class="px-1">Created On</td>
+                  <th class="text-center px-1">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="p-1 m-0">1001</td>
+                  <td class="p-1 m-0">Mathew Bernard</td>
+                  <td class="p-1 m-0">22/03/2024</td>
+                  <td class="py-0 m-0">
+                    <div class="d-flex justify-content-center">
+                      <a class="btn btn-none"><i class="mdi mdi-sync text-primary"></i></a>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

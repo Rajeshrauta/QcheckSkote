@@ -1,6 +1,65 @@
 <div class="container-fluid">
-    <div class="p-3">
+  <div class="p-2">
     <app-page-title title="Vendors" [breadcrumbItems]="breadCrumbItems">
     </app-page-title>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="row">
+            <div class="d-flex flex-wrap py-2">
+              <div class="col-lg-2 col-md-3 col-12 col-sm-3 flex-grow-1 col">
+                <div class="border p-2 m-1">
+                  <div class="search-box d-inline-block mt-1 w-100">
+                    <div class="position-relative mb-2">
+                      <input type="text" class="form-control" autocomplete="off" id="searchTableList"
+                        placeholder="Search...">
+                      <i class="bx bx-search-alt search-icon"></i>
+                    </div>
+                  </div>
+                  <!-- <ngx-simplebar [style.height]="height-73 +'px'">
+                    <div *ngFor="let value of ProductData" class="pt-1 mt-1 border-bottom hover">
+                      <span>{{ value.ProductName }}</span>
+                    </div>
+                  </ngx-simplebar> -->
+                </div>
+              </div>
+              <div class="col-lg-10 col-md-9 col-12 col-sm-9 flex-grow-1 col">
+                <div #sourceElement>
+                  <div class="table-responsive m-0 p-0">
+                    <table class="table align-middle table-nowrap dt-responsive nowrap w-100 table-check table-hover ">
+                      <thead class="table-light">
+                        <tr>
+                          <th class="px-1">Created Date</th>
+                          <th class="px-1">Type</th>
+                          <th class="px-1">Doc Number</th>
+                          <th class="px-1">Due Date</th>
+                          <th class="px-1">Total</th>
+                          <th class="px-1 text-center">Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td class="p-1 m-0">21/03/2024</td>
+                          <td class="p-1 m-0">Bill</td>
+                          <td class="p-1 m-0">12001</td>
+                          <td class="p-1 m-0">21/04/2024</td>
+                          <td class="p-1 m-0">$123</td>
+                          <td class="p-1 m-0 text-center">
+                            <button class="btn btn-primary btn-sm">View all</button>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

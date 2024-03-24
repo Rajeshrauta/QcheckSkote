@@ -9,11 +9,11 @@
         <div class="card-body">
           <form [formGroup]="reportForm">
             <div class="row">
-              <div class="col">
+              <div class="col-sm-12 col-md-6 col-lg">
                 <label for="customer" class="form-label">Item</label>
-                <input type="text" class="form-control" id="item" placeholder="Select Item" />
+                <ng-select [items]="selectValue" id="customer" placeholder="Select Item"></ng-select>
               </div>
-              <div class="col">
+              <div class="col-sm-12 col-md-6 col-lg">
                 <label for="customer" class="form-label">Report Period</label>
                 <select class="form-select d-flex justify-content-end" aria-label="Report Period"
                   formControlName="reportPeriod" (change)="updateDates($event.target.value)">
@@ -26,67 +26,113 @@
                   <option value="lastyear">Last Year</option>
                 </select>
               </div>
-              <div class="col">
+              <div class="col-sm-12 col-md-6 col-lg">
                 <label for="startDate" class="form-label">Start Date</label>
                 <input bsDatepicker class="form-control" id="startDate" placeholder="dd/mm/yyyy" [bsConfig]="bsConfig"
                   formControlName="startDate" autocomplete="off" />
               </div>
-              <div class="col">
+              <div class="col-sm-12 col-md-6 col-lg">
                 <label for="endDate" class="form-label">End Date</label>
                 <input bsDatepicker class="form-control" id="endDate" placeholder="dd/mm/yyyy" [bsConfig]="bsConfig"
                   formControlName="endDate" autocomplete="off" />
               </div>
-              <div class="col">
-                <div class="d-flex justify-content-center m-4">
-                  <button type="button" class="btn btn-success btn-rounded">View Report</button>
-                </div>
+              <div class="col-sm-12 col-lg m-4">
+                <button type="button" class="btn btn-success btn-rounded">View Report</button>
               </div>
             </div>
           </form>
+        </div>
+      </div>
+      <!-- end select2 -->
+    </div>
+  </div>
 
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="search-box d-inline-block">
+            <div class="position-relative mb-2 me-2">
+              <!-- <label for="customer" class="form-label">Report Period</label> -->
+              <select class="form-select d-flex justify-content-end" aria-label="Report Period"
+                (change)="selectTable($event.target.value)">
+                <option value="itemBoughtByCustomer">Item Bought By Customer</option>
+                <option value="itemNotBoughtByCustomer">Item Not Bought By Customer</option>
+              </select>
+            </div>
+          </div>
+          <div class="table-responsive mb-0" [ngSwitch]="selectedTable">
+            <table class="table align-middle table-nowrap dt-responsive nowrap w-100 table-check table-hover "
+              *ngSwitchCase="'itemBoughtByCustomer'">
+              <thead class="table-light">
+                <tr>
+                  <th class="px-1">Name</th>
+                  <td class="px-1">01/01 - 01/02/2024</td>
+                  <td class="px-1">01/02 - 01/03/2024</td>
+                  <td class="px-1">01/03 - 01/04/2024</td>
+                  <th class="px-1">Total</th>
+                </tr>
+              </thead>
+              <tbody class="table-responsive mb-0">
+                <tr>
+                  <td class="p-1 m-0">Product Name</td>
+                  <td class="p-1 m-0">12</td>
+                  <td class="p-1 m-0">23</td>
+                  <td class="p-1 m-0">32 </td>
+                  <td class="p-1 m-0">67 </td>
+                </tr>
+                <tr>
+                  <td class="p-1 m-0">Product Name</td>
+                  <td class="p-1 m-0">35</td>
+                  <td class="p-1 m-0">56</td>
+                  <td class="p-1 m-0">96</td>
+                  <td class="p-1 m-0">187 </td>
+                </tr>
+                <tr>
+                  <td class="p-1 m-0">Product Name</td>
+                  <td class="p-1 m-0">42</td>
+                  <td class="p-1 m-0">47</td>
+                  <td class="p-1 m-0">45</td>
+                  <td class="p-1 m-0">134 </td>
+                </tr>
+              </tbody>
+            </table>
 
-          <div class="row">
-            <div class="col-md-3">
-              Products
-            </div>
-            <div class="col-md-9">
-              <div class="table-responsive mb-0">
-                <table class="table align-middle table-nowrap dt-responsive nowrap w-100 table-check table-hover ">
-                  <thead class="table-light">
-                    <tr>
-                      <th class="px-1">Name</th>
-                      <td class="px-1">01/01 - 01/02/2024</td>
-                      <td class="px-1">01/02 - 01/03/2024</td>
-                      <td class="px-1">01/03 - 01/04/2024</td>
-                      <th class="px-1">Total</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td class="p-1 m-0">Neal Matthews</td>
-                      <td class="p-1 m-0">12</td>
-                      <td class="p-1 m-0">23</td>
-                      <td class="p-1 m-0">32 </td>
-                      <td class="p-1 m-0">67 </td>
-                    </tr>
-                    <tr>
-                      <td class="p-1 m-0">Jamal Burnett</td>
-                      <td class="p-1 m-0">35</td>
-                      <td class="p-1 m-0">56</td>
-                      <td class="p-1 m-0">96</td>
-                      <td class="p-1 m-0">187 </td>
-                    </tr>
-                    <tr>
-                      <td class="p-1 m-0">Juan Mitchell</td>
-                      <td class="p-1 m-0">42</td>
-                      <td class="p-1 m-0">47</td>
-                      <td class="p-1 m-0">45</td>
-                      <td class="p-1 m-0">134 </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
+            <table class="table align-middle table-nowrap dt-responsive nowrap w-100 table-check table-hover "
+              *ngSwitchCase="'itemNotBoughtByCustomer'">
+              <thead class="table-light">
+                <tr>
+                  <th class="px-1">Name</th>
+                  <td class="px-1">01/01 - 01/02/2024</td>
+                  <td class="px-1">01/02 - 01/03/2024</td>
+                  <td class="px-1">01/03 - 01/04/2024</td>
+                  <th class="px-1">Total</th>
+                </tr>
+              </thead>
+              <tbody class="table-responsive mb-0">
+                <tr>
+                  <td class="p-1 m-0 text-danger">Product Name</td>
+                  <td class="p-1 m-0">10</td>
+                  <td class="p-1 m-0">20</td>
+                  <td class="p-1 m-0">30 </td>
+                  <td class="p-1 m-0">60 </td>
+                </tr>
+                <tr>
+                  <td class="p-1 m-0 text-danger">Product Name</td>
+                  <td class="p-1 m-0">30</td>
+                  <td class="p-1 m-0">50</td>
+                  <td class="p-1 m-0">90</td>
+                  <td class="p-1 m-0">170 </td>
+                </tr>
+                <tr>
+                  <td class="p-1 m-0 text-danger">Product Name</td>
+                  <td class="p-1 m-0">45</td>
+                  <td class="p-1 m-0">45</td>
+                  <td class="p-1 m-0">10</td>
+                  <td class="p-1 m-0">190 </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>

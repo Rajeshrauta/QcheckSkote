@@ -14,21 +14,35 @@
                                 <label for="rulename" class="form-label">Rule Name</label>
                                 <input type="text" class="form-control" id="rulename" autocomplete="off" />
                             </div>
-                    
+
                             <div class="col-sm-12 col-md-4">
-                                <label for="customer" class="form-label">Customer</label>
-                                <input type="text" class="form-control" id="customer" placeholder="Customer" />
+                                <div class="mb-3">
+                                    <label for="customer" class="form-label">Customer</label>
+                                    <ng-select [items]="selectValue" [multiple]="true"></ng-select>
+                                </div>
                             </div>
-                    
+
                             <div class="col-sm-12 col-md-4">
                                 <div class="text-sm-end m-4">
-                                    <button type="button" class="btn btn-success btn-rounded" (click)="toggleTableBody()">Create Rule</button>
+                                    <button type="button" class="btn btn-success btn-rounded"
+                                        routerLink="/setting/pricing-rule">Create Rule</button>
                                 </div>
                             </div>
                         </div>
                     </form>
-                    <div class="table-responsive mb-0" >
-                        <table class="table align-middle table-nowrap dt-responsive nowrap w-100 table-check table-hover ">
+                </div>
+            </div>
+            <!-- end select2 -->
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="table-responsive mb-0">
+                        <table
+                            class="table align-middle table-nowrap dt-responsive nowrap w-100 table-check table-hover ">
                             <thead class="table-light">
                                 <tr>
                                     <th class="px-1">Products / Services</th>
@@ -38,16 +52,18 @@
                                     <th class="text-center px-1">Action</th>
                                 </tr>
                             </thead>
-                            <tbody *ngIf="showTableBody">
+                            <tbody>
                                 <tr>
-                                    <td class="p-1 m-0"><button class="btn btn-rounded btn-primary" (click)="addRecordModal.show()">Add</button></td>
+                                    <td class="p-1 m-0"><button class="btn btn-rounded btn-primary"
+                                            (click)="addRecordModal.show()">Add</button></td>
                                     <td class="p-1 m-0"></td>
                                     <td class="p-1 m-0"></td>
                                     <td class="p-1 m-0"><input type="text" class="form-control"
                                             style="width: 50px; height: 20px;padding: 1mm;"></td>
                                     <td class="py-0 m-0">
                                         <div class="d-flex justify-content-center">
-                                            <a class="btn btn-none" (click)="editRecordModal.show()"><i class="mdi mdi-pencil"></i></a>
+                                            <a class="btn btn-none" (click)="editRecordModal.show()"><i
+                                                    class="mdi mdi-pencil"></i></a>
                                             <a class="btn btn-none"><i class="mdi mdi-delete text-danger"></i></a>
                                         </div>
                                     </td>
@@ -69,7 +85,7 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Add new Record</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Add</h5>
                 <button type="button" class="btn-close" id="close-modal" (click)="addRecordModal.hide()"></button>
             </div>
             <div class="modal-body">
@@ -78,24 +94,28 @@
                         <div class="col-sm-12">
                             <div class="mb-3">
                                 <label for="email-field" class="form-label">Product/Service</label>
-                                <input type="text" class="form-control" formControlName="product" placeholder="Select Product" />
+                                <input type="text" class="form-control" formControlName="product"
+                                    placeholder="Select Product" />
                             </div>
                         </div>
                         <div class="col-sm-12">
                             <div class="mb-3">
                                 <label for="email-field" class="form-label">Description</label>
-                                <textarea id="Description" class="form-control" rows="2" formControlName="description" placeholder="Description"></textarea>
+                                <textarea id="Description" class="form-control" rows="2" formControlName="description"
+                                    placeholder="Description"></textarea>
                             </div>
-                        </div><div class="col-sm-12 col-md-6">
+                        </div>
+                        <div class="col-sm-12 col-md-6">
                             <div class="mb-3">
                                 <label for="email-field" class="form-label">Actual Price</label>
-                                <input type="text" class="form-control" formControlName="actualprice" value="$71" disabled/>
+                                <input type="text" class="form-control" formControlName="actualprice" value="$71"
+                                    disabled />
                             </div>
                         </div>
                         <div class="col-sm-12 col-md-6">
                             <div class="mb-3">
                                 <label for="email-field" class="form-label">New Price</label>
-                                <input type="text" class="form-control" formControlName="newprice"/>
+                                <input type="text" class="form-control" formControlName="newprice" />
                             </div>
                         </div>
 
@@ -126,7 +146,7 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Add new Record</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Edit</h5>
                 <button type="button" class="btn-close" id="close-modal" (click)="editRecordModal.hide()"></button>
             </div>
             <div class="modal-body">
@@ -135,13 +155,15 @@
                         <div class="col-sm-12">
                             <div class="mb-3">
                                 <label for="email-field" class="form-label">Product/Service</label>
-                                <input type="text" class="form-control" formControlName="product" value="Product Name" />
+                                <input type="text" class="form-control" formControlName="product"
+                                    value="Product Name" />
                             </div>
                         </div>
                         <div class="col-sm-12">
                             <div class="mb-3">
                                 <label for="Description" class="form-label">Description</label>
-                                <textarea id="Description" class="form-control" rows="2" formControlName="description">Product Description</textarea>
+                                <textarea id="Description" class="form-control" rows="2"
+                                    formControlName="description">Product Description</textarea>
                             </div>
                         </div>
                         <div class="col-sm-12 col-md-6">
@@ -154,7 +176,7 @@
                         <div class="col-sm-12 col-md-6">
                             <div class="mb-3">
                                 <label for="email-field" class="form-label">New Price</label>
-                                <input type="text" class="form-control" formControlName="newprice" value="$100"/>
+                                <input type="text" class="form-control" formControlName="newprice" value="$100" />
                             </div>
                         </div>
 

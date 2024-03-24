@@ -1,5 +1,8 @@
 <div class="container-fluid">
-  <app-page-title title="User Setup" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+  <div class="p-2">
+    <app-page-title title="User Setup" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+  </div>
+
 
   <div class="row">
     <div class="col-12">
@@ -7,7 +10,7 @@
         <div class="card-body">
           <div class="row mb-2">
             <div class="col-sm-4">
-              <div class="search-box me-2 mb-2 d-inline-block">
+              <div class="search-box d-inline-block">
                 <div class="position-relative">
                   <input type="text" class="form-control" autocomplete="off" id="searchTableList"
                     placeholder="Search..." />
@@ -17,14 +20,14 @@
             </div>
             <div class="col-sm-8">
               <div class="text-sm-end">
-                <button type="button" class="btn btn-success btn-rounded mb-2 me-2" (click)="createUserModal.show()">
+                <button type="button" class="btn btn-success btn-rounded" (click)="createUserModal.show()">
                   <i class="mdi mdi-plus mr-1"></i> Create User
                 </button>
               </div>
             </div>
           </div>
 
-          <div class="table-responsive mb-0 py-4">
+          <div class="table-responsive mb-0">
             <table class="table align-middle table-nowrap dt-responsive nowrap w-100 table-check table-hover ">
               <thead class="table-light">
                 <tr>
@@ -67,19 +70,19 @@
                   </td>
                   <td class="p-1 m-0">
                     <div class="d-flex justify-content-center">
-                        <div class="dropdown" dropdown>
-                          <button class="btn btn-none dropdown-toggle" dropdownToggle data-toggle="dropdown"
-                            aria-expanded="true">
+                      <div class="dropdown" dropdown>
+                        <button class="btn btn-none dropdown-toggle" dropdownToggle data-toggle="dropdown"
+                          aria-expanded="true">
                           <i class="fa fa-ellipsis-v"></i></button>
                         <div class="dropdown-menu dropdown-menu-end" *dropdownMenu>
-                            <a class="dropdown-item" (click)="editModal(i)"><i
-                                class="mdi mdi-file-edit-outline m-1"></i>Edit</a>
-                            <a class="dropdown-item" (click)="confirm(i)"><i
-                                class="mdi mdi-delete-outline m-1"></i>Delete</a>
-                            <a class="dropdown-item" (click)="passwodResetModal.show()"><i
-                                class="mdi mdi-lock-reset m-1"></i>Reset Password</a>
-                          </div>
+                          <a class="dropdown-item" (click)="editModal(i)"><i
+                              class="mdi mdi-file-edit-outline m-1"></i>Edit</a>
+                          <a class="dropdown-item" (click)="confirm(i)"><i
+                              class="mdi mdi-delete-outline m-1"></i>Delete</a>
+                          <a class="dropdown-item" (click)="passwodResetModal.show()"><i
+                              class="mdi mdi-lock-reset m-1"></i>Reset Password</a>
                         </div>
+                      </div>
                     </div>
                   </td>
                 </tr>
@@ -108,7 +111,7 @@
         <button type="button" class="btn-close" id="close-modal" (click)="passwodResetModal.hide()"></button>
       </div>
       <div class="modal-body">
-        <form [formGroup]="passwordForm" (ngSubmit)="onResetPasswordSubmit()" class="needs-validation createorder-form" >
+        <form [formGroup]="passwordForm" (ngSubmit)="onResetPasswordSubmit()" class="needs-validation createorder-form">
           <div class="row">
             <div class="col-lg-12">
               <div class="mb-3">
@@ -276,8 +279,7 @@
         <button type="button" class="btn-close" id="close-modal" (click)="createUserModal.hide()"></button>
       </div>
       <div class="modal-body">
-        <form class="needs-validation createorder-form" [formGroup]="createUserForm"
-          (ngSubmit)="onCreateUserSubmit()">
+        <form class="needs-validation createorder-form" [formGroup]="createUserForm" (ngSubmit)="onCreateUserSubmit()">
           <div class="row">
             <div class="col-lg-12">
               <div class="mb-3">

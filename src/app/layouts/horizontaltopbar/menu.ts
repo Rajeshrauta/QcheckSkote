@@ -151,21 +151,27 @@ export const MENU: MenuItem[] = [
     id: 23,
     label: "Accounting",
     icon: "bx-calculator",
-    subItems: [
-      {
-        id: 24,
-        label: "Tuday Overdue",
-        link: "/accounting/today-overdue",
-        parentId: 23,
-      },
-      {
-        id: 25,
-        label: "All Overdue",
-        link: "/accounting/all-overdue",
-        parentId: 23,
-      },
-    ],
+    link: "/accounting",
   },
+  // {
+  //   id: 23,
+  //   label: "Accounting",
+  //   icon: "bx-calculator",
+  //   subItems: [
+  //     {
+  //       id: 24,
+  //       label: "Tuday Overdue",
+  //       link: "/accounting/today-overdue",
+  //       parentId: 23,
+  //     },
+  //     {
+  //       id: 25,
+  //       label: "All Overdue",
+  //       link: "/accounting/all-overdue",
+  //       parentId: 23,
+  //     },
+  //   ],
+  // },
   {
     id: 27,
     label: "Communication",
