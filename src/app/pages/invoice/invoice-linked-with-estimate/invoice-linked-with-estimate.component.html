@@ -1,7 +1,71 @@
 <div class="container-fluid py-2 h-100">
-
-    <div class="p-3">
+  <div class="p-2">
     <app-page-title title="Invoice Linked With Estimate" [breadcrumbItems]="breadCrumbItems">
     </app-page-title>
   </div>
-</div>
+
+
+  <div class="card">
+    <div class="card-body">
+      <div class="row">
+        <div class="col">
+          <div class="row">
+            <label class="form-label col col-sm-4">Estimate Number</label>
+            <div class="col col-sm-8">
+              <p>725645</p>
+            </div>
+          </div>
+          <div class="row">
+            <label class="form-label col col-sm-4">Customer Name</label>
+            <div class="col col-sm-8">
+              <p>Patrick Johnson</p>
+            </div>
+          </div>
+          <div class="row">
+            <label class="form-label col col-sm-4">Created Date</label>
+            <div class="col col-sm-8">
+              <p>22/03/2024</p>
+            </div>
+          </div>
+          <div class="row">
+            <label class="form-label col col-sm-4">Customer Memo</label>
+            <div class="col col-sm-8">
+              <p>Customer Memo</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="text-end">
+            <button type="button" class="btn btn-secondary btn-rounded mb-2 no-print" (click)="print()"><i class="mdi mdi-printer me-1 "></i>
+              Print</button>
+          </div>
+        </div>
+      </div>
+      <div class="table-responsive">
+        <table class="table align-middle table-nowrap dt-responsive nowrap w-100 table-check" id="order-list">
+          <thead class="table-light">
+            <tr>
+              <th>Product / Service</th>
+              <th>Description</th>
+              <th>Unit Price</th>
+              <th>Qty on Hand</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Product Name</td>
+              <td>Description</td>
+              <td>10</td>
+              <td>24</td>
+            </tr>
+            <tr>
+              <td>Product Name</td>
+              <td>Description</td>
+              <td>20</td>
+              <td>34</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>

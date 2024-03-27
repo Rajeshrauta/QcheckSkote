@@ -22,6 +22,7 @@ import { PendingOrdersComponent } from './pending-orders/pending-orders.componen
 import { OrderReceivedComponent } from './order-received/order-received.component';
 import { PaginationModule } from "ngx-bootstrap/pagination";
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { CustomModalModule } from 'src/app/shared/modals/custommodal.module';
 @NgModule({
   declarations: [
     DispatchRouteComponent,
@@ -44,7 +45,8 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
     SimplebarAngularModule,
     ModalModule.forRoot(),
     PaginationModule,
-    BsDatepickerModule
+    BsDatepickerModule,
+    CustomModalModule
   ],
   providers: [BsDropdownConfig],
 })

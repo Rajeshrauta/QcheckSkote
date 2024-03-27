@@ -4,4 +4,242 @@
     <app-page-title title="Create Invoice" [breadcrumbItems]="breadCrumbItems">
     </app-page-title>
   </div>
+  
+  <div class="card">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-sm-12 col-md-10">
+          <div class="row">
+            <div class="col-sm-12 col-md-6">
+              <label for="customer" class="form-label">Customer</label>
+              <input type="text" class="form-control" id="customer" value="Customer Name" disabled />
+            </div>
+            <div class="col-sm-12 col-md-6">
+              <label for="note" class="form-label">Note</label>
+              <input type="text" class="form-control" id="note" placeholder="Customer Note" />
+            </div>
+          </div>
+          <div class="row mt-3">
+            <div class="col-sm-4 px-1">
+              <button type="button" class="col-12 btn btn-success btn-rounded mb-1">
+                Auto Fill Quantity</button>
+            </div>
+            <div class="col-sm-4 px-1">
+              <button type="button" class="col-12 btn btn-primary btn-rounded mb-1" (click)="itemDetailModal.show()">
+                Scan Item</button>
+            </div>
+            <div class="col-sm-4 px-1">
+              <button type="button" class="col-12 btn btn-secondary btn-rounded">
+                Update Invoice</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2 d-none d-md-block">
+          <h5 class="card-title">Color Reference</h5>
+          <div class="row">
+            <div class="mb-1">
+              <div class="text-primary" style="border-left: 6px solid">
+                <p style="
+                                  margin-left: 1rem;
+                                  margin-bottom: 0;
+                                  font-size: 0.8rem;
+                                ">
+                  Fully Proccessed
+                </p>
+              </div>
+            </div>
+            <div>
+              <div class="text-danger" style="border-left: 6px solid">
+                <p style="
+                                  margin-left: 1rem;
+                                  margin-bottom: 0;
+                                  font-size: 0.8rem;
+                                ">
+                  Unproccessed
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  
+  <div class="card">
+    <div class="card-body">
+      <!-- <div class="row">
+          <div class="col-sm-12">
+            <div class="text-sm-end">
+              <button type="button" class="btn btn-success btn-rounded mb-2 me-2" (click)="createMemeoModal.show()"><i
+                  class="mdi mdi-plus mr-1"></i>
+                Add new record</button>
+            </div>
+          </div>
+        </div> -->
+      <div class="table-responsive mb-0">
+        <table class="table align-middle table-nowrap dt-responsive nowrap w-100 table-check" id="order-list">
+          <thead class="table-light">
+            <tr>
+              <th>Product</th>
+              <th>Description</th>
+              <th>Pull Qty</th>
+              <th>Order Qty</th>
+              <th>Unit Price</th>
+              <th>Qty on Hand</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><button class="btn btn-primary btn-rounded" (click)="caddDataModal.show()">Add</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  
+  
+  
+  
+  
+
+
+
+
+<div bsModal #caddDataModal="bs-modal" class="modal fade" id="createUserModal" tabindex="-1"
+  aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add New Record</h5>
+        <button type="button" class="btn-close" id="close-modal" (click)="caddDataModal.hide()"></button>
+      </div>
+      <div class="modal-body">
+        <form class="needs-validation createorder-form" id="createorder-form">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="mb-3">
+                <label for="email-field" class="form-label">Product/Service</label>
+                <input type="text" class="form-control"  placeholder="Product Name" />
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <div class="mb-3">
+                <label for="Description" class="form-label">Description</label>
+                <textarea id="Description" class="form-control" rows="2" placeholder="Product Description"></textarea>
+              </div>
+            </div>
+
+
+            <div class="col-lg-12">
+              <div class="text-end">
+                <button type="button" class="btn btn-outline-secondary me-1" (click)="caddDataModal.hide()">
+                  Cancel
+                </button>
+                <button type="submit" class="btn btn-success">
+                  Create
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <!-- end modal body -->
+    </div>
+  </div>
 </div>
+
+<!-- End Add new Record -->
+
+  
+  
+  <div bsModal #itemDetailModal="bs-modal" class="modal fade" id="createUserModal" tabindex="-1"
+    aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Item Details  (1 out of 3)</h5>
+          <button type="button" class="btn-close" id="close-modal" (click)="itemDetailModal.hide()"></button>
+        </div>
+        <div class="modal-body">
+          <form class="needs-validation createorder-form" id="createorder-form">
+  
+            <div class="row mb-2">
+              <label for="barcode" class="form-label col col-sm-4">Barcode Scan Item</label>
+              <div class="col-sm-8 col">
+                <input type="text" class="form-control form-control-sm" id="barcode"
+                  placeholder="Click to scan the code" />
+              </div>
+            </div>
+  
+            <div class="row">
+              <label class="form-label col col-sm-4">Item Name</label>
+              <div class="col col-sm-8">
+                <p>Item Name</p>
+              </div>
+            </div>
+  
+            <div class="row">
+              <label class="form-label col col-sm-4">Item Description</label>
+              <div class="col col-sm-8">
+                <p>Item Description</p>
+              </div>
+            </div>
+  
+            <div class="row">
+              <label class="form-label col col-sm-4 my-0">Quantity</label>
+              <div class="col col-sm-8">
+                <p>10</p>
+              </div>
+            </div>
+  
+            <div class="row">
+              <label class="form-label col col-sm-4 my-0">Rack Location</label>
+              <div class="col col-sm-8">
+                <p>L-1</p>
+              </div>
+            </div>
+  
+            <div class="row">
+              <label class="form-label col col-sm-4">Exp Date</label>
+              <div class="col col-sm-8">
+                <p>22/03/2024</p>
+              </div>
+            </div>
+  
+  
+  
+            <div class="row">
+              <label for="allocatedQuantity" class="form-label col col-sm-4">Allocated Quantity</label>
+              <div class="col col-sm-8">
+                <input type="text" class="form-control form-control-sm" id="allocatedQuantity"
+                  placeholder="Allocated Quantity" />
+              </div>
+            </div>
+  
+            <div class="row mb-3">
+              <label for="optional" class="form-label col col-sm-4">Optional</label>
+              <div class="col col-sm-8">
+                <input type="text" class="form-control form-control-sm" id="optional" placeholder="Optional Note" />
+              </div>
+            </div>
+  
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="text-end">
+                  <button type="reset" class="btn btn-outline-secondary me-1" (click)="itemDetailModal.hide()">
+                    Cancel
+                  </button>
+                  <button type="submit" class="btn btn-success">Next</button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <!-- end modal body -->
+      </div>
+    </div>
+  </div>
+  
+  <!-- End Add new Record -->

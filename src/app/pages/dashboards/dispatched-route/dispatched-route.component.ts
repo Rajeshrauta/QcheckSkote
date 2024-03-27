@@ -16,7 +16,7 @@ import { DispatchModel } from "./utilities/dispatch.model";
 import { dispatchData } from "./utilities/data";
 import { AdvancedService } from './services/advanced.service';
 import { AdvancedSortableDirective, SortEvent } from './utilities/advanced-sortable.directive';
-
+import { InvoiceDetailComponent } from "src/app/shared/modals/invoice-detail/invoice-detail.component";
 
 @Component({
   selector: "app-dispatched-route",
@@ -40,7 +40,7 @@ export class DispatchedRouteComponent {
   @ViewChild("printRouteModal", { static: false }) printRouteModal?: ModalDirective;
   @ViewChild("removeItemModal", { static: false }) removeItemModal?: ModalDirective;
   @ViewChildren(AdvancedSortableDirective) headers: QueryList<AdvancedSortableDirective>;
-
+  @ViewChild(InvoiceDetailComponent) invoiceDetailComponent: InvoiceDetailComponent;
 
   constructor(
     public service: AdvancedService,
@@ -108,5 +108,9 @@ export class DispatchedRouteComponent {
   editModal(id: any) {
     this.submitted = false;
     this.printRouteModal?.show();
+  }
+
+  showInvoiceModal() {
+    this.invoiceDetailComponent.showModal();
   }
 }

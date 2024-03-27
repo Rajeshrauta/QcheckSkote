@@ -59,6 +59,7 @@ const routes: Routes = [
   },
   { path: 'creditmemo', loadChildren: () => import('./credit-memo/credit-memo.module').then(m => m.CreditMemoModule) },
   { path: 'invoice', loadChildren: () => import('./invoice/invoice.module').then(m => m.InvoiceModule) },
+  { path: 'return-pickup', loadChildren: () => import('./return-pickup/return-pickup.module').then(m => m.ReturnPickupModule) },
 ];
 
 @NgModule({

@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UIModule } from "src/app/shared/ui/ui.module";
 import { BsDropdownModule } from "ngx-bootstrap/dropdown";
+import { NgSelectModule } from '@ng-select/ng-select';
+
 
 import { EstimateRoutingModule } from './estimate-routing.module';
 import { CreateEstimateComponent } from '../estimate/create-estimate/create-estimate.component';
@@ -15,6 +17,7 @@ import { EditManualEstimateComponent } from './edit-manual-estimate/edit-manual-
 import { CreateManualEstimateComponent } from './create-manual-estimate/create-manual-estimate.component';
 import { NewOrderReceivedComponent } from './new-order-received/new-order-received.component';
 import { FetchOrderComponent } from './fetch-order/fetch-order.component';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 
 @NgModule({
@@ -36,6 +39,8 @@ import { FetchOrderComponent } from './fetch-order/fetch-order.component';
     ReactiveFormsModule,
     UIModule,
     BsDropdownModule,
+    NgSelectModule,
+    BsDatepickerModule
   ],
 })
 export class EstimateModule {}

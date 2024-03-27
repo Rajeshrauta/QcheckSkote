@@ -50,7 +50,7 @@
                   <th class="px-0" sortable="customer" (sort)="onSort($event)">Customer</th>
                   <th class="px-0">Invoive</th>
                   <th class="px-0">Address</th>
-                  <th>Created-Date</th>
+                  <th class="px-0">Created-Date</th>
                   <th class="px-0">Due-Date</th>
                   <th class="px-0">Total Amount</th>
                   <th class="px-0">Status</th>
@@ -72,7 +72,7 @@
                       style="width: 30px; height: 20px;padding: 1mm;">
                   </td>
                   <td class="p-0 m-0">{{data.customer}}</td>
-                  <td class="p-0 m-0"><a>{{data.invoice}}</a></td>
+                  <td class="p-0 m-0" (click)="showInvoiceModal()">{{data.invoice}}</td>
                   <td class="p-0 m-0">{{data.address}}</td>
                   <td class="p-0 m-0">{{data.createdDate}}</td>
                   <td class="p-0 m-0">{{data.dueDate}}</td>
@@ -239,3 +239,6 @@
   </div>
 </div>
 <!-- end removeItemModal -->
+
+
+<app-invoice-detail></app-invoice-detail>

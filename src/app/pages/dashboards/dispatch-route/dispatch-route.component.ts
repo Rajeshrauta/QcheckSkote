@@ -2,6 +2,7 @@ import { Component, QueryList, ViewChildren, ViewChild } from "@angular/core";
 import { DecimalPipe } from "@angular/common";
 import { Observable } from "rxjs";
 
+
 import { BsModalService, ModalDirective } from "ngx-bootstrap/modal";
 import {
   Validators,
@@ -16,6 +17,7 @@ import { DispatchModel } from "./utilities/dispatch.model";
 import { dispatchData } from "./utilities/data";
 import { AdvancedService } from './services/advanced.service';
 import { AdvancedSortableDirective, SortEvent } from './utilities/advanced-sortable.directive';
+import { InvoiceDetailComponent } from "src/app/shared/modals/invoice-detail/invoice-detail.component";
 
 
 @Component({
@@ -40,7 +42,7 @@ export class DispatchRouteComponent {
   @ViewChild("printRouteModal", { static: false }) printRouteModal?: ModalDirective;
   @ViewChild("removeItemModal", { static: false })  removeItemModal?: ModalDirective;
   @ViewChildren(AdvancedSortableDirective) headers: QueryList<AdvancedSortableDirective>;
-
+  @ViewChild(InvoiceDetailComponent) invoiceDetailComponent: InvoiceDetailComponent;
 
   constructor(
     public service: AdvancedService,
@@ -108,5 +110,9 @@ export class DispatchRouteComponent {
   editModal(id: any) {
     this.submitted = false;
     this.printRouteModal?.show();
+  }
+
+  showInvoiceModal() {
+    this.invoiceDetailComponent.showModal();
   }
 }

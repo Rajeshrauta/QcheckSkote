@@ -14,4 +14,8 @@ export class InvoiceLinkedWithEstimateComponent {
       { label: "Linked With Estimate", active: true },
     ];
   }
+
+  print() {
+    window.print();
+  }
 }

@@ -71,13 +71,13 @@
       <form [formGroup]="OrderFormForm">
         <div class="height2">
           <table class="table">
-            <thead>
+            <thead class="table-light">
               <tr>
-                <th class="caption-bold-1 sticky-th">Name</th>
-                <th class="caption-bold-1 sticky-th">Qty/Hand</th>
-                <th class="caption-bold-1 sticky-th text-center">Qty</th>
-                <th class="caption-bold-1 sticky-th">Free</th>
-                <th class="caption-bold-1 sticky-th">Rate</th>
+                <th class="caption-bold-1 sticky-th" title="Name">Name</th>
+                <th class="caption-bold-1 sticky-th" title="Quantity in Hand">QIH</th>
+                <th class="caption-bold-1 sticky-th text-center" title="Quantity">Qty</th>
+                <th class="caption-bold-1 sticky-th" title="Free">Free</th>
+                <th class="caption-bold-1 sticky-th" title="Rate">Rate</th>
                 <th class="caption-bold-1 sticky-th hideColumn">1</th>
                 <th class="caption-bold-1 sticky-th hideColumn">2</th>
                 <th class="caption-bold-1 sticky-th hideColumn">3</th>
@@ -161,6 +161,7 @@
                         formControlName="qty"
                         (keypress)="numberOnly($event)"
                         (input)="onQuantityChange(rowIndex)"
+                        
                       />
                     </div>
                     <div>
