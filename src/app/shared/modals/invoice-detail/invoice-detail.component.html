@@ -1,89 +1,106 @@
 <div bsModal #invoiceDetailModal="bs-modal" class="modal fade" id="invoiceDetailModal" tabindex="-1"
     aria-labelledby="InvoiceDetail" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">
-                    Update User Information
+                   Invoive Details (#445566)
                 </h5>
                 <button type="button" class="btn-close" id="close-modal" (click)="invoiceDetailModal.hide()"></button>
             </div>
             <div class="modal-body">
                 <div class="container">
                     <div class="row justify-content-between">
-                        <div class="col-lg-6 col-12 col-auto">
-                            <ul class="list-group list-group-horizontal custom-ul">
-                                <li class="list-group-item"><b>Invoice Number</b></li>
-                                <li class="list-group-item">9865588555</li>
-                            </ul>
-                            <ul class="list-group list-group-horizontal custom-ul">
-                                <li class="list-group-item"><b>Customer Name</b></li>
-                                <li class="list-group-item">Customer Name</li>
-                            </ul>
-                            <ul class="list-group list-group-horizontal custom-ul">
-                                <li class="list-group-item"><b>Created On</b></li>
-                                <li class="list-group-item">9865588555</li>
-                            </ul>
-                            <ul class="list-group list-group-horizontal custom-ul">
-                                <li class="list-group-item"><b>Total Amount</b></li>
-                                <li class="list-group-item">9865588555</li>
-                            </ul>
-                            <ul class="list-group list-group-horizontal custom-ul">
-                                <li class="list-group-item"><b>Customer Memo</b></li>
-                                <li class="list-group-item">9865588555</li>
-                            </ul>
-                            <ul class="list-group list-group-horizontal custom-ul">
-                                <li class="list-group-item"><b>Sales Person Note</b></li>
-                                <li class="list-group-item">9865588555</li>
-                            </ul>
-                            <ul class="list-group list-group-horizontal custom-ul">
-                                <li class="list-group-item">
-                                    <div ngbDropdown class="d-inline-block" dropstart>
-                                        <p class="dropdown-toggle remove-caret" id="dropdownBasic1" ngbDropdownToggle>
-                                            <b class="text-danger">1 Linked Transaction </b>
-                                        </p>
-                                        <div ngbDropdownMenu aria-labelledby="dropdownBasic1"
-                                            class="custom-dropdown-menu">
-                                            <table class="table">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Type</th>
-                                                        <th>Invoice Date</th>
-                                                        <th>Amount</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td class="text-primary"
-                                                            routerLink="/invoice/invoice-linked-with-estimate"
-                                                            data-bs-dismiss="modal">Estimate</td>
-                                                        <td>22/3/2023</td>
-                                                        <td>$1232</td>
-                                                        <!-- Add more rows as needed -->
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
+                        <div class="col-12 col-auto">
+                            <div class="row">
+                                <div class="col text-end">
+                                    <button type="button" class="btn btn-sm btn-primary" (click)="navigateToEditInvoice()">Edit</button>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label class="form-label col col-sm-4">Invoice Number</label>
+                                <div class="col col-sm-8">
+                                    <p>9865588555</p>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <label class="form-label col col-sm-4">Customer Name</label>
+                                <div class="col col-sm-8">
+                                    <p>Customer Name</p>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <label class="form-label col col-sm-4 my-0">Quantity</label>
+                                <div class="col col-sm-8">
+                                    <p>10/12/2023</p>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <label class="form-label col col-sm-4 my-0">Total Amount</label>
+                                <div class="col col-sm-8">
+                                    <p>$123</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label class="form-label col col-sm-4 my-0">Customer Memo</label>
+                                <div class="col col-sm-8">
+                                    <p>Customer Memo</p>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <label class="form-label col col-sm-4 my-0">Sales Person Note</label>
+                                <div class="col col-sm-8">
+                                    <p>Sales Person Note</p>
+                                </div>
+                            </div>
+
+                                <div class="dropdown" dropdown placement="top-right">
+                                    <p class="dropdown-toggle" dropdownToggle data-toggle="dropdown" aria-expanded="true">
+                                        <b class="text-danger">1 Linked Transaction </b>
+                                    </p>
+                                    <div class="dropdown-menu dropdown-menu-end" *dropdownMenu>
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Type</th>
+                                                    <th>Invoice Date</th>
+                                                    <th>Amount</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="text-primary" (click)="navigateTolinkedwithestimate()" data-bs-dismiss="modal">
+                                                        Estimate
+                                                    </td>
+                                                    <td>22/3/2023</td>
+                                                    <td>$1232</td>
+                                                    <!-- Add more rows as needed -->
+                                                </tr>
+                                            </tbody>
+                                        </table>
                                     </div>
-                                </li>
-                            </ul>
+                                </div>
                         </div>
 
-                        <div class="col-lg-6 col-12 col-auto">
+                        <!-- <div class="col-auto">
                             <button class="btn btn-primary" routerLink="/invoice/edit-invoice" data-bs-dismiss="modal">
                                 Edit
                             </button>
-                        </div>
+                        </div> -->
                     </div>
 
                     <div class="table-responsive">
                         <table class="table table-hover mt-2">
                             <thead>
                                 <tr>
-                                    <th scope="col">Product</th>
-                                    <th scope="col">Description</th>
-                                    <th scope="col">Unit Price</th>
-                                    <th scope="col">Qty on Hand</th>
+                                    <th scope="col" title="Product">Product</th>
+                                    <th scope="col" title="Description">Description</th>
+                                    <th scope="col" title="Unit Price">Unit Price</th>
+                                    <th scope="col" title="Qty on Hand">QOH</th>
                                 </tr>
                             </thead>
                             <tbody>

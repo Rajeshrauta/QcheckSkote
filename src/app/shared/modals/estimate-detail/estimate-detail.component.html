@@ -1,66 +1,68 @@
 <div bsModal #estimateDetailModal="bs-modal" class="modal fade" id="estimateDetailModal" tabindex="-1"
     aria-labelledby="EstimateDetail" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">
-                    Update User Information
+                    Estimate Details (#445566)
                 </h5>
                 <button type="button" class="btn-close" id="close-modal" (click)="estimateDetailModal.hide()"></button>
             </div>
             <div class="modal-body">
                 <div class="container">
-                    <div class="row justify-content-between">
-                        <div class="col-lg-6 col-12 col-auto">
-                            <ul class="list-group list-group-horizontal custom-ul">
-                                <li class="list-group-item"><b>Estimate Number</b></li>
-                                <li class="list-group-item">9865588555</li>
-                            </ul>
-                            <ul class="list-group list-group-horizontal custom-ul">
-                                <li class="list-group-item"><b>Customer Name</b></li>
-                                <li class="list-group-item">Customer Name</li>
-                            </ul>
-                            <ul class="list-group list-group-horizontal custom-ul">
-                                <li class="list-group-item"><b>Created On</b></li>
-                                <li class="list-group-item">9865588555</li>
-                            </ul>
-                            <ul class="list-group list-group-horizontal custom-ul">
-                                <li class="list-group-item"><b>Total Amount</b></li>
-                                <li class="list-group-item">9865588555</li>
-                            </ul>
-                            <ul class="list-group list-group-horizontal custom-ul">
-                                <li class="list-group-item"><b>Customer Memo</b></li>
-                                <li class="list-group-item">9865588555</li>
-                            </ul>
-                            <ul class="list-group list-group-horizontal custom-ul">
-                                <li class="list-group-item"><b>Sales Person Note</b></li>
-                                <li class="list-group-item">9865588555</li>
-                            </ul>
-                        </div>
-                
-                        <div class="col-lg-6 col-12 col-auto">
-                            <ul class="list-group custom-ul flex-column flex-lg-row">
-                                <!-- Apply flex-row for horizontal layout and flex-md-column for vertical layout on mobile -->
-                                <li class="list-group-item">
-                                    <button class="btn btn-primary" routerLink="/estimate/edit-manual-estimate"
-                                        data-bs-dismiss="modal">Update In Manual View</button>
-                                </li>
-                                <li class="list-group-item">
-                                    <button class="btn btn-warning" routerLink="/estimate/edit-estimate" data-bs-dismiss="modal">Update
-                                        in Tab View</button>
-                                </li>
-                            </ul>
+                    <div class="d-flex justify-content-between mb-2">
+                        <button class="btn btn-primary btn-sm" (click)="navigateToEditInManual()">Update In Manual View</button>
+
+                        <button class="btn btn-warning btn-sm" (click)="navigateToEditInTab()">Update in Tab View</button>
+
+                    </div>
+                    <div class="row">
+                        <label class="form-label col col-sm-4">Estimate Number</label>
+                        <div class="col col-sm-8">
+                            <p>9865588555</p>
                         </div>
                     </div>
-                
+                    <div class="row">
+                        <label class="form-label col col-sm-4">Customer Name</label>
+                        <div class="col col-sm-8">
+                            <p>Customer Name</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <label class="form-label col col-sm-4">Created On</label>
+                        <div class="col col-sm-8">
+                            <p>22/02/2023</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label class="form-label col col-sm-4 my-0">Total Amount</label>
+                        <div class="col col-sm-8">
+                            <p>$123</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label class="form-label col col-sm-4 my-0">Customer Memo</label>
+                        <div class="col col-sm-8">
+                            <p>Customer Memo</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <label class="form-label col col-sm-4 my-0">Sales Person Note</label>
+                        <div class="col col-sm-8">
+                            <p>Sales Person Note</p>
+                        </div>
+                    </div>
+
                     <div class="table-responsive">
                         <table class="table table-hover mt-2">
                             <thead>
                                 <tr>
-                                    <th scope="col">Product</th>
-                                    <th scope="col">Description</th>
-                                    <th scope="col">Unit Price</th>
-                                    <th scope="col">Qty on Hand</th>
+                                    <th scope="col" title="Product">Product</th>
+                                    <th scope="col" title="Description">Description</th>
+                                    <th scope="col" title="Unit Price">Unit Price</th>
+                                    <th scope="col" title="Qty on Hand">QOH</th>
                                 </tr>
                             </thead>
                             <tbody>
