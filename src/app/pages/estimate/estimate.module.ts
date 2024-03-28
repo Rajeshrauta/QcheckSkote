@@ -18,6 +18,7 @@ import { CreateManualEstimateComponent } from './create-manual-estimate/create-m
 import { NewOrderReceivedComponent } from './new-order-received/new-order-received.component';
 import { FetchOrderComponent } from './fetch-order/fetch-order.component';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
     UIModule,
     BsDropdownModule,
     NgSelectModule,
-    BsDatepickerModule
+    BsDatepickerModule,
+    ModalModule
   ],
 })
 export class EstimateModule {}

@@ -1,7 +1,123 @@
 <div class="container-fluid py-2 h-100">
 
-    <div class="p-3">
+  <div class="p-2">
     <app-page-title title="Edit Manual Estimate" [breadcrumbItems]="breadCrumbItems">
     </app-page-title>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <form>
+            <div class="row">
+              <div class="col-sm-12 col-md-6 col-lg">
+                <label for="customer" class="form-label">Select Customer</label>
+                <ng-select [items]="selectValue" id="customer" placeholder="Select Item"></ng-select>
+              </div>
+
+              <div class="col-sm-12 col-md-6 col-lg">
+                <label for="salesPersonNote" class="form-label">Sales Person Note</label>
+                <textarea id="salesPersonNote" class="form-control" rows="1" placeholder="Sales Person Note"></textarea>
+              </div>
+            </div>
+            <div class="row mt-2">
+                  <button type="button" class="btn btn-primary btn-rounded me-1 col">Update</button>
+                  <button type="button" class="btn btn-warning btn-rounded me-1 col">Remove not avilable item</button>
+                  <button type="button" class="btn btn-danger btn-rounded me-1 col">Cancel</button>
+                </div>
+          </form>
+        </div>
+      </div>
+      <!-- end select2 -->
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="table-responsive mb-0">
+            <table class="table align-middle table-nowrap dt-responsive nowrap w-100 table-check table-hover ">
+              <thead class="table-light">
+                <tr>
+                  <th class="px-1">Name</th>
+                  <th class="px-1">Description</th>
+                  <th class="px-1">Unit Price</th>
+                  <th class="px-1">Qty</th>
+                  <th class="px-1">Free</th>
+                  <th class="px-1">Qty in Hand</th>
+                  <th class="px-1 text-center">Action</th>
+                </tr>
+              </thead>
+              <tbody class="table-responsive mb-0">
+                <tr>
+                  <td class="p-1 m-0">Product Name</td>
+                  <td class="p-1 m-0">Product Description</td>
+                  <td class="p-1 m-0">12</td>
+                  <td class="p-1 m-0">23</td>
+                  <td class="p-1 m-0">32 </td>
+                  <td class="p-1 m-0">67 </td>
+                  <td class="p-1 m-0 text-center">
+                    <div class="dropdown" dropdown>
+                      <button class="btn btn-none dropdown-toggle" dropdownToggle data-toggle="dropdown"
+                        aria-expanded="true">
+                        <i class="fa fa-ellipsis-v"></i></button>
+                      <div class="dropdown-menu dropdown-menu-end" *dropdownMenu>
+                        <a class="dropdown-item" (click)="editUserModal.show()"><i
+                            class="mdi mdi-file-edit-outline m-1"></i>Edit</a>
+                        <a class="dropdown-item" (click)="removeItemModal.show()"><i
+                            class="mdi mdi-delete-outline m-1"></i>Delete</a>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="p-1 m-0">Product Name</td>
+                  <td class="p-1 m-0">Product Description</td>
+                  <td class="p-1 m-0">56</td>
+                  <td class="p-1 m-0">96</td>
+                  <td class="p-1 m-0">187 </td>
+                  <td class="p-1 m-0">187 </td>
+                  <td class="p-1 m-0 text-center">
+                    <div class="dropdown" dropdown>
+                      <button class="btn btn-none dropdown-toggle" dropdownToggle data-toggle="dropdown"
+                        aria-expanded="true">
+                        <i class="fa fa-ellipsis-v"></i></button>
+                      <div class="dropdown-menu dropdown-menu-end" *dropdownMenu>
+                        <a class="dropdown-item" (click)="editUserModal.show()"><i
+                            class="mdi mdi-file-edit-outline m-1"></i>Edit</a>
+                        <a class="dropdown-item" (click)="removeItemModal.show()"><i
+                            class="mdi mdi-delete-outline m-1"></i>Delete</a>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="p-1 m-0">Product Name</td>
+                  <td class="p-1 m-0">Product Description</td>
+                  <td class="p-1 m-0">42</td>
+                  <td class="p-1 m-0">47</td>
+                  <td class="p-1 m-0">45</td>
+                  <td class="p-1 m-0">134 </td>
+                  <td class="p-1 m-0 text-center">
+                    <div class="dropdown" dropdown>
+                      <button class="btn btn-none dropdown-toggle" dropdownToggle data-toggle="dropdown"
+                        aria-expanded="true">
+                        <i class="fa fa-ellipsis-v"></i></button>
+                      <div class="dropdown-menu dropdown-menu-end" *dropdownMenu>
+                        <a class="dropdown-item" (click)="editUserModal.show()"><i
+                            class="mdi mdi-file-edit-outline m-1"></i>Edit</a>
+                        <a class="dropdown-item" (click)="removeItemModal.show()"><i
+                            class="mdi mdi-delete-outline m-1"></i>Delete</a>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
