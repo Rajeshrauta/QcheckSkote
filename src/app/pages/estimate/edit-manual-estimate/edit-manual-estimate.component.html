@@ -36,86 +36,88 @@
     <div class="col-12">
       <div class="card">
         <div class="card-body">
-          <div class="table-responsive mb-0">
-            <table class="table align-middle table-nowrap dt-responsive nowrap w-100 table-check table-hover ">
-              <thead class="table-light">
-                <tr>
-                  <th class="px-1">Name</th>
-                  <th class="px-1">Description</th>
-                  <th class="px-1">Unit Price</th>
-                  <th class="px-1">Qty</th>
-                  <th class="px-1">Free</th>
-                  <th class="px-1">Qty in Hand</th>
-                  <th class="px-1 text-center">Action</th>
-                </tr>
-              </thead>
-              <tbody class="table-responsive mb-0">
-                <tr>
-                  <td class="p-1 m-0">Product Name</td>
-                  <td class="p-1 m-0">Product Description</td>
-                  <td class="p-1 m-0">12</td>
-                  <td class="p-1 m-0">23</td>
-                  <td class="p-1 m-0">32 </td>
-                  <td class="p-1 m-0">67 </td>
-                  <td class="p-1 m-0 text-center">
-                    <div class="dropdown" dropdown>
-                      <button class="btn btn-none dropdown-toggle" dropdownToggle data-toggle="dropdown"
-                        aria-expanded="true">
-                        <i class="fa fa-ellipsis-v"></i></button>
-                      <div class="dropdown-menu dropdown-menu-end" *dropdownMenu>
-                        <a class="dropdown-item" (click)="editUserModal.show()"><i
-                            class="mdi mdi-file-edit-outline m-1"></i>Edit</a>
-                        <a class="dropdown-item" (click)="removeItemModal.show()"><i
-                            class="mdi mdi-delete-outline m-1"></i>Delete</a>
+          <form [formGroup]="OrderForm">
+            <div class="table-responsive mb-0">
+              <table class="table align-middle table-nowrap dt-responsive nowrap w-100 table-check table-hover ">
+                <thead class="table-light">
+                  <tr>
+                    <th class="px-1" title="Name">Name</th>
+                    <th class="px-1" title="Description">Description</th>
+                    <th class="px-1" title="Unit Price">Unit Price</th>
+                    <th class="px-1" title="Quantity">Qty</th>
+                    <th class="px-1" title="Free">Free</th>
+                    <th class="px-1" title="Qty on Hand">Qty on Hand</th>
+                    <th class="px-1 text-center" title="Action">Action</th>
+                  </tr>
+                </thead>
+                <tbody formArrayName="items">
+                  <tr *ngFor="let dataItem of items.controls; let rowIndex = index" class="margin-bottom1"
+                    style="font-size: 14px" [formGroupName]="rowIndex">
+                    <td class="align-middle border-0">
+                      <span for="">{{ dataItem?.get("name")?.value }}</span>
+                    </td>
+                    <td class="align-middle">
+                      <span for="">{{ dataItem?.get("description")?.value }}</span>
+                    </td>
+                    <td class="align-middle border-0 width-33">
+                      <span class="d-md-none d-sm-none label-header" style="font-size: 10px; display: flex">Rate
+                      </span>
+                      <input type="text" class="form-control min-width-60" formControlName="rate" />
+                    </td>
+                    <td class="align-middle border-0 width-33">
+                      <span class="d-md-none d-sm-none hand label-header" style="font-size: 10px; display: flex"
+                        title="{{ dataItem?.get('qtyOnHand')?.value }}">Qty
+                        <i class="mdi mdi-information-outline hand info-icon" style="height: 22; color: green"
+                          (mouseenter)="showPopover($event, rowIndex)" (mouseleave)="hidePopover(rowIndex)"></i>
+                      </span>
+                      <div class="d-flex align-items-center">
+                        <div class="minus-svg-icon1">
+                          <i class="mdi mdi-minus-circle-outline hand minus-svg-icon" style="height: 22; color: red"
+                            (click)="onSub(rowIndex)" [class.disabled]="dataItem.get('qty')?.value <= 0"></i>
+                        </div>
+                        <div>
+                          <input type="text" class="form-control min-width-60" formControlName="qty"
+                            (keypress)="numberOnly($event)" (input)="onQuantityChange(rowIndex)" />
+                        </div>
+                        <div>
+                          <i class="mdi mdi-plus-circle-outline hand plus-svg-icon" style="height: 18; color: green"
+                            (click)="onAdd(rowIndex)"></i>
+  
+                          <br />
+                          <i class="mdi mdi-minus-circle-outline hand minus-svg-icon d-sm-none d-md-done d-lg-none"
+                            style="height: 18; color: red" (click)="onSub(rowIndex)"
+                            [class.disabled]="dataItem.get('qty')?.value <= 0"></i>
+                        </div>
                       </div>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td class="p-1 m-0">Product Name</td>
-                  <td class="p-1 m-0">Product Description</td>
-                  <td class="p-1 m-0">56</td>
-                  <td class="p-1 m-0">96</td>
-                  <td class="p-1 m-0">187 </td>
-                  <td class="p-1 m-0">187 </td>
-                  <td class="p-1 m-0 text-center">
-                    <div class="dropdown" dropdown>
-                      <button class="btn btn-none dropdown-toggle" dropdownToggle data-toggle="dropdown"
-                        aria-expanded="true">
-                        <i class="fa fa-ellipsis-v"></i></button>
-                      <div class="dropdown-menu dropdown-menu-end" *dropdownMenu>
-                        <a class="dropdown-item" (click)="editUserModal.show()"><i
-                            class="mdi mdi-file-edit-outline m-1"></i>Edit</a>
-                        <a class="dropdown-item" (click)="removeItemModal.show()"><i
-                            class="mdi mdi-delete-outline m-1"></i>Delete</a>
+                    </td>
+  
+                    <td class="align-middle border-0 width-33">
+                      <span class="d-md-none d-sm-none label-header" style="font-size: 10px; display: flex">Free</span>
+                      <div class="d-flex align-items-center">
+                        <input type="text" class="form-control min-width-60 free-fromcotrol"
+                          (keypress)="numberOnly($event)" formControlName="free" />
                       </div>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td class="p-1 m-0">Product Name</td>
-                  <td class="p-1 m-0">Product Description</td>
-                  <td class="p-1 m-0">42</td>
-                  <td class="p-1 m-0">47</td>
-                  <td class="p-1 m-0">45</td>
-                  <td class="p-1 m-0">134 </td>
-                  <td class="p-1 m-0 text-center">
-                    <div class="dropdown" dropdown>
-                      <button class="btn btn-none dropdown-toggle" dropdownToggle data-toggle="dropdown"
-                        aria-expanded="true">
-                        <i class="fa fa-ellipsis-v"></i></button>
-                      <div class="dropdown-menu dropdown-menu-end" *dropdownMenu>
-                        <a class="dropdown-item" (click)="editUserModal.show()"><i
-                            class="mdi mdi-file-edit-outline m-1"></i>Edit</a>
-                        <a class="dropdown-item" (click)="removeItemModal.show()"><i
-                            class="mdi mdi-delete-outline m-1"></i>Delete</a>
+                    </td>
+  
+                    <td class="align-middle">
+                      <label for="">{{ dataItem?.get("qtyOnHand")?.value }}</label>
+                    </td>
+                    <td class="p-1 m-0 text-center">
+                      <div class="dropdown" dropdown>
+                        <button class="btn btn-none dropdown-toggle" dropdownToggle data-toggle="dropdown"
+                          aria-expanded="true">
+                          <i class="fa fa-ellipsis-v"></i></button>
+                        <div class="dropdown-menu dropdown-menu-end" *dropdownMenu>
+                          <a class="dropdown-item"><i class="mdi mdi-file-edit-outline m-1"></i>Edit</a>
+                          <a class="dropdown-item"><i class="mdi mdi-delete-outline m-1"></i>Delete</a>
+                        </div>
                       </div>
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </form>
         </div>
       </div>
     </div>
