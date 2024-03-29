@@ -13,9 +13,10 @@
               <div class="search-box d-inline-block">
                 <div class="position-relative mb-2 me-2">
                   <!-- <label for="customer" class="form-label">Report Period</label> -->
-                  <select class="form-select d-flex justify-content-end" aria-label="Report Period">
-                    <option value="allcustomer">All Customer</option>
-                    <option value="ignoredcustomer">Ignored Customer</option>
+                  <select class="form-select d-flex justify-content-end" aria-label="Report Period"
+                  (change)="selectTable($event.target.value)">
+                    <option value="allCustomer">All Customer</option>
+                    <option value="ignoredCustomer">Ignored Customer</option>
                   </select>
                 </div>
               </div>
@@ -56,8 +57,8 @@
     <div class="col-12">
       <div class="card">
         <div class="card-body">
-          <div class="table-responsive mb-0">
-            <table class="table align-middle table-nowrap dt-responsive nowrap w-100 table-check table-hover ">
+          <div class="table-responsive mb-0" [ngSwitch]="selectedTable">
+            <table class="table align-middle table-nowrap dt-responsive nowrap w-100 table-check table-hover " *ngSwitchCase="'allCustomer'">
               <thead class="table-light">
                 <tr>
                   <th class="px-1">Customer Name</th>
@@ -96,6 +97,34 @@
                       <button class="btn btn-sm  btn-danger">Ignore</button>
                     </div>
                   </td>
+                </tr>
+              </tbody>
+            </table>
+
+
+            <table class="table align-middle table-nowrap dt-responsive nowrap w-100 table-check table-hover " *ngSwitchCase="'ignoredCustomer'">
+              <thead class="table-light">
+                <tr>
+                  <th class="px-1">Customer Name</th>
+                  <th class="px-1">Phone</th>
+                  <th class="px-1">Email</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="p-1 m-0">Neal Matthews</td>
+                  <td class="p-1 m-0">123456789</td>
+                  <td class="p-1 m-0">nealgmail.com</td>
+                </tr>
+                <tr>
+                  <td class="p-1 m-0">Jamal Burnett</td>
+                  <td class="p-1 m-0">5768985746</td>
+                  <td class="p-1 m-0">jamalgmail.com</td>
+                </tr>
+                <tr>
+                  <td class="p-1 m-0">Juan Mitchell</td>
+                  <td class="p-1 m-0">4657864653</td>
+                  <td class="p-1 m-0">juangmail.com</td>
                 </tr>
               </tbody>
             </table>

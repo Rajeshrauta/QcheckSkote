@@ -12,6 +12,7 @@ export class CustomerReportsComponent implements OnInit {
   reportForm: FormGroup;
   bsConfig: Partial<BsDatepickerConfig>;
   selectValue: string[];
+  tableVisible: boolean = false;
 
   constructor(private formBuilder: FormBuilder) {
     this.bsConfig = Object.assign({}, {
@@ -33,7 +34,11 @@ export class CustomerReportsComponent implements OnInit {
       endDate: [new Date()]
     });
 
-    this.selectValue = ['Alaska', 'Hawaii', 'California', 'Nevada', 'Oregon', 'Washington', 'Arizona', 'Colorado', 'Idaho', 'Montana', 'Nebraska', 'New Mexico', 'North Dakota', 'Utah', 'Wyoming', 'Alabama', 'Arkansas', 'Illinois', 'Iowa'];
+    this.selectValue = ['Alaska Berry', 'Ronaldo Hawaii', 'Tony Stark', 'Natasha', 'Steve Jobs', 'Robin Hood', 'Tom', 'Jerry'];
+  }
+
+  toggleTableVisibility() {
+    this.tableVisible = true;
   }
 
 

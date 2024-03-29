@@ -38,7 +38,7 @@
               </div>
               <div class="col">
                 <div class="d-flex justify-content-center m-4">
-                  <button type="button" class="btn btn-success btn-rounded">View Report</button>
+                  <button type="button" class="btn btn-success btn-rounded" (click)="toggleTableVisibility()">View Report</button>
                 </div>
               </div>
             </div>
@@ -50,7 +50,7 @@
     </div>
   </div>
 
-  <div class="row">
+  <div class="row" *ngIf="tableVisible">
     <div class="col-12">
       <div class="card">
         <div class="card-body">
@@ -63,7 +63,7 @@
                 <table class="table align-middle table-nowrap dt-responsive nowrap w-100 table-check table-hover ">
                   <thead class="table-light">
                     <tr>
-                      <th class="px-1">Name</th>
+                      <th class="px-1">Product</th>
                       <td class="px-1">01/01 - 01/02/2024</td>
                       <td class="px-1">01/02 - 01/03/2024</td>
                       <td class="px-1">01/03 - 01/04/2024</td>

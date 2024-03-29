@@ -12,6 +12,7 @@ export class ItemReportsComponent {
   reportForm: FormGroup;
   bsConfig: Partial<BsDatepickerConfig>;
   selectValue: string[];
+  tableVisible: boolean = false;
 
   selectedTable: string = "itemBoughtByCustomer";
 
@@ -37,6 +38,10 @@ export class ItemReportsComponent {
     });
 
     this.selectValue = ['Alaska', 'Hawaii', 'California', 'Nevada', 'Oregon', 'Washington', 'Arizona', 'Colorado', 'Idaho', 'Montana', 'Nebraska', 'New Mexico', 'North Dakota', 'Utah', 'Wyoming', 'Alabama', 'Arkansas', 'Illinois', 'Iowa'];
+  }
+
+  toggleTableVisibility() {
+    this.tableVisible = true;
   }
 
   selectTable(table: string) {
