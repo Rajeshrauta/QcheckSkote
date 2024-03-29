@@ -119,7 +119,7 @@ export class MainGridComponent implements OnInit {
     const modalRef = this.modalService.open(FreeItemComponent, modalOptions);
     modalRef.result.then((result: any) => {
       if (result) {
-        this.items.controls[rowIndex].get("qty")?.setValue(result.qty);
+        // this.items.controls[rowIndex].get("qty")?.setValue(result.qty);
         this.items.controls[rowIndex].get("free")?.setValue(result.free);
       }
     });
