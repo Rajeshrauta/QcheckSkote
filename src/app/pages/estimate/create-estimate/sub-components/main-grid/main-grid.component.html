@@ -208,6 +208,7 @@
                     type="text"
                     class="form-control min-width-60"
                     formControlName="rate"
+                    (keypress)="numberOnly($event)"
                   />
                 </td>
                 <td class="align-middle orderSm-td-1 hideColumn">

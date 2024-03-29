@@ -5,8 +5,56 @@
   </div>
   <div class="card">
     <div class="card-body">
-      <app-head-section></app-head-section>
-      <app-main-grid></app-main-grid>
+      <form>
+        <div class="row">
+          <div class="col-sm-12 col-md-6 col-lg">
+            <label for="customer" class="form-label">Select Customer</label>
+            <ng-select [items]="selectValue" id="customer" placeholder="Select Item"></ng-select>
+          </div>
+          <div class="col-sm-12 col-md-6 col-lg">
+            <label for="startDate" class="form-label"> Transaction Date</label>
+            <input bsDatepicker class="form-control" id="startDate" placeholder="dd/mm/yyyy" [bsConfig]="bsConfig"
+              formControlName="startDate" autocomplete="off" />
+          </div>
+
+          <div class="col-sm-12 col-lg m-4">
+            <div style="text-align: right;">
+              <button type="button" class="btn btn-success btn-rounded" (click)="toggleTableVisibility()"
+                *ngIf="!tableVisible">Start Estimate</button>
+              <button type="button" class="btn btn-primary btn-rounded me-1" *ngIf="tableVisible">Save &
+                Close</button>
+              <button type="button" class="btn btn-danger btn-rounded" (click)="toggleTableVisibility()"
+                *ngIf="tableVisible">Cancel</button>
+            </div>
+          </div>
+
+          <div class="d-flex flex-wrap align-items-center" *ngIf="tableVisible">
+            <div class="col-lg-4 col-md-4 col-12 col-sm-4 flex-grow-1 px-1">
+              <label for="estimateNote" class="form-label">Estimate Note</label>
+              <textarea id="estimateNote" class="form-control" rows="2" placeholder="Estimate Note"></textarea>
+            </div>
+            <div class="col-lg-4 col-md-4 col-12 col-sm-4 flex-grow-1 px-1">
+              <label for="Email" class="form-label">Email</label>
+              <input type="email" class="form-control" id="Email" placeholder="name@example.com" autocomplete="off">
+            </div>
+            <div class="col-lg-4 col-md-4 col-12 col-sm-4 flex-grow-1 px-1">
+              <label for="salesPersonNote" class="form-label">Sales Person Note</label>
+              <textarea id="salesPersonNote" class="form-control" rows="2" placeholder="Sales Person Note"></textarea>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="row" *ngIf="tableVisible">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <app-main-grid></app-main-grid>
+        </div>
+      </div>
     </div>
   </div>
 </div>
+  

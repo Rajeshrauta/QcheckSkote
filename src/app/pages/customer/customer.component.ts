@@ -3,11 +3,15 @@ import { NgbModal, NgbModalOptions } from "@ng-bootstrap/ng-bootstrap";
 import { FormArray, FormBuilder, FormGroup } from "@angular/forms";
 import { DecimalPipe } from '@angular/common';
 import { Observable } from 'rxjs';
+import { BsModalService, ModalDirective } from "ngx-bootstrap/modal";
 
 import { Table } from './utilities/customer-transaction.model';
 import { tableData } from './utilities/data';
 import { CustomerService } from './services/customer.service';
 import { AdvancedSortableDirective, SortEvent } from './utilities/customer-sortable.directive';
+import { InvoiceDetailComponent } from "src/app/shared/modals/invoice-detail/invoice-detail.component";
+import { EstimateDetailComponent } from 'src/app/shared/modals/estimate-detail/estimate-detail.component';
+
 
 
 @Component({
@@ -22,6 +26,7 @@ export class CustomerComponent implements OnInit,AfterViewInit {
   breadCrumbItems: Array<{}>;
   height : number;
 
+
    // Table data
   tableData: Table[];
   public selected: any;
@@ -31,6 +36,11 @@ export class CustomerComponent implements OnInit,AfterViewInit {
 
   @ViewChild('sourceElement') sourceElementRef: ElementRef;
   @ViewChild('targetElement') targetElementRef: ElementRef;
+
+  @ViewChild(InvoiceDetailComponent) invoiceDetailComponent: InvoiceDetailComponent;
+  @ViewChild(EstimateDetailComponent) estimateDetailComponent: EstimateDetailComponent;
+
+
 
   @ViewChildren(AdvancedSortableDirective) headers: QueryList<AdvancedSortableDirective>;
   public isCollapsed = true;
@@ -70,6 +80,15 @@ export class CustomerComponent implements OnInit,AfterViewInit {
     ];
 
     this._fetchData();
+  }
+
+  handleTypeClick(item: any) {
+    // Function to handle click on item.type
+    if (item === 'Estimate') {
+      this.estimateDetailComponent.showModal();;
+    } else if (item === 'Invoice') {
+      this.invoiceDetailComponent.showModal();;
+    }
   }
 
 

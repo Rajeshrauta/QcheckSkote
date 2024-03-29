@@ -8,6 +8,8 @@ import { EstimateDetailComponent } from 'src/app/shared/modals/estimate-detail/e
 })
 export class PendingOrdersComponent {
   breadCrumbItems: Array<{}>;
+  masterCheckbox: boolean = false;
+  childCheckboxes: boolean = false;
   @ViewChild(EstimateDetailComponent) estimateDetailComponent: EstimateDetailComponent;
 
   ngOnInit(): void {
@@ -19,5 +21,9 @@ export class PendingOrdersComponent {
 
   showEstimateModal() {
     this.estimateDetailComponent.showModal();
+  }
+
+  toggleAllChildCheckboxes() {
+    this.childCheckboxes = this.masterCheckbox;
   }
 }

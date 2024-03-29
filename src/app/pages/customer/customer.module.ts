@@ -10,6 +10,7 @@ import { CustomerInformationComponent } from './sub-components/customer-informat
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { SimplebarAngularModule } from "simplebar-angular";
+import { CustomModalModule } from 'src/app/shared/modals/custommodal.module';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { SimplebarAngularModule } from "simplebar-angular";
     NgbModule,
     SimplebarAngularModule,
     BsDropdownModule.forRoot(),
+    CustomModalModule,
   ],
 })
 export class CustomerModule {}

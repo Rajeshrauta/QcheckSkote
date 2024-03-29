@@ -31,7 +31,7 @@
                 <tr>
                   <th style="width: 20px">
                     <div class="form-check font-size-16 align-middle">
-                      <input class="form-check-input" type="checkbox" id="transactionCheck01" />
+                      <input class="form-check-input" type="checkbox" id="transactionCheck01" [(ngModel)]="masterCheckbox" (change)="toggleAllChildCheckboxes()" />
                       <label class="form-check-label" for="transactionCheck01"></label>
                     </div>
                   </th>
@@ -44,22 +44,24 @@
               </thead>
               <tbody>
                 <tr>
-                  <td>
+                  <td class="py-0">
                     <div class="form-check font-size-16">
-                      <input class="form-check-input" type="checkbox" />
+                      <input class="form-check-input" type="checkbox" [(ngModel)]="childCheckboxes"/>
                       <label class="form-check-label"></label>
                     </div>
                   </td>
-                  <td>25 February 2024</td>
-                  <td>445566</td>
-                  <td>$123</td>
-                  <td>motto</td>
-                  <td class="text-center">
+                  <td class="py-0">25 February 2024</td>
+                  <td class="py-0 text-primary">445566</td>
+                  <td class="py-0">$123</td>
+                  <td class="py-0">motto</td>
+                  <td class="text-center py-0">
                     <div class="dropdown" dropdown placement="bottom-left">
-                      <button class="btn btn-none dropdown-toggle" dropdownToggle data-toggle="dropdown" aria-expanded="true">
+                      <button class="btn btn-none dropdown-toggle" dropdownToggle data-toggle="dropdown"
+                        aria-expanded="true">
                         <i class="fa fa-ellipsis-v"></i></button>
                       <div class="dropdown-menu dropdown-menu-end" *dropdownMenu>
-                        <a class="dropdown-item"><i class="mdi mdi-download me-1"></i>Create Estimate</a>
+                        <a class="dropdown-item" (click)="createEstimate.show()"><i
+                            class="mdi mdi-download me-1"></i>Create Estimate</a>
                         <a class="dropdown-item"><i class="mdi mdi-message me-1"></i>Send Email</a>
                         <a class="dropdown-item"><i class="mdi mdi-delete-outline me-1"></i>Delete</a>
                       </div>
@@ -67,22 +69,47 @@
                   </td>
                 </tr>
                 <tr>
-                  <td>
+                  <td class="py-0">
                     <div class="form-check font-size-16">
-                      <input class="form-check-input" type="checkbox" />
+                      <input class="form-check-input" type="checkbox" [(ngModel)]="childCheckboxes"/>
                       <label class="form-check-label"></label>
                     </div>
                   </td>
-                  <td>25 February 2024</td>
-                  <td>445566</td>
-                  <td>$123</td>
-                  <td>motto</td>
-                  <td class="text-center">
+                  <td class="py-0">25 February 2024</td>
+                  <td class="py-0 text-primary">445566</td>
+                  <td class="py-0">$123</td>
+                  <td class="py-0">motto</td>
+                  <td class="text-center py-0">
                     <div class="dropdown" dropdown placement="bottom-left">
                       <button class="btn btn-none dropdown-toggle" dropdownToggle data-toggle="dropdown" aria-expanded="true">
                         <i class="fa fa-ellipsis-v"></i></button>
                       <div class="dropdown-menu dropdown-menu-end" *dropdownMenu>
-                        <a class="dropdown-item"><i class="mdi mdi-download me-1"></i>Create Estimate</a>
+                        <a class="dropdown-item" (click)="createEstimate.show()"><i class="mdi mdi-download me-1"></i>Create
+                          Estimate</a>
+                        <a class="dropdown-item"><i class="mdi mdi-message me-1"></i>Send Email</a>
+                        <a class="dropdown-item"><i class="mdi mdi-delete-outline me-1"></i>Delete</a>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="py-0">
+                    <div class="form-check font-size-16">
+                      <input class="form-check-input" type="checkbox" [(ngModel)]="childCheckboxes"/>
+                      <label class="form-check-label"></label>
+                    </div>
+                  </td>
+                  <td class="py-0">25 February 2024</td>
+                  <td class="py-0 text-primary">445566</td>
+                  <td class="py-0">$123</td>
+                  <td class="py-0">motto</td>
+                  <td class="text-center py-0">
+                    <div class="dropdown" dropdown placement="bottom-left">
+                      <button class="btn btn-none dropdown-toggle" dropdownToggle data-toggle="dropdown" aria-expanded="true">
+                        <i class="fa fa-ellipsis-v"></i></button>
+                      <div class="dropdown-menu dropdown-menu-end" *dropdownMenu>
+                        <a class="dropdown-item" (click)="createEstimate.show()"><i class="mdi mdi-download me-1"></i>Create
+                          Estimate</a>
                         <a class="dropdown-item"><i class="mdi mdi-message me-1"></i>Send Email</a>
                         <a class="dropdown-item"><i class="mdi mdi-delete-outline me-1"></i>Delete</a>
                       </div>
@@ -91,6 +118,41 @@
                 </tr>
               </tbody>
             </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div bsModal #createEstimate="bs-modal" class="modal fade" id="invoiceDetailModal" tabindex="-1"
+  aria-labelledby="InvoiceDetail" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">
+          Create Estimate
+        </h5>
+        <button type="button" class="btn-close" id="close-modal" (click)="createEstimate.hide()"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-12 mb-3">
+            <select class="form-select d-flex justify-content-end" aria-label="Select Estimate Type"
+              [(ngModel)]="selectedEstimateType">
+              <option value="tabView">Tab View</option>
+              <option value="manualInput">Manual Input</option>
+            </select>
+          </div>
+
+          <div class="col-lg-12">
+            <div class="text-end">
+              <button type="button" class="btn btn-outline-secondary me-1"
+                (click)="createEstimate.hide()">Cancel</button>
+              <button type="submit" class="btn btn-success" (click)="createEstimateClicked()">Create</button>
+            </div>
           </div>
         </div>
       </div>

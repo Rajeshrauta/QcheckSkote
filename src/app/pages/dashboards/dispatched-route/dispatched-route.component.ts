@@ -27,6 +27,8 @@ import { InvoiceDetailComponent } from "src/app/shared/modals/invoice-detail/inv
 export class DispatchedRouteComponent {
   masterSelected!: boolean;
   breadCrumbItems: Array<{}>;
+  masterCheckbox: boolean = false;
+  childCheckboxes: boolean = false;
 
   tableData: DispatchModel[];
 
@@ -65,6 +67,9 @@ export class DispatchedRouteComponent {
     });
   }
 
+  toggleAllChildCheckboxes() {
+    this.childCheckboxes = this.masterCheckbox;
+  }
 
   /**
    * Sort table data

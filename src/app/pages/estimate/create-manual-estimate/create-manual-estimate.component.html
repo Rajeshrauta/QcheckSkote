@@ -12,7 +12,7 @@
             <div class="row">
               <div class="col-sm-12 col-md-6 col-lg">
                 <label for="customer" class="form-label">Select Customer</label>
-                <ng-select [items]="selectValue" id="customer" placeholder="Select Item"></ng-select>
+                <ng-select [items]="selectValue" id="customer" placeholder="Select Customer"></ng-select>
               </div>
               <div class="col-sm-12 col-md-6 col-lg">
                 <label for="startDate" class="form-label"> Transaction Date</label>
@@ -34,7 +34,7 @@
               <div class="d-flex flex-wrap align-items-center" *ngIf="tableVisible">
                 <div class="col-lg-4 col-md-4 col-12 col-sm-4 flex-grow-1 px-1">
                   <label for="estimateNote" class="form-label">Estimate Note</label>
-                  <textarea id="estimateNote" class="form-control" rows="2" placeholder="Estimate Note"></textarea>
+                  <textarea id="estimateNote" class="form-control" rows="1" placeholder="Estimate Note"></textarea>
                 </div>
                 <div class="col-lg-4 col-md-4 col-12 col-sm-4 flex-grow-1 px-1">
                   <label for="Email" class="form-label">Email</label>
@@ -42,7 +42,7 @@
                 </div>
                 <div class="col-lg-4 col-md-4 col-12 col-sm-4 flex-grow-1 px-1">
                   <label for="salesPersonNote" class="form-label">Sales Person Note</label>
-                  <textarea id="salesPersonNote" class="form-control" rows="2"
+                  <textarea id="salesPersonNote" class="form-control" rows="1"
                     placeholder="Sales Person Note"></textarea>
                 </div>
               </div>
@@ -59,17 +59,17 @@
       <div class="card">
         <div class="card-body">
           <form [formGroup]="OrderForm">
-            <div class="table-responsive mb-0">
-              <table class="table align-middle table-nowrap dt-responsive nowrap w-100 table-check table-hover ">
+            <div class="height2">
+              <table class="table">
                 <thead class="table-light">
                   <tr>
-                    <th class="px-1" title="Name">Name</th>
-                    <th class="px-1" title="Description">Description</th>
-                    <th class="px-1" title="Unit Price">Unit Price</th>
-                    <th class="px-1" title="Quantity">Qty</th>
-                    <th class="px-1" title="Free">Free</th>
-                    <th class="px-1" title="Qty on Hand">Qty on Hand</th>
-                    <th class="px-1 text-center" title="Action">Action</th>
+                    <th class="caption-bold-1 sticky-th" title="Name">Name</th>
+                    <th class="caption-bold-1 sticky-th" title="Name">Description</th>
+                    <th class="caption-bold-1 sticky-th" title="Quantity on Hand">QOH</th>
+                    <th class="caption-bold-1 sticky-th" title="Unit Price">Unit Price</th>
+                    <th class="caption-bold-1 sticky-th text-center" title="Quantity">Qty</th>
+                    <th class="caption-bold-1 sticky-th" title="Free">Free</th>
+                    <th class="caption-bold-1 sticky-th" title="Action">Action</th>
                   </tr>
                 </thead>
                 <tbody formArrayName="items">
@@ -78,19 +78,24 @@
                     <td class="align-middle border-0">
                       <span for="">{{ dataItem?.get("name")?.value }}</span>
                     </td>
-                    <td class="align-middle">
+                    <td class="align-middle border-0">
                       <span for="">{{ dataItem?.get("description")?.value }}</span>
                     </td>
-                    <td class="align-middle border-0 width-33">
-                      <span class="d-md-none d-sm-none label-header" style="font-size: 10px; display: flex">Rate
-                      </span>
-                      <input type="text" class="form-control min-width-60" formControlName="rate" />
+                    <td class="align-middle">
+                      <span class="d-md-none d-sm-none hand label-header" style="font-size: 10px; display: flex"
+                        title="{{ dataItem?.get('qtyOnHand')?.value }}">QOH</span>
+                      <span for="">{{ dataItem?.get("qtyOnHand")?.value }}</span>
                     </td>
+          
+                    <td class="align-middle border-0 width-33">
+                      <span class="d-md-none d-sm-none label-header" style="font-size: 10px; display: flex">Unit Price
+                      </span>
+                      <input type="text" class="form-control min-width-60" (keypress)="numberOnly($event)" formControlName="rate" />
+                    </td>
+          
                     <td class="align-middle border-0 width-33">
                       <span class="d-md-none d-sm-none hand label-header" style="font-size: 10px; display: flex"
                         title="{{ dataItem?.get('qtyOnHand')?.value }}">Qty
-                        <i class="mdi mdi-information-outline hand info-icon" style="height: 22; color: green"
-                          (mouseenter)="showPopover($event, rowIndex)" (mouseleave)="hidePopover(rowIndex)"></i>
                       </span>
                       <div class="d-flex align-items-center">
                         <div class="minus-svg-icon1">
@@ -98,13 +103,13 @@
                             (click)="onSub(rowIndex)" [class.disabled]="dataItem.get('qty')?.value <= 0"></i>
                         </div>
                         <div>
-                          <input type="text" class="form-control min-width-60" formControlName="qty" (keypress)="numberOnly($event)"
-                            (input)="onQuantityChange(rowIndex)" />
+                          <input type="text" class="form-control min-width-60" formControlName="qty"
+                            (keypress)="numberOnly($event)" (input)="onQuantityChange(rowIndex)" />
                         </div>
                         <div>
                           <i class="mdi mdi-plus-circle-outline hand plus-svg-icon" style="height: 18; color: green"
                             (click)="onAdd(rowIndex)"></i>
-                
+          
                           <br />
                           <i class="mdi mdi-minus-circle-outline hand minus-svg-icon d-sm-none d-md-done d-lg-none"
                             style="height: 18; color: red" (click)="onSub(rowIndex)"
@@ -112,7 +117,7 @@
                         </div>
                       </div>
                     </td>
-                
+          
                     <td class="align-middle border-0 width-33">
                       <span class="d-md-none d-sm-none label-header" style="font-size: 10px; display: flex">Free</span>
                       <div class="d-flex align-items-center">
@@ -120,11 +125,8 @@
                           formControlName="free" />
                       </div>
                     </td>
-                
-                    <td class="align-middle">
-                      <label for="">{{ dataItem?.get("qtyOnHand")?.value }}</label>
-                    </td>
-                    <td class="p-1 m-0 text-center">
+          
+                    <td class="align-middle border-0 width-33">
                       <div class="dropdown" dropdown>
                         <button class="btn btn-none dropdown-toggle" dropdownToggle data-toggle="dropdown" aria-expanded="true">
                           <i class="fa fa-ellipsis-v"></i></button>
